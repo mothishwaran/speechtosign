@@ -1,0 +1,22 @@
+row_type,run_id,utterance_id,timestamp,transcript,n_total,n_sign,n_spell,n_uncovered,coverage,asr_ms,match_ms,server_ms,e2e_ms,note
+translate,d0fb74c6a81c,u3,1786960981.0137534,,0,0,0,0,0.0,810,0,812,,upload.webm
+translate,eff29919af34,u3,1786960986.6540923,Thank you.,2,2,0,0,1.0,820,0,822,,upload.webm
+frame,eff29919af34,u3,1786960986.7649744,,,,,,,,,,1028,
+translate,f8a01441cb24,u2,1786961017.7703633,Hello!,1,1,0,0,1.0,849,0,850,,upload.webm
+frame,f8a01441cb24,u2,1786961017.8659468,,,,,,,,,,1019,
+translate,344a393c2ed8,u1,1786961157.0027173,"You, my name is Mothishwaran",5,1,1,3,0.2,833,0,834,,upload.webm
+frame,344a393c2ed8,u1,1786961157.484443,,,,,,,,,,1411,
+translate,05361233c89c,u1,1786961177.0242782,"Hello, thank you my name is Mothishwaran.",7,4,1,2,0.5714,848,0,853,,upload.webm
+frame,05361233c89c,u1,1786961177.8727784,,,,,,,,,,1790,
+translate,06042480838a,adhoc,1787129859.51311,"Hello, thank you. My name is Mothishwaran.",7,4,1,2,0.5714,1006,0,1008,,upload.wav
+frame,06042480838a,adhoc,1787129893.4196107,,,,,,,,,,1290,
+translate,9cfdfb82c8c8,adhoc,1787129949.0136616,"Hello, my name is Alo. My name is Alo.",9,3,2,4,0.3333,855,0,856,,upload.webm
+frame,9cfdfb82c8c8,adhoc,1787129949.6691933,,,,,,,,,,1733,
+translate,8cdb51f1063c,adhoc,1787129973.5724027,"Hello, my name is Dog",5,2,1,2,0.4,849,0,851,,upload.webm
+frame,8cdb51f1063c,adhoc,1787129973.827133,,,,,,,,,,1175,
+translate,782899cfa382,adhoc,1787132760.8726323,How are you?,3,0,0,3,0.0,949,0,950,,upload.webm
+translate,16243eb087e7,adhoc,1787134921.5481334,"Thank you so far, so good.",6,6,0,0,1.0,798,0,800,,upload.webm
+frame,16243eb087e7,adhoc,1787134921.8027875,,,,,,,,,,1134,
+translate,c35d29d5929f,adhoc,1787134982.819616,Mothishwaran,1,0,0,1,0.0,821,0,823,,upload.webm
+translate,b75e1e30b93a,adhoc,1787134991.2104058,My name is Mothishwaran.,4,1,1,2,0.25,845,0,847,,upload.webm
+frame,b75e1e30b93a,adhoc,1787134991.9821208,,,,,,,,,,1703,

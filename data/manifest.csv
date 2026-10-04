@@ -1,0 +1,7 @@
+id,phrase,ngram_len,source_url,local_path,duration_ms,license,notes
+hello,hello,1,TBD,data/clips/hello.mp4,1400,ISLRTC,
+thank_you,thank you,2,TBD,data/clips/thank_you.mp4,1800,ISLRTC,
+sorry,sorry,1,TBD,data/clips/sorry.mp4,1300,ISLRTC,
+please,please,1,TBD,data/clips/please.mp4,1500,ISLRTC,
+name,name,1,TBD,data/clips/name.mp4,1200,ISLRTC,
+so_far_so_good,so far so good,4,TBD,data/clips/so_far_so_good.mp4,0,ISLRTC,Phrase-level entry: matched as a single 4-gram unit

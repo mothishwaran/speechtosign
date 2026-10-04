@@ -1,0 +1,492 @@
+<title>Speech to ISL</title>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #0f1115;
+    color: #e6e6e6;
+    margin: 0;
+    padding: 24px;
+  }
+  h1 { font-size: 20px; margin: 0 0 16px; }
+  .layout { display: flex; gap: 24px; flex-wrap: wrap; }
+  .panel {
+    background: #171a21;
+    border: 1px solid #2a2e38;
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .stage { width: 640px; max-width: 100%; }
+  .video-box {
+    position: relative;
+    width: 640px;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .video-box video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+  }
+  .video-box video.hidden { visibility: hidden; }
+  .controls { margin: 14px 0; display: flex; align-items: center; gap: 12px; }
+  #recordBtn {
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+  }
+  #recordBtn.recording { background: #ef4444; }
+  #state {
+    font-size: 14px;
+    color: #9aa4b2;
+  }
+  #errorBox {
+    display: none;
+    background: #3f1d1d;
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+  #errorBox.visible { display: block; }
+  .evalbar {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #10141c;
+    border: 1px solid #2a2e38;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #9aa4b2;
+  }
+  .evalbar select {
+    background: #0f1115;
+    color: #e6e6e6;
+    border: 1px solid #2a2e38;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-left: 6px;
+    min-width: 320px;
+  }
+  #readAloud { display: block; margin-top: 7px; color: #6b7280; }
+  .rate { font-size: 13px; color: #9aa4b2; margin-left: auto; }
+  .rate select {
+    background: #0f1115;
+    color: #e6e6e6;
+    border: 1px solid #2a2e38;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-left: 6px;
+  }
+  .debug { width: 420px; max-width: 100%; }
+  .debug h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .05em; color: #9aa4b2; margin: 0 0 8px; }
+  #transcript {
+    font-size: 16px;
+    background: #0f1115;
+    border-radius: 6px;
+    padding: 10px;
+    min-height: 24px;
+    margin-bottom: 12px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .chip {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    border: 1px solid transparent;
+  }
+  .chip.sign { background: #14532d; color: #86efac; border-color: #22c55e; }
+  .chip.spell { background: #713f12; color: #fde68a; border-color: #f59e0b; }
+  .chip.uncovered { background: #1f2430; color: #9aa4b2; border-color: #3a4152; }
+  .chip.error { outline: 2px solid #ef4444; }
+  .legend { font-size: 12px; color: #6b7280; margin-bottom: 14px; }
+  .legend span { margin-right: 12px; }
+  table.metrics { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.metrics td { padding: 4px 0; border-bottom: 1px solid #2a2e38; }
+  table.metrics td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+</style>
+
+<h1>Speech &rarr; Indian Sign Language (Phase 0 demo)</h1>
+
+<div class="layout">
+  <div class="panel stage">
+    <div class="video-box">
+      <video id="videoA" playsinline muted></video>
+      <video id="videoB" class="hidden" playsinline muted></video>
+    </div>
+    <div class="controls">
+      <button id="recordBtn">&#9679; Record</button>
+      <span id="state">Idle</span>
+      <label class="rate">
+        Fingerspell speed
+        <select id="spellRate">
+          <option value="0.6">0.6&times; slower</option>
+          <option value="0.75">0.75&times; slow</option>
+          <option value="1.0" selected>1.0&times; recorded</option>
+          <option value="1.25">1.25&times; faster</option>
+        </select>
+      </label>
+    </div>
+    <div id="errorBox"></div>
+    <div class="evalbar">
+      <label>Eval utterance
+        <select id="utteranceId">
+          <option value="adhoc">— ad-hoc (not logged as eval) —</option>
+          <option value="u1">u1 · Hello, thank you. My name is Mothishwaran.</option>
+          <option value="u2">u2 · Hello.</option>
+          <option value="u3">u3 · Thank you.</option>
+          <option value="u4">u4 · Sorry.</option>
+          <option value="u5">u5 · Please.</option>
+          <option value="u6">u6 · My name is Mothishwaran.</option>
+        </select>
+      </label>
+      <span id="readAloud">Pick an utterance, then read it aloud exactly.</span>
+    </div>
+  </div>
+
+  <div class="panel debug">
+    <h2>Debug panel</h2>
+    <div id="transcript">&mdash;</div>
+    <div class="legend">
+      <span><span class="chip sign">sign</span> matched</span>
+      <span><span class="chip spell">spell</span> fingerspelled</span>
+      <span><span class="chip uncovered">uncovered</span> dropped</span>
+    </div>
+    <div class="chips" id="chips"></div>
+    <table class="metrics">
+      <tr><td>Coverage</td><td id="mCoverage">&mdash;</td></tr>
+      <tr><td>Counts</td><td id="mCounts">&mdash;</td></tr>
+      <tr><td>ASR</td><td id="mAsr">&mdash;</td></tr>
+      <tr><td>Match</td><td id="mMatch">&mdash;</td></tr>
+      <tr><td>Server</td><td id="mServer">&mdash;</td></tr>
+      <tr><td>End-to-end</td><td id="mE2e">&mdash;</td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+const recordBtn = document.getElementById('recordBtn');
+const stateEl = document.getElementById('state');
+const transcriptEl = document.getElementById('transcript');
+const chipsEl = document.getElementById('chips');
+const videoA = document.getElementById('videoA');
+const videoB = document.getElementById('videoB');
+
+let mediaRecorder = null;
+let chunks = [];
+let recording = false;
+
+function setState(s) { stateEl.textContent = s; }
+
+recordBtn.addEventListener('click', async () => {
+  if (!recording) {
+    await startRecording();
+  } else {
+    stopRecording();
+  }
+});
+
+async function startRecording() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    audio: { channelCount: 1, echoCancellation: true },
+  });
+  chunks = [];
+  mediaRecorder = new MediaRecorder(stream);
+  mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
+  mediaRecorder.onstop = () => {
+    stream.getTracks().forEach((t) => t.stop());
+    onRecordingStopped();
+  };
+  mediaRecorder.start();
+  recording = true;
+  recordBtn.textContent = '■ Stop';
+  recordBtn.classList.add('recording');
+  setState('Recording');
+}
+
+function stopRecording() {
+  recording = false;
+  recordBtn.textContent = '● Record';
+  recordBtn.classList.remove('recording');
+  mediaRecorder.stop();
+}
+
+async function onRecordingStopped() {
+  const clientT0 = Date.now();
+  setState('Transcribing');
+  showError('');
+
+  try {
+    const recordedType = (mediaRecorder && mediaRecorder.mimeType) || 'audio/webm';
+    const rawBlob = new Blob(chunks, { type: recordedType });
+    console.log('[record] captured', rawBlob.size, 'bytes, type:', recordedType);
+
+    if (rawBlob.size === 0) {
+      throw new Error(
+        'Recording was empty — no audio captured.\n' +
+        'Hold Record for at least 2 seconds, and check Windows has the right mic selected.'
+      );
+    }
+
+    // Preferred path: decode + resample to 16 kHz mono WAV in the browser.
+    // Fallback: ship the raw recording and let faster-whisper (PyAV) decode it.
+    let uploadBlob, uploadName;
+    try {
+      uploadBlob = await encodeToWav16kMono(rawBlob);
+      uploadName = 'audio.wav';
+      console.log('[encode] 16kHz mono WAV:', uploadBlob.size, 'bytes');
+    } catch (encodeErr) {
+      console.warn('[encode] WAV conversion failed, sending raw audio instead', encodeErr);
+      uploadBlob = rawBlob;
+      uploadName = 'audio.webm';
+    }
+
+    const utteranceId = document.getElementById('utteranceId').value;
+    const form = new FormData();
+    form.append('audio', uploadBlob, uploadName);
+    form.append('client_t0', String(clientT0));
+    form.append('utterance_id', utteranceId);
+
+    const res = await fetch('/translate', { method: 'POST', body: form });
+    if (!res.ok) {
+      const body = await res.text();
+      throw new Error(`Server returned ${res.status}\n${body.slice(0, 300)}`);
+    }
+    const result = await res.json();
+    console.log('[translate] result', result);
+
+    renderDebugPanel(result);
+    await playPlan(result.plan, result.run_id, clientT0, utteranceId);
+  } catch (err) {
+    console.error('[pipeline] failed', err);
+    setState('Error');
+    showError(err.message);
+  }
+}
+
+function showError(msg) {
+  const box = document.getElementById('errorBox');
+  box.textContent = msg;
+  box.classList.toggle('visible', Boolean(msg));
+}
+
+// --- WAV encoding: decode -> resample to 16kHz mono -> PCM16 WAV ---
+async function encodeToWav16kMono(blob) {
+  const arrayBuffer = await blob.arrayBuffer();
+  const decodeCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const decoded = await decodeCtx.decodeAudioData(arrayBuffer);
+  decodeCtx.close();
+
+  const targetRate = 16000;
+  const offline = new OfflineAudioContext(1, Math.ceil(decoded.duration * targetRate), targetRate);
+  const src = offline.createBufferSource();
+  src.buffer = decoded;
+  src.connect(offline.destination);
+  src.start();
+  const rendered = await offline.startRendering();
+
+  return pcm16WavBlob(rendered.getChannelData(0), targetRate);
+}
+
+function pcm16WavBlob(float32, sampleRate) {
+  const numSamples = float32.length;
+  const buffer = new ArrayBuffer(44 + numSamples * 2);
+  const view = new DataView(buffer);
+
+  writeString(view, 0, 'RIFF');
+  view.setUint32(4, 36 + numSamples * 2, true);
+  writeString(view, 8, 'WAVE');
+  writeString(view, 12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);          // PCM
+  view.setUint16(22, 1, true);          // mono
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeString(view, 36, 'data');
+  view.setUint32(40, numSamples * 2, true);
+
+  let offset = 44;
+  for (let i = 0; i < numSamples; i++, offset += 2) {
+    const s = Math.max(-1, Math.min(1, float32[i]));
+    view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+  }
+  return new Blob([buffer], { type: 'audio/wav' });
+}
+
+function writeString(view, offset, str) {
+  for (let i = 0; i < str.length; i++) view.setUint8(offset + i, str.charCodeAt(i));
+}
+
+// --- Debug panel rendering ---
+function renderDebugPanel(result) {
+  transcriptEl.textContent = result.transcript || '(empty)';
+  chipsEl.innerHTML = '';
+  for (const entry of result.plan) {
+    const chip = document.createElement('span');
+    chip.className = 'chip ' + entry.type;
+    chip.textContent = entry.token;
+    chip.dataset.token = entry.token;
+    chipsEl.appendChild(chip);
+  }
+  const c = result.counts;
+  document.getElementById('mCoverage').textContent = (result.coverage * 100).toFixed(1) + '%';
+  document.getElementById('mCounts').textContent =
+    `${c.sign} sign · ${c.spell} spell · ${c.uncovered} uncovered · ${c.total} total`;
+  document.getElementById('mAsr').textContent = result.timings.asr_ms + ' ms';
+  document.getElementById('mMatch').textContent = result.timings.match_ms + ' ms';
+  document.getElementById('mServer').textContent = result.timings.server_ms + ' ms';
+  document.getElementById('mE2e').textContent = '—';
+}
+
+function markChipError(token) {
+  const chip = chipsEl.querySelector(`[data-token="${CSS.escape(token)}"]`);
+  if (chip) chip.classList.add('error');
+}
+
+// --- Preload + A/B double-buffered playback ---
+async function playPlan(plan, runId, clientT0, utteranceId) {
+  const clipUrls = [];
+  for (const entry of plan) {
+    for (const clip of entry.clips) {
+      clipUrls.push({ url: clip, token: entry.token, type: entry.type });
+    }
+  }
+
+  if (clipUrls.length === 0) {
+    setState('Nothing to play (all uncovered)');
+    return;
+  }
+
+  // Preload in parallel — sequential waiting would cost 4s per missing clip.
+  let doneCount = 0;
+  setState(`Preloading 0/${clipUrls.length}`);
+  const loaded = await Promise.all(
+    clipUrls.map(async (item) => {
+      const v = await preloadClip(item.url);
+      doneCount++;
+      setState(`Preloading ${doneCount}/${clipUrls.length}`);
+      if (v === null) markChipError(item.token);
+      return { video: v, type: item.type }; // video null = missing, skipped
+    })
+  );
+
+  const playable = loaded.filter((x) => x.video !== null);
+  const missingCount = loaded.length - playable.length;
+
+  if (playable.length === 0) {
+    setState('No clips available');
+    showError(
+      `Transcription and matching worked — but none of the ${clipUrls.length} video clips exist yet.\n` +
+      `Add the ISLRTC clips to data/clips/ and data/alphabet/, then try again.\n` +
+      `Check http://127.0.0.1:8000/health to see which files are still missing.`
+    );
+    return;
+  }
+  if (missingCount > 0) {
+    showError(`${missingCount} of ${clipUrls.length} clips are missing and were skipped. See console for paths.`);
+  }
+
+  setState(`Playing 1/${playable.length}`);
+  await playQueue(playable, runId, clientT0, utteranceId);
+  setState('Done');
+}
+
+function preloadClip(url) {
+  return new Promise((resolve) => {
+    const video = document.createElement('video');
+    video.preload = 'auto';
+    video.muted = false;
+    video.playsInline = true;
+    let settled = false;
+    const timer = setTimeout(() => {
+      if (!settled) {
+        settled = true;
+        console.error('[preload] timed out:', url);
+        resolve(null);
+      }
+    }, 4000);
+    video.addEventListener('canplaythrough', () => {
+      if (!settled) { settled = true; clearTimeout(timer); resolve(video); }
+    });
+    video.addEventListener('error', () => {
+      if (!settled) {
+        settled = true;
+        clearTimeout(timer);
+        console.error('[preload] failed to load clip:', url);
+        resolve(null);
+      }
+    });
+    video.src = url;
+    video.load();
+  });
+}
+
+// Fingerspelling rate is bounded by what the receiver can actually read, not by
+// demo pacing — so letter clips default to the signer's true recorded speed.
+// Adjustable from the UI for rehearsal. Lexical signs always play at 1.0.
+function spellRate() {
+  return parseFloat(document.getElementById('spellRate').value);
+}
+
+async function playQueue(readyItems, runId, clientT0, utteranceId) {
+  let frameLogged = false;
+  const slots = [videoA, videoB];
+  let activeSlot = 0;
+
+  for (let i = 0; i < readyItems.length; i++) {
+    const current = slots[activeSlot];
+    const other = slots[1 - activeSlot];
+
+    current.src = readyItems[i].video.src;
+    current.currentTime = 0;
+    current.playbackRate = readyItems[i].type === 'spell' ? spellRate() : 1.0;
+    current.classList.remove('hidden');
+    other.classList.add('hidden');
+
+    if (i + 1 < readyItems.length) {
+      other.src = readyItems[i + 1].video.src;
+      other.load();
+    }
+
+    setState(`Playing ${i + 1}/${readyItems.length}`);
+    await new Promise((resolve) => {
+      const onPlaying = () => {
+        if (!frameLogged) {
+          frameLogged = true;
+          const e2e = Date.now() - clientT0;
+          document.getElementById('mE2e').textContent = e2e + ' ms';
+          fetch('/log_frame', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ run_id: runId, e2e_ms: e2e, utterance_id: utteranceId }),
+          }).catch((err) => console.error('[log_frame] failed', err));
+        }
+        current.removeEventListener('playing', onPlaying);
+      };
+      current.addEventListener('playing', onPlaying);
+      current.addEventListener('ended', resolve, { once: true });
+      current.play().catch((err) => {
+        console.error('[playback] failed to play clip', err);
+        resolve();
+      });
+    });
+
+    activeSlot = 1 - activeSlot;
+  }
+}
+</script>
