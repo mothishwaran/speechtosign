@@ -1,0 +1,41 @@
+row_type,run_id,utterance_id,timestamp,transcript,n_total,n_sign,n_spell,n_uncovered,coverage,asr_ms,match_ms,server_ms,e2e_ms,note
+translate,9a3ad434bf03,tts_s01,1791281088.790899,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,3495,0,3507,,upload.wav
+translate,e88ed48b6587,tts_s02,1791281095.9272969,Good morning. How are you?,5,4,0,1,0.8,5660,0,5666,,upload.wav
+translate,2fa504c870ae,tts_s03,1791281100.318043,I am fine. Thank you.,5,2,0,3,0.4,3048,0,3052,,upload.wav
+translate,7f40cb38305d,tts_s04,1791281104.2869875,What is your name?,4,4,0,0,1.0,2818,0,2821,,upload.wav
+translate,2aa307f16010,tts_s05,1791281108.1398835,My name is Abishak.,4,3,1,0,0.75,2961,0,2965,,upload.wav
+translate,d75c607993f2,tts_s06,1791281112.082965,Where is the hospital?,4,2,0,2,0.5,2831,0,2867,,upload.wav
+translate,5a99fb52959a,tts_s07,1791281116.3469796,I don't understand. Please help me.,6,5,0,1,0.8333,3218,0,3222,,upload.wav
+translate,3c593c736385,tts_s08,1791281120.3185353,I want to drink water.,5,2,0,3,0.4,2793,0,2796,,upload.wav
+translate,8774d1ab81ac,tts_s09,1791281124.4142396,My mother is a teacher.,5,3,0,2,0.6,2956,0,2959,,upload.wav
+translate,59f370d6c24b,tts_s10,1791281128.912183,I go to school every day.,6,2,0,4,0.3333,3291,0,3295,,upload.wav
+translate,42d948ed8167,tts_s11,1791281134.607235,Today I am very happy.,5,3,0,2,0.6,4586,0,4590,,upload.wav
+translate,4de6c20ff736,tts_s12,1791281138.721582,"Sorry, I am late.",4,2,0,2,0.5,2915,0,2921,,upload.wav
+translate,1e43001f806f,tts_s13,1791281142.619358,Please wait here.,3,2,0,1,0.6667,2861,0,2865,,upload.wav
+translate,ca5de93577f4,tts_s14,1791281147.1683846,I don't know the answer.,5,3,0,2,0.6,3365,0,3369,,upload.wav
+translate,8196f54fd05d,tts_s15,1791281154.4019873,We eat food at night.,5,4,0,1,0.8,5925,0,5932,,upload.wav
+translate,12c21c3be54e,tts_s16,1791281158.7894373,My friend is from India.,5,3,0,2,0.6,3140,0,3145,,upload.wav
+translate,17fad26c50ac,tts_s17,1791281163.4582295,Can you write your name?,5,5,0,0,1.0,3260,0,3264,,upload.wav
+translate,de27e233dbfa,tts_s18,1791281168.001226,The weather is very hot today.,6,4,0,2,0.6667,3066,0,3071,,upload.wav
+translate,7f097791a118,tts_s19,1791281172.369795,Good night. See you tomorrow.,5,5,0,0,1.0,3002,0,3005,,upload.wav
+translate,b2a0fbae1ea2,tts_s20,1791281176.542357,Thank you very much. Goodbye.,5,4,0,1,0.8,2948,0,2986,,upload.wav
+translate,f04f8e4d6d48,tts_s01,1791281253.8678727,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,3585,0,3590,,upload.wav
+translate,e4fbbbe4858d,tts_s02,1791281257.4164178,Good morning. How are you?,5,3,0,2,0.6,3014,0,3018,,upload.wav
+translate,4cef73c151ff,tts_s03,1791281260.7113652,I am fine. Thank you.,5,2,0,3,0.4,3142,0,3179,,upload.wav
+translate,63533b261fe6,tts_s04,1791281266.456951,What is your name?,4,4,0,0,1.0,5683,0,5687,,upload.wav
+translate,aabadc6d1fd6,tts_s05,1791281269.6927557,My name is Abishak.,4,3,1,0,0.75,3162,0,3166,,upload.wav
+translate,ee4e468f90d1,tts_s06,1791281272.981745,Where is the hospital?,4,2,0,2,0.5,3135,0,3139,,upload.wav
+translate,dfc5c77a039f,tts_s07,1791281276.518318,I don't understand. Please help me.,6,5,0,1,0.8333,3407,0,3412,,upload.wav
+translate,7a272414edca,tts_s08,1791281279.7195294,I want to drink water.,5,2,0,3,0.4,3021,0,3024,,upload.wav
+translate,116fd8df34b4,tts_s09,1791281282.858417,My mother is a teacher.,5,3,0,2,0.6,2917,0,2945,,upload.wav
+translate,07cd73339d27,tts_s10,1791281286.1237094,I go to school every day.,6,2,0,4,0.3333,3095,0,3100,,upload.wav
+translate,3a3674c70e01,tts_s11,1791281289.1325758,Today I am very happy.,5,3,0,2,0.6,2929,0,2934,,upload.wav
+translate,1011d1f54921,tts_s12,1791281292.3919587,"Sorry, I am late.",4,2,0,2,0.5,3123,0,3135,,upload.wav
+translate,04acb541dd15,tts_s13,1791281295.6796665,Please wait here.,3,2,0,1,0.6667,3136,0,3140,,upload.wav
+translate,700a22497729,tts_s14,1791281299.0723958,I don't know the answer.,5,3,0,2,0.6,3217,0,3252,,upload.wav
+translate,2704f7c2dad8,tts_s15,1791281302.2100098,We eat food at night.,5,4,0,1,0.8,3027,0,3064,,upload.wav
+translate,b8522bddf800,tts_s16,1791281305.967316,My friend is from India.,5,3,0,2,0.6,3494,0,3531,,upload.wav
+translate,4d0187044ff9,tts_s17,1791281309.597508,Can you write your name?,5,5,0,0,1.0,3367,0,3372,,upload.wav
+translate,9b4f875e7c5e,tts_s18,1791281314.9114084,The weather is very hot today.,6,4,0,2,0.6667,5072,0,5075,,upload.wav
+translate,3215e0501245,tts_s19,1791281318.4357786,Good night. See you tomorrow.,5,5,0,0,1.0,3310,0,3314,,upload.wav
+translate,a00eb7dde08e,tts_s20,1791281321.7259483,Thank you very much. Goodbye.,5,4,0,1,0.8,3089,0,3093,,upload.wav

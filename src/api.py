@@ -1,8 +1,10 @@
 """FastAPI app: /translate, /log_frame, /health. See plans/02_SPEC.md section 7."""
 import csv
 import os
+import string
 import uuid
 from contextlib import asynccontextmanager
+from urllib.parse import quote
 
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,7 +17,8 @@ DATA_DIR = os.path.join(_REPO_ROOT, "data")
 FRONTEND_DIR = os.path.join(_REPO_ROOT, "frontend")
 UPLOADS_DIR = os.path.join(_REPO_ROOT, "uploads")
 RESULTS_CSV = os.path.join(_REPO_ROOT, "eval", "results.csv")
-ALPHABET_LETTERS = "mothiswarn"  # unique letters needed for "Mothishwaran"
+ALPHABET_LETTERS = string.ascii_lowercase  # any name can be fingerspelled
+MISSING_CLIPS_SHOWN = 20  # cap /health output; a fresh clone without the data misses thousands
 
 CSV_FIELDS = [
     "row_type", "run_id", "utterance_id", "timestamp", "transcript",
@@ -72,9 +75,18 @@ def health():
         "ok": True,
         "model_loaded": asr._model is not None,
         "manifest_rows": manifest_rows,
-        "missing_clips": missing_clips,
+        "missing_count": len(missing_clips),
+        "missing_clips": missing_clips[:MISSING_CLIPS_SHOWN],
         "alphabet_present": alphabet_present,
+        "alphabet_expected": len(ALPHABET_LETTERS),
     }
+
+
+def _clip_url(local_path: str) -> str:
+    # Dictionary file names carry spaces, commas, brackets and '&'
+    # ("MHSL - 259/...", "Ache, Pain.mp4") - percent-encode so the browser
+    # requests exactly the file StaticFiles will serve.
+    return "/" + quote(local_path)
 
 
 @app.post("/translate")
@@ -105,7 +117,7 @@ async def translate(
         {
             "token": entry["token"],
             "type": entry["type"],
-            "clips": [f"/{clip}" for clip in entry["clips"]],
+            "clips": [_clip_url(clip) for clip in entry["clips"]],
         }
         for entry in match_result["plan"]
     ]

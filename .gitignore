@@ -5,3 +5,4 @@ data/clips/
 uploads/
 *.webm
 data/_source/
+data/_derived/

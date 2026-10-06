@@ -12,11 +12,16 @@ MANIFEST_PATH = os.path.join(_REPO_ROOT, "data", "manifest.csv")
 _SENTENCE_END = (".", "?", "!", ":", ";")
 _STRIP_CHARS = string.punctuation
 
+# Whisper emits typographic apostrophes as often as ASCII ones ("don’t"); fold
+# them so contractions still match the manifest's "don't".
+_APOSTROPHES = str.maketrans({"’": "'", "‘": "'", "`": "'"})
+
 _manifest: dict | None = None
+_max_ngram: int | None = None
 
 
 def _load_manifest() -> dict:
-    global _manifest
+    global _manifest, _max_ngram
     if _manifest is not None:
         return _manifest
 
@@ -31,8 +36,14 @@ def _load_manifest() -> dict:
                     f"manifest row {row['id']!r}: ngram_len={declared_len} "
                     f"but phrase {phrase!r} has {expected_len} word(s)"
                 )
+            if phrase in manifest:
+                raise ValueError(
+                    f"manifest row {row['id']!r}: phrase {phrase!r} already "
+                    f"defined by row {manifest[phrase]['id']!r}"
+                )
             manifest[phrase] = {"id": row["id"], "local_path": row["local_path"]}
     _manifest = manifest
+    _max_ngram = None
     return manifest
 
 
@@ -40,10 +51,14 @@ def max_ngram() -> int:
     """Longest phrase in the manifest, in words.
 
     Derived rather than hardcoded so adding a longer phrase to manifest.csv
-    needs no code change — e.g. the 4-word "so far so good".
+    needs no code change — e.g. the 4-word "so far so good". Cached, since the
+    full ISLRTC manifest has thousands of rows and this runs on every match.
     """
+    global _max_ngram
     manifest = _load_manifest()
-    return max((len(p.split()) for p in manifest), default=1)
+    if _max_ngram is None:
+        _max_ngram = max((len(p.split()) for p in manifest), default=1)
+    return _max_ngram
 
 
 def _ends_sentence(token: str) -> bool:
@@ -52,8 +67,24 @@ def _ends_sentence(token: str) -> bool:
 
 
 def _normalize(token: str) -> str:
-    lowered = token.lower()
+    lowered = token.lower().translate(_APOSTROPHES)
     return "".join(c for c in lowered if c.isalnum() or c == "'")
+
+
+def _is_pronoun_i(norm_token: str) -> bool:
+    # English always capitalises "I" (and I'm, I'll, I've, I'd), so the
+    # capitalised-mid-sentence name rule must not fingerspell it.
+    return norm_token == "i" or norm_token.startswith("i'")
+
+
+def normalize_phrase(text: str) -> str:
+    """Normalize a phrase exactly as match() normalizes a transcript.
+
+    tools/build_manifest.py writes every manifest phrase through this, so a
+    dictionary entry and a spoken utterance can never disagree on spelling
+    rules (hyphens, apostrophes, casing).
+    """
+    return " ".join(n for n in (_normalize(t.strip(_STRIP_CHARS)) for t in text.split()) if n)
 
 
 def _tokenize(text: str):
@@ -102,7 +133,7 @@ def match(text: str) -> dict:
             continue
 
         tok_orig = orig[i]
-        if tok_orig[0].isupper() and not sentence_initial[i]:
+        if tok_orig[0].isupper() and not sentence_initial[i] and not _is_pronoun_i(norm[i]):
             plan.append({
                 "token": tok_orig,
                 "type": "spell",
@@ -132,6 +163,15 @@ def match(text: str) -> dict:
 
 
 if __name__ == "__main__":
+    # --- Part 1: algorithm tests against the frozen Phase 0 vocabulary ------
+    # A fixed fixture, not data/manifest.csv, so the spec's golden case (§4,
+    # coverage 4/7) stays verifiable however large the real dictionary grows.
+    _manifest = {
+        p: {"id": p.replace(" ", "_"), "local_path": f"data/clips/{p.replace(' ', '_')}.mp4"}
+        for p in ("hello", "thank you", "sorry", "please", "name", "so far so good")
+    }
+    _max_ngram = None
+
     golden = match("Hello, thank you. My name is Mothishwaran.")
     assert golden["counts"] == {"total": 7, "sign": 4, "spell": 1, "uncovered": 2}, golden["counts"]
     assert abs(golden["coverage"] - 4 / 7) < 1e-9, golden["coverage"]
@@ -157,21 +197,52 @@ if __name__ == "__main__":
     initial_name = match("Mothishwaran is here")
     assert initial_name["plan"][0]["type"] == "uncovered", initial_name["plan"][0]
 
+    pronoun = match("Today I am sure I'm right, said Ravi")
+    assert [p["type"] for p in pronoun["plan"]].count("spell") == 1, pronoun["plan"]
+    assert pronoun["plan"][-1]["token"] == "Ravi", pronoun["plan"]
+
     # Phrase longer than a trigram must still match as one unit (n-gram length
     # is derived from the manifest, not hardcoded).
-    if "so far so good" in _load_manifest():
-        long_phrase = match("So far so good")
-        assert len(long_phrase["plan"]) == 1, long_phrase["plan"]
-        assert long_phrase["plan"][0]["type"] == "sign", long_phrase["plan"]
-        assert long_phrase["counts"]["sign"] == 4, long_phrase["counts"]
-        assert long_phrase["coverage"] == 1.0, long_phrase
+    long_phrase = match("So far so good")
+    assert len(long_phrase["plan"]) == 1, long_phrase["plan"]
+    assert long_phrase["plan"][0]["type"] == "sign", long_phrase["plan"]
+    assert long_phrase["counts"]["sign"] == 4, long_phrase["counts"]
+    assert long_phrase["coverage"] == 1.0, long_phrase
 
     no_match = match("The cat sat")
     assert all(p["type"] == "uncovered" for p in no_match["plan"]), no_match["plan"]
     assert no_match["coverage"] == 0.0, no_match
 
-    print("OK")
+    assert normalize_phrase("I Don’t Know!") == "i don't know"
+    assert normalize_phrase("Non-bailable  Offence") == "nonbailable offence"
+
+    print("OK  (part 1: Phase 0 fixture)")
     print(f"{'token':<15}{'type':<12}clips")
     for p in golden["plan"]:
         print(f"{p['token']:<15}{p['type']:<12}{p['clips']}")
     print(f"coverage={golden['coverage']:.3f}  counts={golden['counts']}")
+
+    # --- Part 2: the real manifest built from the ISLRTC dictionary ---------
+    _manifest = None
+    _max_ngram = None
+    real = _load_manifest()
+    assert len(real) > 1000, f"manifest has only {len(real)} phrases - run tools/build_manifest.py"
+
+    demo = match("Hello, thank you. My name is Mothishwaran.")
+    assert [(p["token"], p["type"]) for p in demo["plan"]] == [
+        ("hello", "sign"), ("thank you", "sign"),
+        ("my name is", "sign"), ("Mothishwaran", "spell"),
+    ], demo["plan"]
+    assert demo["counts"] == {"total": 7, "sign": 6, "spell": 1, "uncovered": 0}, demo["counts"]
+
+    curly = match("I don’t know.")
+    assert [(p["token"], p["type"]) for p in curly["plan"]] == [("i don't know", "sign")], curly["plan"]
+
+    every_clip = [c for p in demo["plan"] for c in p["clips"]]
+    missing = [c for c in every_clip if not os.path.exists(os.path.join(_REPO_ROOT, c))]
+    assert not missing, f"demo clips missing on disk: {missing}"
+
+    print(f"\nOK  (part 2: real manifest, {len(real)} phrases, longest {max_ngram()} words)")
+    for p in demo["plan"]:
+        print(f"{p['token']:<15}{p['type']:<12}{p['clips'][:1]}{' ...' if len(p['clips']) > 1 else ''}")
+    print(f"coverage={demo['coverage']:.3f}  counts={demo['counts']}")

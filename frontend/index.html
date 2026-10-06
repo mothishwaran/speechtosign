@@ -392,7 +392,7 @@ async function playPlan(plan, runId, clientT0, utteranceId) {
     setState('No clips available');
     showError(
       `Transcription and matching worked — but none of the ${clipUrls.length} video clips exist yet.\n` +
-      `Add the ISLRTC clips to data/clips/ and data/alphabet/, then try again.\n` +
+      `Extract the ISL Dictionary into data/_source/isl_dictionary/ and run tools/build_manifest.py.\n` +
       `Check http://127.0.0.1:8000/health to see which files are still missing.`
     );
     return;
