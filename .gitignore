@@ -2,7 +2,6 @@
 __pycache__/
 *.pyc
 data/clips/
-data/alphabet/
 uploads/
 *.webm
 data/_source/
