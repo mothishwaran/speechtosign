@@ -20,3 +20,19 @@ frame,16243eb087e7,adhoc,1787134921.8027875,,,,,,,,,,1134,
 translate,c35d29d5929f,adhoc,1787134982.819616,Mothishwaran,1,0,0,1,0.0,821,0,823,,upload.webm
 translate,b75e1e30b93a,adhoc,1787134991.2104058,My name is Mothishwaran.,4,1,1,2,0.25,845,0,847,,upload.webm
 frame,b75e1e30b93a,adhoc,1787134991.9821208,,,,,,,,,,1703,
+translate,8f556189f02f,adhoc,1791282016.5451903,"Hello, my name is Abhishek.",5,4,1,0,0.8,3200,1,3273,,upload.wav
+frame,8f556189f02f,adhoc,1791282017.134721,,,,,,,,,,4233,
+translate,049abf0a6cdd,adhoc,1791282061.312135,"Indian Sign Language Speech Conversion Hello, Thank You and Goodbye!",10,4,4,2,0.4,3130,0,3168,,upload.wav
+frame,049abf0a6cdd,adhoc,1791282062.978418,,,,,,,,,,5254,
+translate,6b922b088b42,adhoc,1791282094.853478,Good morning. What is your name?,6,6,0,0,1.0,4569,0,4574,,upload.wav
+frame,6b922b088b42,adhoc,1791282095.0015996,,,,,,,,,,5034,
+translate,0356de66ee1c,adhoc,1791305035.207415,Happy Birthday Ramesh,3,1,2,0,0.3333,973,1,1030,,upload.wav; whisper-base-en-svarah@cuda
+frame,0356de66ee1c,adhoc,1791305035.7380745,,,,,,,,,,1712,
+translate,f81a6bb19d9e,adhoc,1791305143.7051744,Happy Birthday Ramesh,3,1,2,0,0.3333,488,0,492,,upload.wav; whisper-base-en-svarah@cuda
+frame,f81a6bb19d9e,adhoc,1791305144.1611426,,,,,,,,,,1024,
+translate,7e833cfbde8f,adhoc,1791305170.1090791,How are you my boy?,5,2,0,3,0.4,493,0,499,,upload.wav; whisper-base-en-svarah@cuda
+frame,7e833cfbde8f,adhoc,1791305170.2181928,,,,,,,,,,685,
+translate,b2cc7b6d807d,adhoc,1791305193.315893,"Good morning, Ramesh, man.",4,3,1,0,0.75,533,0,536,,upload.wav; whisper-base-en-svarah@cuda
+frame,b2cc7b6d807d,adhoc,1791305193.5249712,,,,,,,,,,822,
+translate,4b0f6d148dca,adhoc,1791305346.080966,How are you my boy?,5,2,0,3,0.4,492,0,495,,upload.wav; whisper-base-en-svarah@cuda
+frame,4b0f6d148dca,adhoc,1791305346.1605778,,,,,,,,,,633,

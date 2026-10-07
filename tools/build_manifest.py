@@ -49,6 +49,8 @@ SOURCE_DIR = "data/_source/isl_dictionary"
 DERIVED_DIR = "data/_derived/h264"
 PROBE_CACHE = "data/_derived/probe_cache.csv"
 ALIASES_CSV = "data/aliases.csv"
+TRIMS_CSV = "data/trims.csv"
+TRIMMED_DIR = "data/_derived/trimmed"
 MANIFEST_CSV = "data/manifest.csv"
 
 SOURCE_URL = "https://drive.google.com/drive/folders/1U-Pr4r1-cupgNOOq9NH_uTsQnPSVEKco"
@@ -164,7 +166,7 @@ def parse_name(rel: str):
         qm = re.fullmatch(r"(?i)\s*sign(?:[_ ]*(\d+))?\s*", q)
         if qm:
             variant = int(qm.group(1) or 1)
-        elif re.search(r"(?i)explanation|example", q):
+        elif re.search(r"(?i)expla(?:i)?nation|example", q):
             explanation = True
         else:
             qualifiers.append(q.replace("_", " ").strip())
@@ -195,8 +197,10 @@ def _priority(c: dict):
 
 # --- transcoding -------------------------------------------------------------
 
-def transcode_h264(src: str, dst: str) -> None:
-    """Re-encode to browser-safe H.264 (<=720p, no audio, faststart)."""
+def transcode_h264(src: str, dst: str, start_s: float | None = None,
+                   end_s: float | None = None) -> None:
+    """Re-encode to browser-safe H.264 (<=720p, no audio, faststart),
+    optionally keeping only [start_s, end_s]."""
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     tmp = dst + ".part"
     inp = av.open(src)
@@ -218,9 +222,16 @@ def transcode_h264(src: str, dst: str) -> None:
     # (pts=None) produces non-monotonic DTS on some HEVC sources and the
     # muxer rejects the packet.
     time_base = Fraction(1, rate)
-    for i, frame in enumerate(inp.decode(vin)):
+    i = 0
+    for frame in inp.decode(vin):
+        t = float(frame.pts * vin.time_base) if frame.pts is not None else i / rate
+        if start_s is not None and t < start_s:
+            continue
+        if end_s is not None and t > end_s:
+            break
         frame = frame.reformat(width=w, height=h, format="yuv420p")
         frame.pts, frame.time_base = i, time_base
+        i += 1
         for packet in vout.encode(frame):
             out.mux(packet)
     for packet in vout.encode():
@@ -232,6 +243,33 @@ def transcode_h264(src: str, dst: str) -> None:
 
 def derived_path(rel: str) -> str:
     return f"{DERIVED_DIR}/{os.path.splitext(rel)[0]}.mp4"
+
+
+def trimmed_path(rel: str, start_s: float, end_s: float) -> str:
+    return f"{TRIMMED_DIR}/{os.path.splitext(rel)[0]}__{start_s:g}-{end_s:g}.mp4"
+
+
+def load_trims() -> list[dict]:
+    """Human-verified cuts of long explanation videos (data/trims.csv).
+
+    Explanation videos sign the word inside example sentences with no pause,
+    so the sign's position cannot be found automatically - a wrong cut would
+    show a wrong sign. Only rows with verified_by filled in are used.
+    """
+    if not os.path.exists(TRIMS_CSV):
+        return []
+    out = []
+    with open(TRIMS_CSV, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if not r.get("verified_by", "").strip():
+                continue
+            start_s, end_s = float(r["start_s"]), float(r["end_s"])
+            if not 0 <= start_s < end_s or end_s - start_s > 10:
+                print(f"  trim ignored (bad range {start_s}-{end_s}): {r['rel']}")
+                continue
+            out.append({"rel": r["rel"].strip(), "start_s": start_s, "end_s": end_s,
+                        "verified_by": r["verified_by"].strip()})
+    return out
 
 
 # --- main --------------------------------------------------------------------
@@ -285,11 +323,29 @@ def main():
             c.update(meta)
             by_phrase.setdefault(c["phrase"], []).append(c)
 
+    for t in load_trims():
+        if not os.path.exists(os.path.join(SOURCE_DIR, t["rel"])):
+            print(f"  trim skipped, source not downloaded: {t['rel']}")
+            continue
+        cands, _ = parse_name(t["rel"])
+        for c in cands:
+            # A verified cut is a plain single sign, whatever the source was.
+            c.update({"explanation": False, "codec": "trimmed",
+                      "duration_s": t["end_s"] - t["start_s"], "trim": t})
+            by_phrase.setdefault(c["phrase"], []).append(c)
+
     chosen = {ph: min(cs, key=_priority) for ph, cs in by_phrase.items()}
+
+    trims_needed = {(c["rel"], c["trim"]["start_s"], c["trim"]["end_s"])
+                    for c in chosen.values() if "trim" in c}
+    for rel, a, b in sorted(trims_needed):
+        if not os.path.exists(trimmed_path(rel, a, b)) and not args.dry_run:
+            transcode_h264(os.path.join(SOURCE_DIR, rel), trimmed_path(rel, a, b), a, b)
+            print(f"  trimmed {rel} [{a:g}s-{b:g}s]")
 
     # Transcode only the clips that were actually chosen and aren't browser-safe.
     to_transcode = sorted({c["rel"] for c in chosen.values()
-                           if c["codec"] not in BROWSER_SAFE_CODECS
+                           if c["codec"] not in BROWSER_SAFE_CODECS and "trim" not in c
                            and not os.path.exists(derived_path(c["rel"]))})
     if to_transcode and not args.dry_run:
         print(f"transcoding {len(to_transcode)} clip(s) to H.264 -> {DERIVED_DIR}/")
@@ -314,7 +370,12 @@ def main():
 
     for phrase in sorted(chosen):
         c = chosen[phrase]
-        if c["codec"] in BROWSER_SAFE_CODECS:
+        if "trim" in c:
+            t = c["trim"]
+            local = trimmed_path(c["rel"], t["start_s"], t["end_s"])
+            note = (f"src={c['rel']}; trimmed {t['start_s']:g}-{t['end_s']:g}s, "
+                    f"verified by {t['verified_by']}")
+        elif c["codec"] in BROWSER_SAFE_CODECS:
             local = f"{SOURCE_DIR}/{c['rel']}"
             note = f"src={c['rel']}"
         else:

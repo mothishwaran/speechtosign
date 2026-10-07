@@ -67,7 +67,9 @@ def synthesize(text: str, path: str, voice: str) -> None:
 def plan_str(plan) -> str:
     return " ".join(
         f"[{p['token']}]" if p["type"] == "sign"
-        else f"<{p['token']}>" if p["type"] == "spell" else p["token"]
+        else f"{{{p['token']}~{p['means']}}}" if p["type"] == "similar"
+        else f"<{p['token']}>" if p["type"] == "spell"
+        else f"({p['token']})" if p["type"] == "omitted" else p["token"]
         for p in plan
     )
 
@@ -76,10 +78,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tts", action="store_true", help="also run spoken end-to-end tests")
     ap.add_argument("--voice", default="Microsoft Zira Desktop")
+    ap.add_argument("--sentences", default=SENTENCES, help="one sentence per line")
+    ap.add_argument("--out", default=OUT_CSV)
     args = ap.parse_args()
     os.chdir(_REPO_ROOT)
 
-    with open(SENTENCES, encoding="utf-8") as f:
+    with open(args.sentences, encoding="utf-8") as f:
         sentences = [s.strip() for s in f if s.strip()]
 
     rows = []
@@ -87,6 +91,8 @@ def main():
         m = matcher.match(ref)
         rows.append({"id": f"s{i:02d}", "reference": ref,
                      "text_coverage": round(m["coverage"], 4),
+                     "text_content_coverage": round(m["content_coverage"], 4),
+                     "text_with_similar": round(m["content_coverage_with_similar"], 4),
                      "text_plan": plan_str(m["plan"])})
 
     if args.tts:
@@ -119,6 +125,7 @@ def main():
                     "transcript": out["transcript"],
                     "wer": round(wer(row["reference"], out["transcript"]), 4),
                     "speech_coverage": out["coverage"],
+                    "speech_content_coverage": out["content_coverage"],
                     "speech_plan": plan_str(out["plan"]),
                     "asr_ms": out["timings"]["asr_ms"],
                     "n_clips": sum(len(p["clips"]) for p in out["plan"]),
@@ -127,14 +134,14 @@ def main():
                 })
 
     fields = list(rows[0].keys())
-    with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
+    with open(args.out, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(rows)
 
     print(f"{'id':<5}{'text':>6}", end="")
     print(f"{'speech':>8}{'WER':>7}{'asr ms':>8}  " if args.tts else "  ", end="")
-    print("plan   ([sign] <spelled> uncovered)")
+    print("plan   ([sign] {word~synonym sign} <spelled> (omitted in ISL) uncovered)")
     for r in rows:
         print(f"{r['id']:<5}{r['text_coverage'] * 100:>5.0f}%", end="")
         if args.tts:
@@ -147,15 +154,21 @@ def main():
         else:
             print("  " + r["text_plan"])
 
-    print(f"\nmean text coverage   : {statistics.mean(r['text_coverage'] for r in rows) * 100:.1f}%")
+    def mean_pct(key):
+        return statistics.mean(r[key] for r in rows) * 100
+
+    print(f"\nmean text coverage   : {mean_pct('text_coverage'):.1f}%"
+          f"   (words ISL signs: {mean_pct('text_content_coverage'):.1f}%,"
+          f" +synonyms: {mean_pct('text_with_similar'):.1f}%)")
     if args.tts:
-        print(f"mean speech coverage : {statistics.mean(r['speech_coverage'] for r in rows) * 100:.1f}%")
+        print(f"mean speech coverage : {mean_pct('speech_coverage'):.1f}%"
+              f"   (words ISL signs: {mean_pct('speech_content_coverage'):.1f}%)")
         print(f"mean WER             : {statistics.mean(r['wer'] for r in rows) * 100:.1f}%  (synthetic {args.voice})")
         print(f"median ASR latency   : {statistics.median(r['asr_ms'] for r in rows):.0f} ms")
         total = sum(r["n_clips"] for r in rows)
         failed = sum(r["n_failed"] for r in rows)
         print(f"clips served OK      : {total - failed}/{total}")
-    print(f"wrote {OUT_CSV}")
+    print(f"wrote {args.out}")
 
 
 if __name__ == "__main__":

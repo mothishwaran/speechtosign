@@ -17,12 +17,13 @@
     border-radius: 10px;
     padding: 16px;
   }
+  .subtitle { font-size: 13px; color: #6b7280; margin: -10px 0 16px; }
   .stage { width: 640px; max-width: 100%; }
   .video-box {
     position: relative;
     width: 640px;
     max-width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;   /* ISLRTC dictionary clips are 16:9 */
     background: #000;
     border-radius: 8px;
     overflow: hidden;
@@ -47,6 +48,7 @@
     cursor: pointer;
   }
   #recordBtn.recording { background: #ef4444; }
+  #recordBtn:disabled { background: #374151; color: #9aa4b2; cursor: wait; }
   #state {
     font-size: 14px;
     color: #9aa4b2;
@@ -82,6 +84,11 @@
     min-width: 320px;
   }
   #readAloud { display: block; margin-top: 7px; color: #6b7280; }
+  #readAloud.ref { color: #e6e6e6; font-size: 15px; }
+  .evalbar input#speaker {
+    background: #0f1115; color: #e6e6e6; border: 1px solid #2a2e38;
+    border-radius: 6px; padding: 5px 8px; margin: 8px 0 0 6px; width: 160px;
+  }
   .rate { font-size: 13px; color: #9aa4b2; margin-left: auto; }
   .rate select {
     background: #0f1115;
@@ -111,15 +118,20 @@
   .chip.sign { background: #14532d; color: #86efac; border-color: #22c55e; }
   .chip.spell { background: #713f12; color: #fde68a; border-color: #f59e0b; }
   .chip.uncovered { background: #1f2430; color: #9aa4b2; border-color: #3a4152; }
+  .chip.similar { background: #172554; color: #93c5fd; border-color: #3b82f6; }
+  .chip.omitted { background: transparent; color: #6b7280; border-color: #2a2e38; border-style: dashed; text-decoration: line-through; }
+  .chip.spell.unknown { border-style: dashed; }
+  .toggle { font-size: 13px; color: #9aa4b2; display: flex; align-items: center; gap: 6px; margin-top: 8px; }
   .chip.error { outline: 2px solid #ef4444; }
-  .legend { font-size: 12px; color: #6b7280; margin-bottom: 14px; }
-  .legend span { margin-right: 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 12px; color: #6b7280; margin-bottom: 14px; }
+  .legend > span { white-space: nowrap; }
   table.metrics { width: 100%; border-collapse: collapse; font-size: 13px; }
   table.metrics td { padding: 4px 0; border-bottom: 1px solid #2a2e38; }
   table.metrics td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 </style>
 
-<h1>Speech &rarr; Indian Sign Language (Phase 0 demo)</h1>
+<h1>Speech &rarr; Indian Sign Language</h1>
+<div class="subtitle" id="subtitle">Retrieval over the ISLRTC dictionary &middot; not translation</div>
 
 <div class="layout">
   <div class="panel stage">
@@ -153,7 +165,10 @@
           <option value="u6">u6 · My name is Mothishwaran.</option>
         </select>
       </label>
+      <label>Speaker <input id="speaker" placeholder="your name" maxlength="40"></label>
       <span id="readAloud">Pick an utterance, then read it aloud exactly.</span>
+      <label class="toggle"><input type="checkbox" id="spellUnknown">
+        Fingerspell words with no sign (off = drop them, as Deaf signers would not spell every word)</label>
     </div>
   </div>
 
@@ -162,12 +177,16 @@
     <div id="transcript">&mdash;</div>
     <div class="legend">
       <span><span class="chip sign">sign</span> matched</span>
+      <span><span class="chip similar">similar</span> synonym's sign</span>
       <span><span class="chip spell">spell</span> fingerspelled</span>
-      <span><span class="chip uncovered">uncovered</span> dropped</span>
+      <span><span class="chip omitted">omitted</span> not signed in ISL</span>
+      <span><span class="chip uncovered">uncovered</span> no sign available</span>
     </div>
     <div class="chips" id="chips"></div>
     <table class="metrics">
-      <tr><td>Coverage</td><td id="mCoverage">&mdash;</td></tr>
+      <tr><td>Coverage (all words)</td><td id="mCoverage">&mdash;</td></tr>
+      <tr><td>Coverage (words ISL signs)</td><td id="mContent">&mdash;</td></tr>
+      <tr><td>&nbsp;&nbsp;+ synonym signs</td><td id="mSimilar">&mdash;</td></tr>
       <tr><td>Counts</td><td id="mCounts">&mdash;</td></tr>
       <tr><td>ASR</td><td id="mAsr">&mdash;</td></tr>
       <tr><td>Match</td><td id="mMatch">&mdash;</td></tr>
@@ -200,9 +219,21 @@ recordBtn.addEventListener('click', async () => {
 });
 
 async function startRecording() {
-  const stream = await navigator.mediaDevices.getUserMedia({
-    audio: { channelCount: 1, echoCancellation: true },
-  });
+  let stream;
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: { channelCount: 1, echoCancellation: true },
+    });
+  } catch (err) {
+    console.error('[record] microphone unavailable', err);
+    setState('Error');
+    showError(
+      `Microphone unavailable (${err.name}).\n` +
+      'Allow microphone access for this site, and open it via http://127.0.0.1:8000, not file://.'
+    );
+    return;
+  }
+  showError('');
   chunks = [];
   mediaRecorder = new MediaRecorder(stream);
   mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
@@ -228,6 +259,9 @@ async function onRecordingStopped() {
   const clientT0 = Date.now();
   setState('Transcribing');
   showError('');
+  // One utterance at a time: a second recording mid-pipeline would race the
+  // first for the two video slots.
+  recordBtn.disabled = true;
 
   try {
     const recordedType = (mediaRecorder && mediaRecorder.mimeType) || 'audio/webm';
@@ -243,13 +277,15 @@ async function onRecordingStopped() {
 
     // Preferred path: decode + resample to 16 kHz mono WAV in the browser.
     // Fallback: ship the raw recording and let faster-whisper (PyAV) decode it.
-    let uploadBlob, uploadName;
+    let uploadBlob, uploadName, encodeError = '';
     try {
       uploadBlob = await encodeToWav16kMono(rawBlob);
       uploadName = 'audio.wav';
       console.log('[encode] 16kHz mono WAV:', uploadBlob.size, 'bytes');
     } catch (encodeErr) {
       console.warn('[encode] WAV conversion failed, sending raw audio instead', encodeErr);
+      // Logged server-side so a fallback run says why it happened.
+      encodeError = `${encodeErr.name}: ${encodeErr.message} (${navigator.userAgent.match(/(Edg|Chrome|Firefox|Safari)\/[\d.]+/)?.[0] || 'unknown browser'})`;
       uploadBlob = rawBlob;
       uploadName = 'audio.webm';
     }
@@ -259,6 +295,9 @@ async function onRecordingStopped() {
     form.append('audio', uploadBlob, uploadName);
     form.append('client_t0', String(clientT0));
     form.append('utterance_id', utteranceId);
+    form.append('spell_unknown', document.getElementById('spellUnknown').checked ? '1' : '0');
+    form.append('speaker', document.getElementById('speaker').value);
+    form.append('encode_error', encodeError);
 
     const res = await fetch('/translate', { method: 'POST', body: form });
     if (!res.ok) {
@@ -274,6 +313,8 @@ async function onRecordingStopped() {
     console.error('[pipeline] failed', err);
     setState('Error');
     showError(err.message);
+  } finally {
+    recordBtn.disabled = false;
   }
 }
 
@@ -338,16 +379,24 @@ function renderDebugPanel(result) {
   chipsEl.innerHTML = '';
   for (const entry of result.plan) {
     const chip = document.createElement('span');
-    chip.className = 'chip ' + entry.type;
-    chip.textContent = entry.token;
+    chip.className = 'chip ' + entry.type + (entry.why === 'unknown' ? ' unknown' : '');
+    if (entry.why === 'unknown') chip.title = 'no sign in the dictionary - fingerspelled';
+    chip.textContent = entry.means && entry.means !== entry.token.toLowerCase()
+      ? `${entry.token} → ${entry.means}` : entry.token;
     chip.dataset.token = entry.token;
     chipsEl.appendChild(chip);
   }
   const c = result.counts;
   document.getElementById('mCoverage').textContent = (result.coverage * 100).toFixed(1) + '%';
+  document.getElementById('mContent').textContent = result.content_coverage !== undefined
+    ? (result.content_coverage * 100).toFixed(1) + '%' : '—';
+  document.getElementById('mSimilar').textContent = result.content_coverage_with_similar !== undefined
+    ? (result.content_coverage_with_similar * 100).toFixed(1) + '%' : '—';
   document.getElementById('mCounts').textContent =
-    `${c.sign} sign · ${c.spell} spell · ${c.uncovered} uncovered · ${c.total} total`;
-  document.getElementById('mAsr').textContent = result.timings.asr_ms + ' ms';
+    `${c.sign} sign · ${c.similar || 0} similar · ${c.spell} spell · ${c.omitted || 0} omitted · ${c.uncovered} uncovered · ${c.total} total`;
+  document.getElementById('mAsr').textContent = result.asr
+    ? `${result.timings.asr_ms} ms · ${result.asr.model} on ${result.asr.device.toUpperCase()}`
+    : result.timings.asr_ms + ' ms';
   document.getElementById('mMatch').textContent = result.timings.match_ms + ' ms';
   document.getElementById('mServer').textContent = result.timings.server_ms + ' ms';
   document.getElementById('mE2e').textContent = '—';
@@ -489,4 +538,41 @@ async function playQueue(readyItems, runId, clientT0, utteranceId) {
     activeSlot = 1 - activeSlot;
   }
 }
+// --- Eval sentence list (served from eval/*.txt) + remembered speaker name ---
+(async function loadEvalSentences() {
+  const sel = document.getElementById('utteranceId');
+  const hint = document.getElementById('readAloud');
+  const speakerEl = document.getElementById('speaker');
+  try { speakerEl.value = localStorage.getItem('speaker') || ''; } catch (e) {}
+  speakerEl.addEventListener('change', () => {
+    try { localStorage.setItem('speaker', speakerEl.value); } catch (e) {}
+  });
+  const texts = {};
+  try {
+    const res = await fetch('/eval_sentences');
+    const { sentences } = await res.json();
+    while (sel.options.length > 1) sel.remove(1);       // keep "ad-hoc"
+    let group = null, lastSet = null;
+    for (const s of sentences) {
+      if (s.set !== lastSet) {
+        group = document.createElement('optgroup');
+        group.label = s.set;
+        sel.appendChild(group);
+        lastSet = s.set;
+      }
+      const opt = document.createElement('option');
+      opt.value = s.id;
+      opt.textContent = `${s.id} · ${s.text}`;
+      group.appendChild(opt);
+      texts[s.id] = s.text;
+    }
+  } catch (err) {
+    console.warn('[eval] could not load sentence list, keeping built-in u1-u6', err);
+  }
+  sel.addEventListener('change', () => {
+    const t = texts[sel.value];
+    hint.textContent = t ? `Read aloud: "${t}"` : 'Pick an utterance, then read it aloud exactly.';
+    hint.classList.toggle('ref', Boolean(t));
+  });
+})();
 </script>

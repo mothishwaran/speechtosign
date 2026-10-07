@@ -8,6 +8,8 @@ from src import fingerspell
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST_PATH = os.path.join(_REPO_ROOT, "data", "manifest.csv")
+# word -> sign for inflected forms and WordNet synonyms (tools/build_synonyms.py)
+SYNONYMS_PATH = os.path.join(_REPO_ROOT, "data", "synonyms.csv")
 
 _SENTENCE_END = (".", "?", "!", ":", ";")
 _STRIP_CHARS = string.punctuation
@@ -18,6 +20,25 @@ _APOSTROPHES = str.maketrans({"’": "'", "‘": "'", "`": "'"})
 
 _manifest: dict | None = None
 _max_ngram: int | None = None
+_synonyms: dict | None = None
+
+
+def _load_synonyms() -> dict:
+    """word -> (target phrase, "form" | "synonym").
+
+    Word forms are used unless a reviewer rejected them; synonyms are
+    proposals and are used only once a reviewer marked them ok.
+    """
+    global _synonyms
+    if _synonyms is None:
+        _synonyms = {}
+        if os.path.exists(SYNONYMS_PATH):
+            with open(SYNONYMS_PATH, newline="", encoding="utf-8") as f:
+                for r in csv.DictReader(f):
+                    review = r.get("review", "").strip().lower()
+                    if review == "ok" or (r["kind"] == "form" and review != "reject"):
+                        _synonyms[r["word"]] = (r["target"], r["kind"])
+    return _synonyms
 
 
 def _load_manifest() -> dict:
@@ -101,8 +122,29 @@ def _tokenize(text: str):
     return orig, norm, sentence_initial
 
 
-def match(text: str) -> dict:
+# English function words that ISL does not sign: articles, forms of "be",
+# and the infinitive/possessive particles. Leaving them out is correct ISL,
+# not a gap in the dictionary, so they get their own type and are excluded
+# from content_coverage. Checked only AFTER dictionary matching, so phrases
+# that contain them ("my name is") still match as one sign.
+ISL_OMITTED = frozenset({
+    "a", "an", "the",
+    "is", "am", "are", "was", "were", "be", "been", "being",
+    "to", "of",
+})
+
+
+def match(text: str, spell_unknown: bool = False) -> dict:
+    """Plan the sign sequence for a transcript.
+
+    Token types: sign (dictionary clip, including inflected forms such as
+    "books" -> book), similar (a WordNet synonym's sign, e.g. "kid" -> child),
+    spell (fingerspelled - a name, or any unknown word when
+    spell_unknown=True), omitted (not signed in ISL), uncovered (no sign
+    available, dropped).
+    """
     manifest = _load_manifest()
+    synonyms = _load_synonyms()
     start = time.perf_counter()
 
     orig, norm, sentence_initial = _tokenize(text)
@@ -110,7 +152,7 @@ def match(text: str) -> dict:
 
     longest = max_ngram()
     plan = []
-    n_sign = n_spell = n_uncovered = 0
+    n_sign = n_similar = n_spell = n_omitted = n_uncovered = 0
     i = 0
     while i < n_tokens:
         matched = False
@@ -133,29 +175,57 @@ def match(text: str) -> dict:
             continue
 
         tok_orig = orig[i]
-        if tok_orig[0].isupper() and not sentence_initial[i] and not _is_pronoun_i(norm[i]):
-            plan.append({
-                "token": tok_orig,
-                "type": "spell",
-                "clips": fingerspell.spell(tok_orig),
-            })
+        is_name = tok_orig[0].isupper() and not sentence_initial[i] and not _is_pronoun_i(norm[i])
+        if is_name:
+            plan.append({"token": tok_orig, "type": "spell", "why": "name",
+                         "clips": fingerspell.spell(tok_orig)})
+            n_spell += 1
+        elif norm[i] in ISL_OMITTED:
+            plan.append({"token": tok_orig, "type": "omitted", "clips": []})
+            n_omitted += 1
+        elif norm[i] in synonyms and synonyms[norm[i]][0] in manifest:
+            target, kind = synonyms[norm[i]]
+            entry = {"token": tok_orig, "clips": [manifest[target]["local_path"]], "means": target}
+            if kind == "form":           # same word, different inflection
+                entry["type"] = "sign"
+                n_sign += 1
+            else:                        # different word, same meaning
+                entry["type"] = "similar"
+                n_similar += 1
+            plan.append(entry)
+        # len > 1: a lone letter ("I") spelled as its alphabet sign would
+        # read as the letter, not the word.
+        elif spell_unknown and len(fingerspell.spell(tok_orig)) > 1:
+            plan.append({"token": tok_orig, "type": "spell", "why": "unknown",
+                         "clips": fingerspell.spell(tok_orig)})
             n_spell += 1
         else:
             plan.append({"token": tok_orig, "type": "uncovered", "clips": []})
             n_uncovered += 1
         i += 1
 
+    # coverage keeps its Phase 0 definition (signed tokens / all tokens) so
+    # results stay comparable; content_coverage leaves out the words ISL does
+    # not sign, which is the fairer measure of what the dictionary covers.
     coverage = (n_sign / n_tokens) if n_tokens else 0.0
+    content = n_tokens - n_omitted
+    content_coverage = (n_sign / content) if content else 0.0
+    # Synonym signs are approximations, so they get their own figure.
+    content_coverage_similar = ((n_sign + n_similar) / content) if content else 0.0
     match_ms = int((time.perf_counter() - start) * 1000)
 
     return {
         "normalized": " ".join(norm),
         "plan": plan,
         "coverage": coverage,
+        "content_coverage": content_coverage,
+        "content_coverage_with_similar": content_coverage_similar,
         "counts": {
             "total": n_tokens,
             "sign": n_sign,
+            "similar": n_similar,
             "spell": n_spell,
+            "omitted": n_omitted,
             "uncovered": n_uncovered,
         },
         "match_ms": match_ms,
@@ -171,13 +241,18 @@ if __name__ == "__main__":
         for p in ("hello", "thank you", "sorry", "please", "name", "so far so good")
     }
     _max_ngram = None
+    _synonyms = {}   # fixture tests exercise exact matching only
 
     golden = match("Hello, thank you. My name is Mothishwaran.")
-    assert golden["counts"] == {"total": 7, "sign": 4, "spell": 1, "uncovered": 2}, golden["counts"]
+    # Spec §4 golden case. Coverage is unchanged at 4/7; "is" is now typed
+    # "omitted" (ISL does not sign it) where Phase 0 called it "uncovered".
+    assert golden["counts"] == {"total": 7, "sign": 4, "similar": 0, "spell": 1, "omitted": 1, "uncovered": 1}, golden["counts"]
     assert abs(golden["coverage"] - 4 / 7) < 1e-9, golden["coverage"]
+    assert abs(golden["content_coverage"] - 4 / 6) < 1e-9, golden["content_coverage"]
     assert [p["type"] for p in golden["plan"]] == [
-        "sign", "sign", "uncovered", "sign", "uncovered", "spell",
+        "sign", "sign", "uncovered", "sign", "omitted", "spell",
     ], golden["plan"]
+    assert golden["plan"][5]["why"] == "name", golden["plan"][5]
     assert golden["plan"][1]["token"] == "thank you", golden["plan"][1]
     assert golden["plan"][5]["token"] == "Mothishwaran", golden["plan"][5]
     assert len(golden["plan"][5]["clips"]) == 12, golden["plan"][5]["clips"]
@@ -210,8 +285,26 @@ if __name__ == "__main__":
     assert long_phrase["coverage"] == 1.0, long_phrase
 
     no_match = match("The cat sat")
-    assert all(p["type"] == "uncovered" for p in no_match["plan"]), no_match["plan"]
+    assert [p["type"] for p in no_match["plan"]] == ["omitted", "uncovered", "uncovered"], no_match["plan"]
     assert no_match["coverage"] == 0.0, no_match
+
+    # Omitted words never shadow a dictionary phrase that contains them.
+    phrase_first = match("so far so good is the best")
+    assert phrase_first["plan"][0]["token"] == "so far so good", phrase_first["plan"]
+    assert [p["type"] for p in phrase_first["plan"][1:3]] == ["omitted", "omitted"], phrase_first["plan"]
+
+    # Optional fingerspelling of unknown words: off by default, labelled
+    # "unknown" (not "name") when on, and never applied to omitted words.
+    off = match("please sit")
+    assert off["plan"][1]["type"] == "uncovered", off["plan"]
+    on = match("please sit is", spell_unknown=True)
+    assert [(p["type"], p.get("why")) for p in on["plan"]] == [
+        ("sign", None), ("spell", "unknown"), ("omitted", None)], on["plan"]
+    assert len(on["plan"][1]["clips"]) == 3, on["plan"][1]
+    digits = match("please 42", spell_unknown=True)
+    assert digits["plan"][1]["type"] == "uncovered", digits["plan"]   # nothing to spell
+    lone = match("I sit", spell_unknown=True)
+    assert lone["plan"][0]["type"] == "uncovered", lone["plan"]       # not the letter I
 
     assert normalize_phrase("I Don’t Know!") == "i don't know"
     assert normalize_phrase("Non-bailable  Offence") == "nonbailable offence"
@@ -225,6 +318,7 @@ if __name__ == "__main__":
     # --- Part 2: the real manifest built from the ISLRTC dictionary ---------
     _manifest = None
     _max_ngram = None
+    _synonyms = None
     real = _load_manifest()
     assert len(real) > 1000, f"manifest has only {len(real)} phrases - run tools/build_manifest.py"
 
@@ -233,7 +327,23 @@ if __name__ == "__main__":
         ("hello", "sign"), ("thank you", "sign"),
         ("my name is", "sign"), ("Mothishwaran", "spell"),
     ], demo["plan"]
-    assert demo["counts"] == {"total": 7, "sign": 6, "spell": 1, "uncovered": 0}, demo["counts"]
+    assert demo["counts"] == {"total": 7, "sign": 6, "similar": 0, "spell": 1, "omitted": 0, "uncovered": 0}, demo["counts"]
+
+    # Word forms count as the same sign; synonyms are typed "similar" and kept
+    # out of exact coverage.
+    forms = match("My children like books")
+    kinds = {p["token"]: (p["type"], p.get("means")) for p in forms["plan"]}
+    assert kinds["children"] == ("sign", "child"), forms["plan"]
+    assert kinds["books"] == ("sign", "book"), forms["plan"]
+    doc = match("my physician")
+    assert (doc["plan"][1]["type"], doc["plan"][1]["means"]) == ("similar", "doctor"), doc["plan"]
+    assert doc["counts"]["similar"] == 1 and doc["coverage"] == 0.5, doc
+    assert doc["content_coverage_with_similar"] == 1.0, doc
+    # A synonym proposal a reviewer rejected must never be used.
+    assert match("miss")["plan"][0]["type"] != "similar", match("miss")["plan"]
+
+    boy = match("How are you my boy?")
+    assert [p["type"] for p in boy["plan"] if p["token"].lower() == "are"] == ["omitted"], boy["plan"]
 
     curly = match("I don’t know.")
     assert [(p["token"], p["type"]) for p in curly["plan"]] == [("i don't know", "sign")], curly["plan"]

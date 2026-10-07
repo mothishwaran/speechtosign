@@ -157,11 +157,12 @@ import csv
 with open("data/manifest.csv", newline="", encoding="utf-8") as f:
     rows = list(csv.DictReader(f))
 
-print(f"{len(rows)} entries in the sign dictionary\n")
+print(f"{len(rows)} entries in the sign dictionary  (first 6 and a few longer phrases shown)\n")
 print(f"{'id':<16}{'phrase':<18}{'words':<7}{'licence':<10}clip")
 print("-" * 78)
-for r in rows:
-    print(f"{r['id']:<16}{r['phrase']:<18}{r['ngram_len']:<7}{r['license']:<10}{r['local_path']}")
+sample = rows[:6] + [r for r in rows if int(r["ngram_len"]) >= 4][:4]
+for r in sample:
+    print(f"{r['id'][:15]:<16}{r['phrase'][:17]:<18}{r['ngram_len']:<7}{r['license']:<10}{r['local_path']}")
 """)
 
 code(r"""

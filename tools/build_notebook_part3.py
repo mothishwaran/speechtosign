@@ -510,6 +510,9 @@ records which path each run used.
 > the fact that the primary path never runs. We only caught it by auditing the artefacts.
 """)
 
+# ─────────────────────────────────────────── 14B PHASE 1 RESULTS
+import tools.build_notebook_part3b  # noqa: E402,F401  (appends its cells here, in order)
+
 # ─────────────────────────────────────────── 15 LIMITATIONS
 md(r"""
 ---
@@ -519,7 +522,7 @@ Stated plainly, and volunteered rather than extracted.
 
 | # | Limitation | Why |
 |---|---|---|
-| 1 | **It is not translation** | Lexical retrieval into a 6-entry inventory |
+| 1 | **It is not translation** | Lexical retrieval into a dictionary of isolated signs (6 entries in Phase 0, ~3,850 in Phase 1) |
 | 2 | **Word order is English** | ISL has its own grammar; clip order follows the English sentence |
 | 3 | **No non-manual markers** | Facial expression, head tilt and mouthing carry grammar in ISL; isolated dictionary clips cannot express sentence-level non-manuals |
 | 4 | **No co-articulation** | Real signing blends one sign into the next; hard cuts do not |
@@ -527,9 +530,12 @@ Stated plainly, and volunteered rather than extracted.
 | 6 | **Fingerspelling is a fallback** | Deaf signers do not fingerspell everything |
 | 7 | **No Deaf-user evaluation** | We measured coverage and latency, **not comprehensibility** |
 | 8 | **Whisper is a component, not a contribution** | The contribution is the retrieval pipeline and its honest evaluation |
-| 9 | **Vocabulary is tiny** | Six entries. Scaling brings word-sense ambiguity (§ 16) |
+| 9 | **Word-sense ambiguity** | One English word can need different signs (*train* the vehicle vs *train* a person). Ambiguous inflections are left unmapped rather than guessed (§ 14B.4) |
+| 10 | **Synonyms reviewed for English, not by a signer** | `data/synonyms.csv` approvals check English meaning; whether the synonym's sign is acceptable ISL needs a Deaf reviewer |
+| 11 | **Long "(Explanation)" videos unused** | The sign sits inside continuous signing; `data/trims.csv` waits for someone who knows ISL to mark it (e.g. *how*) |
+| 12 | **ASR accuracy measured on Svarah and synthetic speech** | Real-voice scoring is built in (§ 13) but needs more speakers than the two developers |
 
-## What breaks first if we scale from 6 words to 500?
+## What broke first when we scaled from 6 words to ~3,850? (Phase 0 prediction, checked in Phase 1)
 
 **Exact matching.** Coverage would rise, but precision of *meaning* would fall — ISLRTC itself
 notes synonyms, homonyms and context-specific signs, so one English word can map to several ISL
@@ -537,6 +543,10 @@ signs and exact matching has no way to choose the right one.
 
 That is precisely why Phase 1 moves to sentence embeddings [9] and phrase-level corpora [2].
 Notably, **retrieval speed is not the bottleneck** — Finding 1 already showed matching is free.
+
+*Phase 1 check:* the prediction held. Speed stayed at ~0–1 ms; the hard problems were meaning
+(14B.4) and which inflections are safe to map. Sentence embeddings turned out to be unsafe at
+the single-word level, so Phase 1 used a reviewed lexical resource instead.
 """)
 
 # ─────────────────────────────────────────── 16 PENDING
@@ -544,12 +554,12 @@ md(r"""
 ---
 # § 16 · Pending work
 
-| Phase | Work | Why |
+| Phase | Work | Status |
 |---|---|---|
-| **1** | Sentence embeddings [9] + ISLTranslate [2]; similarity threshold with a reject option | Handle paraphrases exact matching cannot |
-| **2** | Voice activity detection (Silero) for continuous input | Remove push-to-talk |
-| **3** | Expand vocabulary; word-sense disambiguation | Address the scaling limit in § 15 |
-| **4** | Evaluation **with Deaf signers**; smoother clip transitions | Measure comprehensibility, not just coverage |
+| **1** | Scale the vocabulary; GPU ASR; fine-tune Whisper on Indian English; synonyms with a reject option | **Done** — § 14B. Embeddings tried and rejected for single words (14B.4) |
+| **2** | ISL word order (e.g. question words last, verb last); ISLTranslate [2] for phrase-level retrieval | Next — English word order is now the largest linguistic gap |
+| **3** | Voice activity detection (Silero) for continuous input | Remove push-to-talk |
+| **4** | Evaluation **with Deaf signers**; review of synonyms and explanation-video trims by ISL users; smoother clip transitions | Measure comprehensibility, not just coverage |
 
 ## The honest caveat about similarity thresholds
 
@@ -562,11 +572,17 @@ reject option: showing nothing is better than confidently showing the wrong sign
 
 ## Interim conclusion
 
-A complete speech→ISL retrieval pipeline runs end to end on a laptop CPU, at roughly **1.3 s**
-median latency, covering **57%** of the demo sentence with a six-entry vocabulary, using real ISL
-video recorded by Deaf signers.
+**Phase 0 (Review 1):** a complete speech→ISL retrieval pipeline ran end to end on a laptop CPU
+at roughly **1.3 s** median latency, covering **57%** of the demo sentence with a six-entry
+vocabulary, using real ISL video recorded by Deaf signers.
 
-The vocabulary is small by design. The architecture — recognise, normalise, retrieve, fall back,
+**Phase 1:** the same architecture, unchanged in shape, now retrieves from **~3,850** dictionary
+phrases, recognises speech in **~0.2 s** on a laptop GPU with a Whisper model fine-tuned on
+Indian-accented English (**~13.2 % → 11.3 % WER** on unseen speakers, two runs), and signs about
+**two-thirds of the words ISL would sign** in held-out everyday sentences — reporting the rest
+honestly as omitted, spelled or uncovered.
+
+The Phase 0 vocabulary was small by design. The architecture — recognise, normalise, retrieve, fall back,
 and **count what was missed** — is what the project set out to demonstrate, and it is vocabulary-agnostic.
 """)
 
@@ -619,6 +635,15 @@ avatars vary depending on hearing status, age of signed language acquisition, an
 *Frontiers in Psychology*, vol. 13, art. 730917, 2022.
 https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.730917/full
 
+[12] T. Javed, S. Joshi, V. Nagarajan, S. Sundaresan, J. Nawale, A. Raman, K. Bhogale, P. Kumar,
+and M. M. Khapra, "Svarah: Evaluating English ASR systems on Indian accents," in *Proc.
+Interspeech 2023*, 2023. https://arxiv.org/abs/2305.15760
+
+[13] G. A. Miller, "WordNet: A lexical database for English," *Communications of the ACM*,
+vol. 38, no. 11, pp. 39–41, 1995.
+
+*[12]–[13] were added in Phase 1.*
+
 **Additional source consulted**
 
 [11] M. Kipp, A. Heloir, and Q. Nguyen, "Assessing the deaf user perspective on sign language
@@ -630,6 +655,9 @@ https://dl.acm.org/doi/10.1145/2049536.2049557
 - ISLRTC Indian Sign Language Dictionary — https://islrtc.nic.in/isl-dictionary/
 - Government of India Open Data, ISL Dictionary — https://data.gov.in/catalog/indian-sign-language-dictionary
 - ISL alphabet clips, FDMSE / RKMVERI Coimbatore — https://indiansignlanguage.org/category/alphabets/
+- ISL Dictionary videos (Google Drive mirror used in Phase 1) — https://drive.google.com/drive/folders/1U-Pr4r1-cupgNOOq9NH_uTsQnPSVEKco
+- Svarah (AI4Bharat, CC BY 4.0) — https://huggingface.co/datasets/ai4bharat/Svarah
+- Word frequency list (google-10000-english) — https://github.com/first20hours/google-10000-english
 
 ---
 

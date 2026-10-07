@@ -1,0 +1,7 @@
+# Optional: fine-tune Whisper (tools/train/). Needs an NVIDIA GPU.
+# Install on top of requirements.lock.txt:
+#   .\.venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu126
+#   .\.venv\Scripts\python.exe -m pip install -r requirements-train.txt
+transformers
+jiwer
+pyarrow

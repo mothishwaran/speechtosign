@@ -1,0 +1,116 @@
+speaker,split,utterances,hours
+Female|18-30|Dogri|Jammu Kashmir|Jammu|Under Graduate Student|Other|Education and Research,dev,25,0.0433
+Female|18-30|Gujarati|Gujarat|Amreli|Graduate|Other|Entertainment,dev,9,0.0074
+Female|18-30|Hindi|Rajasthan|Ajmer|Under Graduate Student|Other|Education and Research,dev,22,0.0283
+Female|18-30|Maithili|Bihar|Darbhanga|Post Graduate|Part Time|Education and Research,dev,18,0.0282
+Female|18-30|Tamil|Karnataka|Bangalore Urban|Post Graduate|Full Time|Education and Research,dev,46,0.0523
+Female|18-30|Urdu|Maharashtra|Thane|Post Graduate|Full Time|Education and Research,dev,35,0.0486
+Female|30-45|Marathi|Maharashtra|Pune|Post Graduate|Full Time|Education and Research,dev,27,0.039
+Female|30-45|Tamil|Tamil Nadu|Chennai|Post Graduate|Part Time|Technology and Services,dev,15,0.0268
+Female|45-60|Maithili|Bihar|Darbhanga|Graduate|Full Time|Education and Research,dev,94,0.1092
+Female|45-60|Marathi|Maharashtra|Kolhapur|Post Graduate|Full Time|Technology and Services,dev,15,0.0286
+Male|18-30|Bodo|Assam|Kokrajhar|Post Graduate|Part Time|Education and Research,dev,47,0.0647
+Male|18-30|Konkani|Goa|South Goa|Post Graduate|Full Time|Technology and Services,dev,93,0.1594
+Male|30-45|Maithili|Bihar|Darbhanga|Post Graduate|Full Time|Education and Research,dev,116,0.1574
+Male|45-60|Bodo|Assam|Udalguri|Doctoral (PhD) or higher level|Freelance|Education and Research,dev,92,0.1207
+Male|45-60|Kannada|Karnataka|Shimoga|Post Graduate|Other|Manufacturing,dev,40,0.0757
+Female|18-30|Assamese|Assam|Nalbari|Post Graduate|Full Time|Education and Research,test,18,0.0348
+Female|18-30|Hindi|Madhya Pradesh|Khandwa|Graduate|Full Time|Technology and Services,test,3,0.005
+Female|30-45|Assamese|Assam|Biswanath|Doctoral (PhD) or higher level|Full Time|Information and Media,test,41,0.0477
+Female|30-45|Dogri|Jammu Kashmir|Jammu|Doctoral (PhD) or higher level|Full Time|Education and Research,test,13,0.0355
+Female|30-45|Maithili|Bihar|Darbhanga|Post Graduate|Freelance|Information and Media,test,110,0.2018
+Female|30-45|Malayalam|Kerala|Pathanamthitta|Post Graduate|Other|Financial Services (Banking and Insurance),test,74,0.1191
+Female|30-45|Punjabi|Punjab|Patiala|Post Graduate|Part Time|Education and Research,test,49,0.0633
+Female|30-45|Sindhi|Gujarat|Ahmedabad|Post Graduate|Full Time|Information and Media,test,65,0.1
+Female|45-60|Kannada|Karnataka|Bangalore Urban|Post Graduate|Full Time|Education and Research,test,38,0.0495
+Female|45-60|Punjabi|Punjab|Fatehgarh Sahib|Post Graduate|Other|Education and Research,test,35,0.0358
+Male|18-30|Kashmiri|Jammu Kashmir|Srinagar|Post Graduate|Other|Education and Research,test,16,0.0575
+Male|30-45|Konkani|Goa|North Goa|Post Graduate|Full Time|Education and Research,test,32,0.0276
+Male|30-45|Maithili|Bihar|Sitamarhi|Graduate|Part Time|Education and Research,test,26,0.0721
+Male|45-60|Odia|Odisha|Puri|Doctoral (PhD) or higher level|Full Time|Education and Research,test,34,0.0374
+Male|60+|Odia|Odisha|Sundergarh|Graduate|Freelance|Education and Research,test,41,0.0507
+Male|60+|Punjabi|Punjab|Rupnagar|Graduate|Other|Government,test,25,0.0788
+Female|18-30|Bengali|West Bengal|South 24 Parganas|Post Graduate|Full Time|Information and Media,train,29,0.0514
+Female|18-30|Bodo|Assam|Kokrajhar|Post Graduate|Other|Education and Research,train,149,0.3373
+Female|18-30|Dogri|Jammu Kashmir|Jammu|Graduate|Other|Education and Research,train,53,0.0763
+Female|18-30|Kannada|Karnataka|Gulbarga|Senior Secondary Level at School (10+2)|Other|Education and Research,train,47,0.0431
+Female|18-30|Kannada|Karnataka|Hassan|Post Graduate|Full Time|Technology and Services,train,139,0.2284
+Female|18-30|Konkani|Goa|South Goa|Post Graduate|Full Time|Government,train,42,0.069
+Female|18-30|Malayalam|Kerala|Pathanamthitta|Post Graduate|Full Time|Education and Research,train,100,0.1527
+Female|18-30|Malayalam|Kerala|Pathanamthitta|Post Graduate|Full Time|Technology and Services,train,92,0.1488
+Female|18-30|Marathi|Maharashtra|Ratnagiri|Graduate|Part Time|Social service,train,70,0.1094
+Female|18-30|Nepali|West Bengal|Darjeeling|Post Graduate|Other|Entertainment,train,144,0.2543
+Female|18-30|Odia|Odisha|Khordha|Post Graduate|Full Time|Transportation and Logistics,train,73,0.1178
+Female|18-30|Punjabi|Punjab|Patiala|Post Graduate|Full Time|Education and Research,train,30,0.047
+Female|18-30|Tamil|Kerala|Thiruvananthapuram|Under Graduate Student|Full Time|Technology and Services,train,69,0.0829
+Female|18-30|Tamil|Tamil Nadu|Virudhunagar|Post Graduate|Full Time|Technology and Services,train,45,0.072
+Female|30-45|Bengali|West Bengal|Kolkata|Post Graduate|Part Time|Education and Research,train,65,0.0812
+Female|30-45|Bodo|Assam|Kokrajhar|Post Graduate|Full Time|Education and Research,train,21,0.0191
+Female|30-45|Gujarati|Gujarat|Amreli|Post Graduate|Freelance|Education and Research,train,85,0.0912
+Female|30-45|Hindi|Goa|South Goa|Post Graduate|Full Time|Technology and Services,train,115,0.1798
+Female|30-45|Kannada|Karnataka|Gulbarga|Post Graduate|Full Time|Technology and Services,train,144,0.156
+Female|30-45|Kashmiri|Jammu Kashmir|Srinagar|Doctoral (PhD) or higher level|Other|Education and Research,train,177,0.2207
+Female|30-45|Konkani|Goa|North Goa|Post Graduate|Full Time|Education and Research,train,35,0.0793
+Female|30-45|Nepali|West Bengal|Kalimpong|Post Graduate|Full Time|Education and Research,train,111,0.2315
+Female|30-45|Nepali|West Bengal|Kalimpong|Post Graduate|Other|Social service,train,36,0.0572
+Female|30-45|Odia|Odisha|Cuttack|Graduate|Other|Healthcare (Medical &amp; Pharma),train,55,0.0708
+Female|30-45|Tamil|Tamil Nadu|Chennai|Graduate|Freelance|Education and Research,train,28,0.0283
+Female|30-45|Tamil|Tamil Nadu|Chennai|Post Graduate|Part Time|Information and Media,train,17,0.0335
+Female|30-45|Telugu|Andhra Pradesh|West Godavari|Post Graduate|Full Time|Information and Media,train,15,0.026
+Female|30-45|Urdu|Karnataka|Bangalore Urban|Post Graduate|Part Time|Education and Research,train,119,0.1528
+Female|45-60|Bengali|West Bengal|South 24 Parganas|Graduate|Other|Financial Services (Banking and Insurance),train,54,0.0516
+Female|45-60|Dogri|Jammu Kashmir|Jammu|Doctoral (PhD) or higher level|Other|Education and Research,train,25,0.0494
+Female|45-60|Hindi|West Bengal|Kolkata|Post Graduate|Full Time|Education and Research,train,20,0.0445
+Female|45-60|Konkani|Goa|North Goa|Graduate|Other|Education and Research,train,43,0.0742
+Female|45-60|Nepali|Assam|Kamrup|Graduate|Full Time|Education and Research,train,73,0.0922
+Female|45-60|Tamil|Tamil Nadu|Chennai|Post Graduate|Full Time|Technology and Services,train,34,0.0276
+Female|45-60|Telugu|Andhra Pradesh|Guntur|Post Graduate|Full Time|Education and Research,train,32,0.0571
+Female|45-60|Telugu|Andhra Pradesh|Krishna|Graduate|Part Time|Technology and Services,train,68,0.1295
+Female|45-60|Telugu|Andhra Pradesh|Kurnool|Post Graduate|Full Time|Technology and Services,train,76,0.0691
+Female|45-60|Telugu|Odisha|Sambalpur|Graduate|Full Time|Education and Research,train,28,0.0504
+Female|45-60|Telugu|Telangana|Hyderabad|Post Graduate|Full Time|Education and Research,train,44,0.0802
+Female|45-60|Urdu|Maharashtra|Satara|Post Graduate|Full Time|Education and Research,train,98,0.0837
+Female|60+|Odia|Odisha|Angul|Post Graduate|Full Time|Social service,train,93,0.1366
+Female|60+|Tamil|Madhya Pradesh|Ujjain|Post Graduate|Full Time|Education and Research,train,34,0.0314
+Male|18-30|Assamese|Assam|Kamrup Metropolitan|Post Graduate|Full Time|Education and Research,train,37,0.0575
+Male|18-30|Assamese|Assam|Lakhimpur|Post Graduate|Full Time|Technology and Services,train,32,0.0273
+Male|18-30|Bengali|West Bengal|Kolkata|Doctoral (PhD) or higher level|Full Time|Education and Research,train,43,0.0648
+Male|18-30|Dogri|Jammu Kashmir|Jammu|Senior Secondary Level at School (10+2)|Full Time|Technology and Services,train,65,0.0848
+Male|18-30|Gujarati|Gujarat|Sabarkantha|Post Graduate|Full Time|Information and Media,train,74,0.1072
+Male|18-30|Hindi|Maharashtra|Pune|Under Graduate Student|Freelance|Financial Services (Banking and Insurance),train,45,0.049
+Male|18-30|Kannada|Karnataka|Bangalore Urban|Graduate|Part Time|Information and Media,train,62,0.0528
+Male|18-30|Malayalam|Kerala|Malappuram|Graduate|Full Time|Technology and Services,train,32,0.0277
+Male|18-30|Nepali|West Bengal|Kalimpong|Post Graduate|Part Time|Social service,train,184,0.4088
+Male|18-30|Odia|Odisha|Sundergarh|Post Graduate|Full Time|Education and Research,train,160,0.1974
+Male|18-30|Telugu|Andhra Pradesh|Prakasam|Under Graduate Student|Full Time|Technology and Services,train,15,0.0177
+Male|18-30|Urdu|Bihar|Gaya|Graduate|Full Time|Technology and Services,train,56,0.0436
+Male|30-45|Assamese|Assam|Nagaon|Post Graduate|Full Time|Education and Research,train,41,0.0439
+Male|30-45|Bengali|West Bengal|Kolkata|Graduate|Freelance|Entertainment,train,63,0.0558
+Male|30-45|Bodo|Assam|Kokrajhar|Post Graduate|Other|Education and Research,train,93,0.0838
+Male|30-45|Dogri|Jammu Kashmir|Jammu|Graduate|Full Time|Technology and Services,train,47,0.0962
+Male|30-45|Gujarati|Gujarat|Sabarkantha|Post Graduate|Part Time|Education and Research,train,54,0.1191
+Male|30-45|Hindi|Gujarat|Vadodara|Post Graduate|Full Time|Information and Media,train,51,0.0917
+Male|30-45|Kannada|Karnataka|Bangalore Urban|Post Graduate|Full Time|Education and Research,train,57,0.0587
+Male|30-45|Kannada|Karnataka|Shimoga|Post Graduate|Full Time|Education and Research,train,25,0.0191
+Male|30-45|Kashmiri|Jammu Kashmir|Anantnag|Doctoral (PhD) or higher level|Full Time|Education and Research,train,62,0.0577
+Male|30-45|Maithili|Bihar|Samastipur|Doctoral (PhD) or higher level|Full Time|Education and Research,train,87,0.1756
+Male|30-45|Malayalam|Kerala|Palakkad|Post Graduate|Full Time|Technology and Services,train,119,0.1501
+Male|30-45|Marathi|Maharashtra|Raigad|Post Graduate|Full Time|Education and Research,train,22,0.0403
+Male|30-45|Punjabi|Punjab|Mansa|Post Graduate|Full Time|Government,train,50,0.0452
+Male|30-45|Sindhi|Rajasthan|Ajmer|Post Graduate|Part Time|Government,train,73,0.083
+Male|30-45|Tamil|Karnataka|Bangalore Rural|Doctoral (PhD) or higher level|Full Time|Education and Research,train,57,0.043
+Male|30-45|Urdu|Gujarat|Ahmedabad|Graduate|Full Time|Technology and Services,train,178,0.2785
+Male|45-60|Dogri|Jammu Kashmir|Jammu|Graduate|Full Time|Retail,train,27,0.0526
+Male|45-60|Gujarati|Gujarat|Amreli|Post Graduate|Part Time|Education and Research,train,20,0.0442
+Male|45-60|Kashmiri|Jammu Kashmir|Srinagar|Doctoral (PhD) or higher level|Full Time|Education and Research,train,55,0.0629
+Male|45-60|Malayalam|Kerala|Pathanamthitta|Graduate|Full Time|Government,train,86,0.0768
+Male|45-60|Nepali|Meghalaya|Ri Bhoi|Post Graduate|Full Time|Education and Research,train,51,0.1194
+Male|45-60|Tamil|Tamil Nadu|Karur|Post Graduate|Full Time|Information and Media,train,39,0.0466
+Male|45-60|Telugu|Telangana|Hyderabad|Doctoral (PhD) or higher level|Full Time|Education and Research,train,56,0.0736
+Male|45-60|Urdu|Gujarat|Ahmedabad|Diploma Holder|Other|Government,train,28,0.0289
+Male|60+|Assamese|Assam|Biswanath|Post Graduate|Other|Education and Research,train,36,0.0452
+Male|60+|Bengali|West Bengal|South 24 Parganas|Post Graduate|Other|Financial Services (Banking and Insurance),train,43,0.0298
+Male|60+|Kannada|Telangana|Hyderabad|Post Graduate|Full Time|Technology and Services,train,25,0.0276
+Male|60+|Konkani|Goa|North Goa|Graduate|Full Time|Financial Services (Banking and Insurance),train,57,0.1272
+Male|60+|Maithili|Bihar|Madhubani|Doctoral (PhD) or higher level|Freelance|Government,train,11,0.0179
+Male|60+|Marathi|Maharashtra|Solapur|Graduate|Full Time|Healthcare (Medical &amp; Pharma),train,97,0.0796

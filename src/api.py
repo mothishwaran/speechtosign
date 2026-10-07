@@ -11,6 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from src import asr, matcher
+from src.eval_sets import eval_sentences
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(_REPO_ROOT, "data")
@@ -24,7 +25,10 @@ CSV_FIELDS = [
     "row_type", "run_id", "utterance_id", "timestamp", "transcript",
     "n_total", "n_sign", "n_spell", "n_uncovered", "coverage",
     "asr_ms", "match_ms", "server_ms", "e2e_ms", "note",
+    # added after Phase 0 - appended at the end so old rows keep their meaning
+    "n_omitted", "content_coverage", "n_similar", "speaker",
 ]
+
 
 
 @asynccontextmanager
@@ -43,9 +47,31 @@ app.add_middleware(
 )
 
 
+def _upgrade_results_header(path: str) -> None:
+    """Rewrite an older results CSV under the current header.
+
+    The log is append-only evidence, so this never drops or edits a row: old
+    rows are copied with the new columns left blank. Written to a temp file
+    and swapped in atomically, so a crash cannot lose the original.
+    """
+    with open(path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames == CSV_FIELDS:
+            return
+        rows = list(reader)
+    tmp = path + ".tmp"
+    with open(tmp, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
+        writer.writeheader()
+        writer.writerows({k: r.get(k, "") for k in CSV_FIELDS} for r in rows)
+    os.replace(tmp, path)
+
+
 def _append_result_row(row: dict) -> None:
     os.makedirs(os.path.dirname(RESULTS_CSV), exist_ok=True)
     file_exists = os.path.exists(RESULTS_CSV)
+    if file_exists:
+        _upgrade_results_header(RESULTS_CSV)
     with open(RESULTS_CSV, "a", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
         if not file_exists:
@@ -74,6 +100,8 @@ def health():
     return {
         "ok": True,
         "model_loaded": asr._model is not None,
+        "asr_model": asr.MODEL_LABEL,
+        "asr_device": asr.device,
         "manifest_rows": manifest_rows,
         "missing_count": len(missing_clips),
         "missing_clips": missing_clips[:MISSING_CLIPS_SHOWN],
@@ -94,6 +122,9 @@ async def translate(
     audio: UploadFile = File(...),
     client_t0: str = Form(...),
     utterance_id: str = Form("adhoc"),
+    spell_unknown: str = Form("0"),
+    speaker: str = Form(""),
+    encode_error: str = Form(""),
 ):
     import time
 
@@ -111,12 +142,15 @@ async def translate(
         f.write(await audio.read())
 
     asr_result = asr.transcribe(upload_path)
-    match_result = matcher.match(asr_result["text"])
+    spell_unknown_on = spell_unknown.lower() in ("1", "true", "on")
+    match_result = matcher.match(asr_result["text"], spell_unknown=spell_unknown_on)
 
     plan = [
         {
             "token": entry["token"],
             "type": entry["type"],
+            "why": entry.get("why"),
+            "means": entry.get("means"),
             "clips": [_clip_url(clip) for clip in entry["clips"]],
         }
         for entry in match_result["plan"]
@@ -128,6 +162,7 @@ async def translate(
         "row_type": "translate",
         "run_id": run_id,
         "utterance_id": utterance_id,
+        "speaker": speaker.strip()[:40],
         "timestamp": time.time(),
         "transcript": asr_result["text"],
         "n_total": match_result["counts"]["total"],
@@ -135,13 +170,19 @@ async def translate(
         "n_spell": match_result["counts"]["spell"],
         "n_uncovered": match_result["counts"]["uncovered"],
         "coverage": round(match_result["coverage"], 4),
+        "n_omitted": match_result["counts"]["omitted"],
+        "content_coverage": round(match_result["content_coverage"], 4),
+        "n_similar": match_result["counts"]["similar"],
         "asr_ms": asr_result["asr_ms"],
         "match_ms": match_result["match_ms"],
         "server_ms": server_ms,
         "e2e_ms": "",
         # Which client audio path ran: browser-side 16kHz WAV encode, or the
         # raw-container fallback (still resampled to 16kHz mono by PyAV).
-        "note": f"upload{suffix}",
+        "note": f"upload{suffix}; {asr_result['model']}@{asr_result['device']}"
+                + ("; spell_unknown" if spell_unknown_on else "")
+                # Why the browser could not make the 16 kHz WAV, when it could not.
+                + (f"; encode_error={encode_error[:120]}" if encode_error else ""),
     })
 
     return {
@@ -150,13 +191,21 @@ async def translate(
         "normalized": match_result["normalized"],
         "plan": plan,
         "coverage": round(match_result["coverage"], 4),
+        "content_coverage": round(match_result["content_coverage"], 4),
+        "content_coverage_with_similar": round(match_result["content_coverage_with_similar"], 4),
         "counts": match_result["counts"],
         "timings": {
             "asr_ms": asr_result["asr_ms"],
             "match_ms": match_result["match_ms"],
             "server_ms": server_ms,
         },
+        "asr": {"model": asr_result["model"], "device": asr_result["device"]},
     }
+
+
+@app.get("/eval_sentences")
+def get_eval_sentences():
+    return {"sentences": eval_sentences()}
 
 
 @app.post("/log_frame")

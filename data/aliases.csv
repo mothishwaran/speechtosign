@@ -37,3 +37,38 @@ empty,none nothing empty,dictionary files three synonyms under one sign
 none,none nothing empty,dictionary files three synonyms under one sign
 right now,now right now,dictionary files both phrases under one sign
 now,now right now,dictionary files both phrases under one sign
+goodnight,good night,one-word spelling of the same greeting (fine-tuned ASR writes it this way)
+goodmorning,good morning,one-word spelling of the same greeting
+again,again repeat,dictionary files both words under one sign
+repeat,again repeat,dictionary files both words under one sign
+always,always every time,dictionary files both phrases under one sign
+every time,always every time,dictionary files both phrases under one sign
+ask,ask question,dictionary files both words under one sign
+question,ask question,dictionary files both words under one sign
+clean,clean tidy,dictionary files both words under one sign
+tidy,clean tidy,dictionary files both words under one sign
+many,many numerous,dictionary files both words under one sign
+numerous,many numerous,dictionary files both words under one sign
+speak,speak speech,dictionary files both words under one sign
+speech,speak speech,dictionary files both words under one sign
+start,start begin,dictionary files both words under one sign
+begin,start begin,dictionary files both words under one sign
+think,think contemplate ponder,dictionary files three synonyms under one sign
+contemplate,think contemplate ponder,dictionary files three synonyms under one sign
+ponder,think contemplate ponder,dictionary files three synonyms under one sign
+tired,tired exhausted fatigued,dictionary files three synonyms under one sign
+exhausted,tired exhausted fatigued,dictionary files three synonyms under one sign
+fatigued,tired exhausted fatigued,dictionary files three synonyms under one sign
+little,little meager,dictionary files both words under one sign
+want,want desire wish for,dictionary files these synonyms under one sign
+desire,want desire wish for,dictionary files these synonyms under one sign
+wish,want desire wish for,dictionary files these synonyms under one sign
+watch,observe watch,dictionary files both words under one sign (verb sense)
+observe,observe watch,dictionary files both words under one sign
+table,table desk,dictionary files both words under one sign
+desk,table desk,dictionary files both words under one sign
+brother,older brother elder brother,closest dictionary sign for plain 'brother'
+older brother,older brother elder brother,dictionary files both phrases under one sign
+elder brother,older brother elder brother,dictionary files both phrases under one sign
+week,week one week,dictionary files both phrases under one sign
+one week,week one week,dictionary files both phrases under one sign

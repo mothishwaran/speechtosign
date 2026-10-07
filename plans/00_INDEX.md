@@ -6,6 +6,21 @@
 
 ---
 
+## Phase 1 status — October 2026
+
+Phase 0 below is the Review 1 record and is unchanged. Since then (details: notebook § 14B,
+contracts: `02_SPEC.md` § 11):
+
+| Area | Result |
+|---|---|
+| Dictionary | ~3,850 phrases from the ISLRTC dictionary (`tools/build_manifest.py`, `tools/drive_sync.py`) |
+| ASR | Whisper `base.en` fine-tuned on Svarah: **~13.2% → 11.3% WER** on 16 unseen Indian-accented speakers; GPU ~0.2 s |
+| Matching | inflected forms, reviewed synonyms, ISL-omitted words, optional fingerspelling |
+| Coverage (held-out sentences) | 53% of all words · **65% of words ISL signs** · 71% with synonyms |
+| Still open | real-voice tests with more speakers · ISL word order · trims of explanation videos by an ISL user |
+
+---
+
 ## 📓 The project notebook
 
 **[`Speech_to_ISL_Project.ipynb`](../Speech_to_ISL_Project.ipynb)** — the complete project in one
@@ -44,6 +59,7 @@ Execution order — hand Sonnet one file at a time:
 | 11 | [11_VIVA_PREP.md](11_VIVA_PREP.md) | Tomorrow PM — question bank + answer skeletons | You, out loud |
 | 12 | [12_RISKS.md](12_RISKS.md) | Risk register, drop order, hard rules | Read at every decision point |
 | 13 | [13_RUNBOOK_blocks_4_5_6.md](13_RUNBOOK_blocks_4_5_6.md) | **Runbook for the manual blocks** — order, exact steps, shot list | **You. ~50 min. Start here now.** |
+| 14 | [14_PHASE1_EVIDENCE.md](14_PHASE1_EVIDENCE.md) | **Phase 1 evidence pack** — every number with its source, figures, failure cases, viva questions. No slide text, by design. | You, for the next review's slides |
 
 ---
 

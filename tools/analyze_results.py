@@ -1,24 +1,27 @@
-"""Turn eval/results.csv into the tables that go on the Initial Results slide.
+"""Turn eval/results.csv into the tables for the results slides.
 
-Joins the `translate` and `frame` rows on run_id, then reports latency and
-coverage. Median plus range — never a lone best-case number.
+Joins the `translate` and `frame` rows on run_id, then reports:
+  1. latency (median + range - never a lone best-case number)
+  2. real-voice ASR accuracy: WER of every tagged recording against its
+     reference sentence (src/eval_sets.py), per speaker and per sentence set
+  3. coverage per speaker and set
+  4. which browser audio path ran, and why the fallback happened if it did
 
-Usage: python tools/analyze_results.py [path/to/results.csv]
+Usage: python tools/analyze_results.py [path/to/results.csv] [--since YYYY-MM-DD]
 """
+import argparse
 import csv
+import datetime as dt
+import os
 import statistics
 import sys
+from collections import defaultdict
 
-CSV_PATH = sys.argv[1] if len(sys.argv) > 1 else "eval/results.csv"
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, _REPO_ROOT)
 
-UTTERANCES = {
-    "u1": "Hello, thank you. My name is Mothishwaran.",
-    "u2": "Hello.",
-    "u3": "Thank you.",
-    "u4": "Sorry.",
-    "u5": "Please.",
-    "u6": "My name is Mothishwaran.",
-}
+from src.eval_sets import eval_sentences  # noqa: E402
+from src.matcher import normalize_phrase  # noqa: E402
 
 
 def num(v, cast=float):
@@ -38,86 +41,97 @@ def spread(values, unit="ms"):
     return f"{med:.0f} {unit}  (range {min(vals):.0f}-{max(vals):.0f}, n={len(vals)})"
 
 
+def word_errors(ref: str, hyp: str) -> tuple[int, int]:
+    """(edit distance in words, reference length) after matcher normalization."""
+    r, h = normalize_phrase(ref).split(), normalize_phrase(hyp).split()
+    d = list(range(len(h) + 1))
+    for i in range(1, len(r) + 1):
+        prev, d[0] = d[0], i
+        for j in range(1, len(h) + 1):
+            prev, d[j] = d[j], min(d[j] + 1, d[j - 1] + 1, prev + (r[i - 1] != h[j - 1]))
+    return d[len(h)], len(r)
+
+
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("csv", nargs="?", default=os.path.join(_REPO_ROOT, "eval", "results.csv"))
+    ap.add_argument("--since", help="only runs on/after this date (YYYY-MM-DD)")
+    args = ap.parse_args()
+
+    refs = {s["id"]: s for s in eval_sentences()}
+    since = dt.datetime.fromisoformat(args.since).timestamp() if args.since else 0
+
     runs = {}
     try:
-        with open(CSV_PATH, newline="", encoding="utf-8") as f:
+        with open(args.csv, newline="", encoding="utf-8") as f:
             for row in csv.DictReader(f):
-                rid = row["run_id"]
-                r = runs.setdefault(rid, {})
+                r = runs.setdefault(row["run_id"], {})
                 if row["row_type"] == "translate":
                     r.update({
+                        "ts": num(row["timestamp"]) or 0,
                         "utterance_id": row.get("utterance_id", "") or "adhoc",
+                        "speaker": (row.get("speaker") or "").strip() or "(unnamed)",
                         "transcript": row["transcript"],
                         "coverage": num(row["coverage"]),
-                        "n_total": num(row["n_total"], int),
-                        "n_sign": num(row["n_sign"], int),
-                        "n_spell": num(row["n_spell"], int),
-                        "n_uncovered": num(row["n_uncovered"], int),
-                        "asr_ms": num(row["asr_ms"]),
-                        "match_ms": num(row["match_ms"]),
-                        "server_ms": num(row["server_ms"]),
-                        "note": row.get("note", ""),
+                        "content_coverage": num(row.get("content_coverage")),
+                        "asr_ms": num(row["asr_ms"]), "match_ms": num(row["match_ms"]),
+                        "server_ms": num(row["server_ms"]), "note": row.get("note", ""),
                     })
                 elif row["row_type"] == "frame":
                     r["e2e_ms"] = num(row["e2e_ms"])
     except FileNotFoundError:
-        print(f"no results yet at {CSV_PATH} - record some runs first.")
+        print(f"no results yet at {args.csv} - record some runs first.")
         return
 
-    complete = [r for r in runs.values() if "transcript" in r]
+    complete = [r for r in runs.values() if "transcript" in r and r["ts"] >= since]
     if not complete:
-        print("no completed runs in the log yet.")
+        print("no completed runs in range.")
         return
+    evals = [r for r in complete if r["utterance_id"] in refs]
+    print(f"runs: {len(complete)}   tagged with a reference sentence: {len(evals)}\n")
 
-    evals = [r for r in complete if r["utterance_id"] in UTTERANCES]
-    print(f"total runs: {len(complete)}   tagged eval runs: {len(evals)}\n")
-
-    print("=" * 72)
-    print("TABLE 1 - Latency (all completed runs)")
-    print("=" * 72)
-    for label, key in [
-        ("ASR", "asr_ms"), ("Match", "match_ms"),
-        ("Server total", "server_ms"), ("End-to-end", "e2e_ms"),
-    ]:
+    print("=" * 72 + "\nTABLE 1 - Latency (all runs)\n" + "=" * 72)
+    for label, key in [("ASR", "asr_ms"), ("Match", "match_ms"),
+                       ("Server total", "server_ms"), ("End-to-end", "e2e_ms")]:
         print(f"  {label:<14} {spread([r.get(key) for r in complete])}")
 
     if evals:
-        print("\n" + "=" * 72)
-        print("TABLE 2 - Coverage per eval utterance")
-        print("=" * 72)
-        print(f"  {'id':<4}{'coverage':>10}{'sign':>6}{'spell':>7}{'uncov':>7}{'tot':>5}   transcript")
-        for uid in sorted(UTTERANCES):
-            for r in [x for x in evals if x["utterance_id"] == uid]:
-                cov = f"{r['coverage'] * 100:.1f}%" if r["coverage"] is not None else "-"
-                print(f"  {uid:<4}{cov:>10}{r['n_sign']:>6}{r['n_spell']:>7}"
-                      f"{r['n_uncovered']:>7}{r['n_total']:>5}   {r['transcript']}")
+        print("\n" + "=" * 72 + "\nTABLE 2 - Real-voice ASR accuracy and coverage\n" + "=" * 72)
+        groups = defaultdict(list)
+        for r in evals:
+            groups[(r["speaker"], refs[r["utterance_id"]]["set"])].append(r)
+        print(f"  {'speaker':<16}{'set':<14}{'runs':>5}{'WER':>8}{'exact':>7}"
+              f"{'coverage':>10}{'ISL-signed':>12}")
+        for (spk, st), rs in sorted(groups.items()):
+            errs = [word_errors(refs[r["utterance_id"]]["text"], r["transcript"]) for r in rs]
+            wer = sum(e for e, _ in errs) / max(sum(n for _, n in errs), 1)
+            exact = sum(e == 0 for e, _ in errs)
+            cov = statistics.mean(r["coverage"] for r in rs if r["coverage"] is not None)
+            cc = [r["content_coverage"] for r in rs if r["content_coverage"] is not None]
+            isl = f"{statistics.mean(cc) * 100:.1f}%" if cc else "-"   # pre-Group-B rows lack it
+            print(f"  {spk[:15]:<16}{st:<14}{len(rs):>5}{wer * 100:>7.1f}%{exact:>4}/{len(rs):<2}"
+                  f"{cov * 100:>9.1f}%{isl:>12}")
 
-        covs = [r["coverage"] for r in evals if r["coverage"] is not None]
-        if covs:
-            print(f"\n  mean coverage across {len(covs)} eval runs: {statistics.mean(covs) * 100:.1f}%")
+        print("\n  Misrecognised recordings (reference vs heard):")
+        shown = 0
+        for r in sorted(evals, key=lambda x: (x["speaker"], x["utterance_id"])):
+            e, n = word_errors(refs[r["utterance_id"]]["text"], r["transcript"])
+            if e:
+                print(f"    {r['speaker'][:12]:<13}{r['utterance_id']:<5} {e}/{n} words wrong")
+                print(f"        expected: {refs[r['utterance_id']]['text']}")
+                print(f"        heard   : {r['transcript']}")
+                shown += 1
+        if not shown:
+            print("    none - every tagged recording was transcribed exactly")
 
-        print("\n" + "=" * 72)
-        print("TABLE 3 - ASR accuracy check (read these yourself)")
-        print("=" * 72)
-        for uid in sorted(UTTERANCES):
-            for r in [x for x in evals if x["utterance_id"] == uid]:
-                expected = UTTERANCES[uid]
-                exact = r["transcript"].strip().lower() == expected.strip().lower()
-                mark = "exact" if exact else "DIFFERS"
-                print(f"  {uid}  [{mark}]")
-                print(f"      expected : {expected}")
-                print(f"      got      : {r['transcript']}")
-
-    paths = [r.get("note", "") for r in complete]
-    wav = sum(1 for p in paths if p == "upload.wav")
-    webm = sum(1 for p in paths if p == "upload.webm")
-    if wav or webm:
-        print("\n" + "=" * 72)
-        print("Audio path used")
-        print("=" * 72)
-        print(f"  browser-encoded 16kHz WAV : {wav}")
-        print(f"  raw container fallback    : {webm}   (PyAV resamples to 16kHz server-side)")
+    print("\n" + "=" * 72 + "\nAudio path used by the browser\n" + "=" * 72)
+    first = [r["note"].split(";")[0] for r in complete]
+    print(f"  browser-encoded 16 kHz WAV : {first.count('upload.wav')}")
+    print(f"  raw-container fallback     : {len(first) - first.count('upload.wav')}"
+          f"   (PyAV still resamples to 16 kHz mono server-side)")
+    reasons = [r["note"].split("encode_error=", 1)[1] for r in complete if "encode_error=" in r["note"]]
+    for why in sorted(set(reasons)):
+        print(f"    fallback reason x{reasons.count(why)}: {why}")
 
 
 if __name__ == "__main__":

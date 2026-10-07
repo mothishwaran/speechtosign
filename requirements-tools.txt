@@ -1,0 +1,9 @@
+# Optional: maintenance scripts only - the app never imports these.
+#   tools/build_synonyms.py   -> nltk (WordNet)
+#   tools/contact_sheet.py, verify_alphabet.py, caption_strip.py -> pillow
+#   Speech_to_ISL_Project.ipynb (build + execute) -> matplotlib, nbconvert, ipykernel
+nltk
+pillow
+matplotlib
+nbconvert
+ipykernel
