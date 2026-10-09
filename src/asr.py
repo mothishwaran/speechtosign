@@ -107,12 +107,27 @@ def get_model() -> WhisperModel:
     return _model
 
 
-def transcribe(audio_path: str) -> dict:
+def transcribe(audio, denoise: bool = False) -> dict:
+    """Transcribe a file path or a 16 kHz mono float32 array.
+
+    denoise=True runs spectral subtraction (src/denoise.py) first; see
+    tools/noise_study.py for when that helps Whisper and when it does not.
+    """
     model = get_model()
+
+    denoise_ms = 0
+    if denoise:
+        from faster_whisper import decode_audio
+        from src.denoise import spectral_subtract
+        if isinstance(audio, str):
+            audio = decode_audio(audio, sampling_rate=16000)
+        t0 = time.perf_counter()
+        audio = spectral_subtract(audio)
+        denoise_ms = int((time.perf_counter() - t0) * 1000)
 
     start = time.perf_counter()
     segments, info = model.transcribe(
-        audio_path,
+        audio,
         language="en",
         beam_size=1,
         initial_prompt="Mothishwaran",
@@ -124,6 +139,7 @@ def transcribe(audio_path: str) -> dict:
         "text": text,
         "language": info.language,
         "asr_ms": asr_ms,
+        "denoise_ms": denoise_ms,
         "model": MODEL_LABEL,
         "device": device,
     }

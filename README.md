@@ -53,6 +53,48 @@ key with the Drive API enabled (no billing), stored only on your machine:
 
 Re-run step 3 whenever videos are added.
 
+### Signs fetched from Google Drive on demand (`src/drive_fetch.py`)
+
+`data/drive_manifest.csv` (committed, built by `tools/build_manifest.py` from the
+Drive index) lists ~3,000 more dictionary signs that are on the ISLRTC Drive but not
+on this machine. When a sentence needs one, the **server** downloads just that clip
+(a few seconds; the page says so), checks it is a real sign (≤ 30 s, else rejected and
+remembered), transcodes it if needed, and caches it — next time it plays instantly.
+The chip shows ☁. Needs `GOOGLE_API_KEY` (see Dataset above); without it those words
+are simply uncovered. To pre-download common ones before a demo:
+`python tools/drive_sync.py download --words-file <list>`, then rebuild the manifest.
+
+### Live speech analysis (in the page)
+
+While recording, the page shows the waveform, a scrolling spectrogram (FFT 2048,
+0–5 kHz), and the pitch track from our own normalised-autocorrelation F0 tracker
+(70–400 Hz, octave-error guard), with short-time energy, zero-crossing rate and a
+voiced / unvoiced / silent indicator; after stopping, the median F0 and voiced ratio.
+It runs entirely in the browser on the microphone stream and never blocks recording.
+
+### Correcting a misheard sentence
+
+Under the transcript, the **"Sign this text"** box takes a typed or corrected sentence and runs
+the same signing pipeline (`POST /translate_text`) — useful when speech recognition mishears a
+short phrase. Typed runs are logged with note `typed` and excluded from ASR analysis.
+
+### Noise reduction, questions, ISL word order, numbers
+
+- **Noise reduction** (`src/denoise.py`, UI switch, off by default): our own spectral
+  subtraction before Whisper. `tools/noise_study.py` (200 unseen-speaker utterances, white and
+  babble noise, 20–0 dB): it raises SNR (+4–7 dB on white noise) but slightly *raises* Whisper's
+  WER in 15 of 18 conditions, hence off by default; the fine-tuned model is the robust part
+  (white 5 dB: 44.9 % → 34.5 % WER vs stock) — see notebook § 14B.8.
+- **Question detection** (`src/isl_order.py`): question word first, verb first, or "?".
+  The final pitch movement (`src/prosody.py`, semitones) is measured and shown as evidence;
+  `tools/question_study.py` showed on Svarah that it is a weak cue for read Indian English,
+  so it does not decide (notebook § 14B.9).
+- **ISL word order** (UI switch, **off** by default so signs follow the spoken order): time words first, negation last, question
+  word last — inside each sentence. The debug panel shows the ISL gloss
+  (e.g. *Where is the hospital?* → HOSPITAL WHERE).
+- **Numbers**: *25* → TWENTY FIVE, *7:30* → SEVEN THIRTY; digit by digit when a word
+  (forty, eighty, ninety) has no sign.
+
 ### How words become signs (`src/matcher.py`)
 
 Each word is resolved in this order; the debug panel colours each type:
@@ -61,7 +103,8 @@ Each word is resolved in this order; the debug panel colours each type:
 |---|---|---|
 | sign | exact dictionary phrase (longest n-gram first), or an inflected form of one | "thank you", "books" → book |
 | similar | a **reviewed** synonym's sign — counted separately | "physician" → doctor |
-| spell | fingerspelled: a name, or any unknown word if the UI switch is on | "Mothishwaran" |
+| related | no sign or synonym: the closest **more general** sign (WordNet parent), labelled; UI switch, **off** by default | "puppy" → dog, "cottage" → house |
+| spell | fingerspelled: a name, or any word with no sign locally or on Drive (UI switch, **on** by default; ~1 s per letter) | "Mothishwaran", "about" |
 | omitted | not signed in ISL (articles, forms of *be*, *to*, *of*) | "is", "the" |
 | uncovered | no sign available — dropped | |
 

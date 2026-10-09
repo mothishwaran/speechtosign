@@ -119,6 +119,26 @@
   .chip.spell { background: #713f12; color: #fde68a; border-color: #f59e0b; }
   .chip.uncovered { background: #1f2430; color: #9aa4b2; border-color: #3a4152; }
   .chip.similar { background: #172554; color: #93c5fd; border-color: #3b82f6; }
+  .chip.related { background: #3b0764; color: #d8b4fe; border-color: #a855f7; }
+  .chip .src { margin-left: 4px; font-size: 11px; opacity: .85; }
+  .analysis { margin-top: 12px; padding: 10px 12px; background: #10141c; border: 1px solid #2a2e38; border-radius: 8px; }
+  .analysis h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #9aa4b2; margin: 0 0 6px; }
+  .analysis canvas { display: block; width: 100%; background: #0b0d12; border-radius: 4px; margin-bottom: 4px; }
+  .analysis .lbl { font-size: 11px; color: #6b7280; margin: 2px 0 6px; display: flex; justify-content: space-between; }
+  .readouts { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: #e6e6e6; font-variant-numeric: tabular-nums; }
+  .readouts span b { color: #9aa4b2; font-weight: normal; margin-right: 4px; }
+  #rVoiced.on { color: #86efac; }
+  #gloss { font-size: 15px; letter-spacing: .03em; background: #0f1115; border-radius: 6px;
+           padding: 8px 10px; margin-bottom: 6px; color: #fde68a; min-height: 20px; }
+  #islRules { font-size: 12px; color: #9aa4b2; margin-bottom: 10px; }
+  .fixbar { display: flex; gap: 6px; margin: -4px 0 12px; }
+  .fixbar input { flex: 1; background: #0f1115; color: #e6e6e6; border: 1px solid #2a2e38;
+                  border-radius: 6px; padding: 6px 8px; font-size: 14px; }
+  .fixbar button { background: #374151; color: #e6e6e6; border: none; border-radius: 6px;
+                   padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+  .fixbar button:disabled { opacity: .5; cursor: wait; }
+  .qbadge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px;
+            background: #422006; color: #fdba74; border: 1px solid #f97316; margin-left: 6px; }
   .chip.omitted { background: transparent; color: #6b7280; border-color: #2a2e38; border-style: dashed; text-decoration: line-through; }
   .chip.spell.unknown { border-style: dashed; }
   .toggle { font-size: 13px; color: #9aa4b2; display: flex; align-items: center; gap: 6px; margin-top: 8px; }
@@ -145,14 +165,32 @@
       <label class="rate">
         Fingerspell speed
         <select id="spellRate">
-          <option value="0.6">0.6&times; slower</option>
-          <option value="0.75">0.75&times; slow</option>
-          <option value="1.0" selected>1.0&times; recorded</option>
-          <option value="1.25">1.25&times; faster</option>
+          <option value="0.75">0.75&times; very slow</option>
+          <option value="1.0">1.0&times; slow (1.5 s per letter)</option>
+          <option value="1.25">1.25&times;</option>
+          <option value="1.5" selected>1.5&times; normal (1 s per letter)</option>
+          <option value="1.75">1.75&times; fast</option>
+          <option value="2.0">2.0&times; very fast</option>
         </select>
       </label>
     </div>
     <div id="errorBox"></div>
+    <div class="analysis" id="analysis">
+      <h3>Live speech analysis (computed in the browser while you speak)</h3>
+      <canvas id="cvWave" width="600" height="60"></canvas>
+      <div class="lbl"><span>waveform</span><span>amplitude</span></div>
+      <canvas id="cvSpec" width="600" height="110"></canvas>
+      <div class="lbl"><span>spectrogram &middot; FFT 2048, Blackman window</span><span>0 &ndash; 5 kHz</span></div>
+      <canvas id="cvPitch" width="600" height="70"></canvas>
+      <div class="lbl"><span>pitch (F0) &middot; our autocorrelation tracker</span><span>70 &ndash; 400 Hz</span></div>
+      <div class="readouts">
+        <span><b>F0</b><span id="rF0">&mdash;</span></span>
+        <span><b>energy</b><span id="rEnergy">&mdash;</span></span>
+        <span><b>ZCR</b><span id="rZcr">&mdash;</span></span>
+        <span id="rVoiced">silent</span>
+        <span><b>summary</b><span id="rSummary">&mdash;</span></span>
+      </div>
+    </div>
     <div class="evalbar">
       <label>Eval utterance
         <select id="utteranceId">
@@ -167,17 +205,31 @@
       </label>
       <label>Speaker <input id="speaker" placeholder="your name" maxlength="40"></label>
       <span id="readAloud">Pick an utterance, then read it aloud exactly.</span>
-      <label class="toggle"><input type="checkbox" id="spellUnknown">
-        Fingerspell words with no sign (off = drop them, as Deaf signers would not spell every word)</label>
+      <label class="toggle"><input type="checkbox" id="spellUnknown" checked>
+        Fingerspell any word with no sign on this laptop or on Google Drive (off = drop it)</label>
+      <label class="toggle"><input type="checkbox" id="useIslOrder">
+        Reorder into ISL word order (time first, negation last, question word last) &mdash; off = play in the order spoken</label>
+      <label class="toggle"><input type="checkbox" id="denoise">
+        Noise reduction before recognition (spectral subtraction)</label>
+      <label class="toggle"><input type="checkbox" id="useRelated">
+        Instead of spelling, use the closest more general sign, labelled (e.g. puppy &rarr; dog)</label>
     </div>
   </div>
 
   <div class="panel debug">
     <h2>Debug panel</h2>
     <div id="transcript">&mdash;</div>
+    <div class="fixbar">
+      <input id="fixText" placeholder="Misheard? Type the correct sentence here…">
+      <button id="signTextBtn" title="Sign this text without recording again">Sign this text</button>
+    </div>
+    <div id="gloss" title="Signs in the order they are played">&mdash;</div>
+    <div id="islRules"></div>
     <div class="legend">
       <span><span class="chip sign">sign</span> matched</span>
       <span><span class="chip similar">similar</span> synonym's sign</span>
+      <span><span class="chip related">related</span> more general sign</span>
+      <span><span class="chip sign">word<span class="src">&#9729;</span></span> fetched from Drive</span>
       <span><span class="chip spell">spell</span> fingerspelled</span>
       <span><span class="chip omitted">omitted</span> not signed in ISL</span>
       <span><span class="chip uncovered">uncovered</span> no sign available</span>
@@ -187,9 +239,13 @@
       <tr><td>Coverage (all words)</td><td id="mCoverage">&mdash;</td></tr>
       <tr><td>Coverage (words ISL signs)</td><td id="mContent">&mdash;</td></tr>
       <tr><td>&nbsp;&nbsp;+ synonym signs</td><td id="mSimilar">&mdash;</td></tr>
+      <tr><td>&nbsp;&nbsp;+ related signs</td><td id="mRelated">&mdash;</td></tr>
       <tr><td>Counts</td><td id="mCounts">&mdash;</td></tr>
       <tr><td>ASR</td><td id="mAsr">&mdash;</td></tr>
       <tr><td>Match</td><td id="mMatch">&mdash;</td></tr>
+      <tr><td>Drive fetch</td><td id="mDrive">&mdash;</td></tr>
+      <tr><td>Question</td><td id="mQuestion">&mdash;</td></tr>
+      <tr><td>Final pitch movement</td><td id="mPitch">&mdash;</td></tr>
       <tr><td>Server</td><td id="mServer">&mdash;</td></tr>
       <tr><td>End-to-end</td><td id="mE2e">&mdash;</td></tr>
     </table>
@@ -234,10 +290,12 @@ async function startRecording() {
     return;
   }
   showError('');
+  liveAnalysis.start(stream);
   chunks = [];
   mediaRecorder = new MediaRecorder(stream);
   mediaRecorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
   mediaRecorder.onstop = () => {
+    liveAnalysis.stop();
     stream.getTracks().forEach((t) => t.stop());
     onRecordingStopped();
   };
@@ -298,8 +356,20 @@ async function onRecordingStopped() {
     form.append('spell_unknown', document.getElementById('spellUnknown').checked ? '1' : '0');
     form.append('speaker', document.getElementById('speaker').value);
     form.append('encode_error', encodeError);
+    form.append('use_related', document.getElementById('useRelated').checked ? '1' : '0');
+    form.append('use_isl_order', document.getElementById('useIslOrder').checked ? '1' : '0');
+    form.append('denoise', document.getElementById('denoise').checked ? '1' : '0');
 
-    const res = await fetch('/translate', { method: 'POST', body: form });
+    // A sign seen for the first time is downloaded from Google Drive before the
+    // server answers; say so instead of looking frozen.
+    const slowTimer = setTimeout(
+      () => setState('Transcribing… fetching new signs from Google Drive (first use only)'), 2000);
+    let res;
+    try {
+      res = await fetch('/translate', { method: 'POST', body: form });
+    } finally {
+      clearTimeout(slowTimer);
+    }
     if (!res.ok) {
       const body = await res.text();
       throw new Error(`Server returned ${res.status}\n${body.slice(0, 300)}`);
@@ -308,7 +378,9 @@ async function onRecordingStopped() {
     console.log('[translate] result', result);
 
     renderDebugPanel(result);
-    await playPlan(result.plan, result.run_id, clientT0, utteranceId);
+    document.getElementById('fixText').value = result.transcript || '';
+    const order = result.isl && result.isl.order ? result.isl.order : result.plan.map((_, i) => i);
+    await playPlan(order.map((i) => result.plan[i]), result.run_id, clientT0, utteranceId);
   } catch (err) {
     console.error('[pipeline] failed', err);
     setState('Error');
@@ -380,9 +452,22 @@ function renderDebugPanel(result) {
   for (const entry of result.plan) {
     const chip = document.createElement('span');
     chip.className = 'chip ' + entry.type + (entry.why === 'unknown' ? ' unknown' : '');
-    if (entry.why === 'unknown') chip.title = 'no sign in the dictionary - fingerspelled';
+    const tips = {
+      similar: `synonym: shown with the sign for "${entry.means}"`,
+      related: `no sign for this word: shown with the more general sign "${entry.means}"`,
+    };
+    chip.title = entry.why === 'unknown' ? 'no sign in the dictionary - fingerspelled'
+      : entry.why && entry.why.startsWith('Drive') ? entry.why
+      : tips[entry.type] || '';
     chip.textContent = entry.means && entry.means !== entry.token.toLowerCase()
       ? `${entry.token} → ${entry.means}` : entry.token;
+    if (entry.source === 'drive') {
+      const mark = document.createElement('span');
+      mark.className = 'src';
+      mark.textContent = '\u2601';
+      chip.appendChild(mark);
+      chip.title = `fetched from Google Drive just now (${entry.drive_status})`;
+    }
     chip.dataset.token = entry.token;
     chipsEl.appendChild(chip);
   }
@@ -392,10 +477,42 @@ function renderDebugPanel(result) {
     ? (result.content_coverage * 100).toFixed(1) + '%' : '—';
   document.getElementById('mSimilar').textContent = result.content_coverage_with_similar !== undefined
     ? (result.content_coverage_with_similar * 100).toFixed(1) + '%' : '—';
+  const glossEl = document.getElementById('gloss');
+  const q = result.question || {};
+  glossEl.textContent = (result.isl && result.isl.gloss) || '—';
+  if (q.type) {
+    const badge = document.createElement('span');
+    badge.className = 'qbadge';
+    badge.textContent = q.type === 'wh' ? 'wh-question' : 'yes/no question';
+    badge.title = q.type === 'yesno'
+      ? 'In ISL a yes/no question is marked by raised eyebrows (a facial, non-manual marker) - dictionary clips cannot show it.'
+      : 'Question word moved to the end, as in ISL.';
+    glossEl.appendChild(badge);
+  }
+  document.getElementById('islRules').textContent = result.isl
+    ? (result.isl.enabled
+        ? (result.isl.rules.length ? 'ISL order: ' + result.isl.rules.join(' · ') : 'ISL order: no rule needed (same as English)')
+        : 'ISL order off: signs play in English order')
+    : '';
+  document.getElementById('mQuestion').textContent = q.type
+    ? `${q.type === 'wh' ? 'wh-question' : 'yes/no'} (${q.evidence})` : `no (${q.evidence || '—'})`;
+  const pr = q.pitch || {};
+  document.getElementById('mPitch').textContent = pr.final_rise_st === null || pr.final_rise_st === undefined
+    ? 'not enough voicing'
+    : `${pr.final_rise_st > 0 ? '+' : ''}${pr.final_rise_st} semitones (${pr.final_rise_st >= 0 ? 'rising' : 'falling'}), median F0 ${Math.round(pr.median_f0)} Hz`;
+  document.getElementById('mRelated').textContent = result.content_coverage_with_related !== undefined
+    ? (result.content_coverage_with_related * 100).toFixed(1) + '%' : '—';
   document.getElementById('mCounts').textContent =
-    `${c.sign} sign · ${c.similar || 0} similar · ${c.spell} spell · ${c.omitted || 0} omitted · ${c.uncovered} uncovered · ${c.total} total`;
-  document.getElementById('mAsr').textContent = result.asr
-    ? `${result.timings.asr_ms} ms · ${result.asr.model} on ${result.asr.device.toUpperCase()}`
+    `${c.sign} sign · ${c.similar || 0} similar · ${c.related || 0} related · ${c.spell} spell · ` +
+    `${c.omitted || 0} omitted · ${c.uncovered} uncovered · ${c.total} total`;
+  const fromDrive = new Set(result.plan.filter((p) => p.source === 'drive').map((p) => p.clips[0])).size;
+  document.getElementById('mDrive').textContent = result.timings.drive_ms
+    ? `${fromDrive} sign(s) in ${result.timings.drive_ms} ms` : 'none needed';
+  document.getElementById('mAsr').textContent = result.asr && result.asr.model === 'typed'
+    ? 'typed text (no speech recognition)'
+    : result.asr
+    ? `${result.timings.asr_ms} ms · ${result.asr.model} on ${result.asr.device.toUpperCase()}` +
+      (result.timings.denoise_ms ? ` · denoise ${result.timings.denoise_ms} ms` : '')
     : result.timings.asr_ms + ' ms';
   document.getElementById('mMatch').textContent = result.timings.match_ms + ' ms';
   document.getElementById('mServer').textContent = result.timings.server_ms + ' ms';
@@ -538,6 +655,188 @@ async function playQueue(readyItems, runId, clientT0, utteranceId) {
     activeSlot = 1 - activeSlot;
   }
 }
+// --- Live speech analysis: waveform, spectrogram, pitch (F0), energy, ZCR ---
+// Runs on the microphone stream while recording. Pitch uses our own
+// normalised autocorrelation, not a library: for each frame, find the lag in
+// the 70-400 Hz range where the signal best matches a shifted copy of itself.
+const liveAnalysis = (() => {
+  const F0_MIN = 70, F0_MAX = 400, SPEC_MAX_HZ = 5000, VOICED_R = 0.5, SILENCE_DB = -50;
+  let ctx = null, analyser = null, raf = 0, timeBuf, freqBuf, f0s = [], frames = 0, voicedFrames = 0;
+  const cw = document.getElementById('cvWave'), cs = document.getElementById('cvSpec');
+  const cp = document.getElementById('cvPitch');
+  const gw = cw.getContext('2d'), gs = cs.getContext('2d'), gp = cp.getContext('2d');
+
+  function colour(v) {                       // 0..1 -> dark blue .. yellow
+    const r = Math.round(255 * Math.min(1, Math.max(0, 1.6 * v - 0.4)));
+    const g = Math.round(255 * Math.min(1, Math.max(0, 1.4 * v - 0.1)));
+    const b = Math.round(255 * Math.min(1, Math.max(0, 0.9 - Math.abs(v - 0.35) * 1.6)));
+    return `rgb(${r},${g},${b})`;
+  }
+
+  function pitch(buf, sr) {
+    // Normalised autocorrelation r(lag) = sum x[n]x[n+lag] / sqrt(energy terms);
+    // the best lag in the voice range gives the period, F0 = sr / lag.
+    const n = buf.length, minLag = Math.floor(sr / F0_MAX), maxLag = Math.floor(sr / F0_MIN);
+    const rs = [];
+    let best = 0;
+    for (let lag = minLag; lag <= maxLag && lag < n / 2; lag++) {
+      let num = 0, e1 = 0, e2 = 0;
+      for (let i = 0; i + lag < n; i++) {
+        num += buf[i] * buf[i + lag];
+        e1 += buf[i] * buf[i];
+        e2 += buf[i + lag] * buf[i + lag];
+      }
+      const r = num / (Math.sqrt(e1 * e2) || 1);
+      rs.push(r);
+      if (r > best) best = r;
+    }
+    if (best < VOICED_R) return null;
+    // Multiples of the true period (2T, 3T ...) score almost as high as T, so
+    // the global maximum can land an octave or two low. Take the SHORTEST lag
+    // that is a local peak within 10% of the best instead.
+    for (let k = 1; k < rs.length - 1; k++) {
+      if (rs[k] >= 0.9 * best && rs[k] >= rs[k - 1] && rs[k] >= rs[k + 1]) {
+        return { f0: sr / (minLag + k), r: rs[k] };
+      }
+    }
+    return null;
+  }
+
+  function scroll(g, c) {                     // shift the canvas 2 px left
+    g.drawImage(c, -2, 0);
+    g.fillStyle = '#0b0d12';
+    g.fillRect(c.width - 2, 0, 2, c.height);
+  }
+
+  function frame() {
+    raf = requestAnimationFrame(frame);
+    const sr = ctx.sampleRate;
+    analyser.getFloatTimeDomainData(timeBuf);
+    analyser.getFloatFrequencyData(freqBuf);
+    frames++;
+
+    // waveform
+    gw.fillStyle = '#0b0d12';
+    gw.fillRect(0, 0, cw.width, cw.height);
+    gw.strokeStyle = '#60a5fa';
+    gw.beginPath();
+    for (let x = 0; x < cw.width; x++) {
+      const v = timeBuf[Math.floor(x * timeBuf.length / cw.width)];
+      const y = cw.height / 2 - v * cw.height / 2;
+      if (x) gw.lineTo(x, y); else gw.moveTo(x, y);
+    }
+    gw.stroke();
+
+    // short-time energy (dBFS) and zero-crossing rate
+    let e = 0, zc = 0;
+    for (let i = 0; i < timeBuf.length; i++) {
+      e += timeBuf[i] * timeBuf[i];
+      if (i && (timeBuf[i] >= 0) !== (timeBuf[i - 1] >= 0)) zc++;
+    }
+    const db = 10 * Math.log10(e / timeBuf.length + 1e-12);
+    const zcr = zc / (timeBuf.length / sr);   // crossings per second
+
+    // spectrogram column (0 - 5 kHz)
+    scroll(gs, cs);
+    const maxBin = Math.floor(SPEC_MAX_HZ / (sr / 2) * freqBuf.length);
+    for (let y = 0; y < cs.height; y++) {
+      const bin = Math.floor((1 - y / cs.height) * maxBin);
+      const v = (freqBuf[bin] + 100) / 70;      // -100..-30 dB -> 0..1
+      gs.fillStyle = colour(Math.min(1, Math.max(0, v)));
+      gs.fillRect(cs.width - 2, y, 2, 1);
+    }
+
+    // pitch track (only where there is speech energy)
+    scroll(gp, cp);
+    const p = db > SILENCE_DB ? pitch(timeBuf, sr) : null;
+    if (p) {
+      voicedFrames++;
+      f0s.push(p.f0);
+      const y = cp.height - (p.f0 - F0_MIN) / (F0_MAX - F0_MIN) * cp.height;
+      gp.fillStyle = '#fbbf24';
+      gp.fillRect(cp.width - 2, y - 1, 2, 3);
+    }
+    document.getElementById('rF0').textContent = p ? `${p.f0.toFixed(0)} Hz` : '—';
+    document.getElementById('rEnergy').textContent = `${db.toFixed(0)} dBFS`;
+    document.getElementById('rZcr').textContent = `${(zcr / 1000).toFixed(1)} k/s`;
+    const voiced = document.getElementById('rVoiced');
+    voiced.textContent = p ? 'voiced' : db > SILENCE_DB ? 'unvoiced' : 'silent';
+    voiced.classList.toggle('on', Boolean(p));
+  }
+
+  return {
+    start(stream) {
+      try {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = ctx.createAnalyser();
+        analyser.fftSize = 2048;
+        analyser.smoothingTimeConstant = 0;
+        ctx.createMediaStreamSource(stream).connect(analyser);   // analysis only, not to speakers
+        timeBuf = new Float32Array(analyser.fftSize);
+        freqBuf = new Float32Array(analyser.frequencyBinCount);
+        f0s = []; frames = 0; voicedFrames = 0;
+        for (const [g, c] of [[gs, cs], [gp, cp]]) {
+          g.fillStyle = '#0b0d12';
+          g.fillRect(0, 0, c.width, c.height);
+        }
+        document.getElementById('rSummary').textContent = '—';
+        frame();
+      } catch (err) {
+        console.warn('[analysis] live display unavailable', err);   // never blocks recording
+      }
+    },
+    stop() {
+      cancelAnimationFrame(raf);
+      if (ctx) ctx.close();
+      ctx = null;
+      if (f0s.length) {
+        const sorted = [...f0s].sort((a, b) => a - b);
+        const median = sorted[Math.floor(sorted.length / 2)];
+        document.getElementById('rSummary').textContent =
+          `median F0 ${median.toFixed(0)} Hz · voiced ${(100 * voicedFrames / Math.max(frames, 1)).toFixed(0)}% of frames`;
+      }
+    },
+  };
+})();
+
+// --- Sign typed / corrected text (same pipeline, no speech recognition) ---
+document.getElementById('signTextBtn').addEventListener('click', signTypedText);
+document.getElementById('fixText').addEventListener('keydown', (e) => { if (e.key === 'Enter') signTypedText(); });
+
+async function signTypedText() {
+  const text = document.getElementById('fixText').value.trim();
+  const btn = document.getElementById('signTextBtn');
+  if (!text || btn.disabled) return;
+  const clientT0 = Date.now();
+  btn.disabled = true; recordBtn.disabled = true;
+  showError('');
+  setState('Signing typed text');
+  try {
+    const form = new FormData();
+    form.append('text', text);
+    form.append('spell_unknown', document.getElementById('spellUnknown').checked ? '1' : '0');
+    form.append('use_related', document.getElementById('useRelated').checked ? '1' : '0');
+    form.append('use_isl_order', document.getElementById('useIslOrder').checked ? '1' : '0');
+    form.append('speaker', document.getElementById('speaker').value);
+    const slowTimer = setTimeout(() => setState('Fetching new signs from Google Drive (first use only)'), 2000);
+    let res;
+    try { res = await fetch('/translate_text', { method: 'POST', body: form }); }
+    finally { clearTimeout(slowTimer); }
+    if (!res.ok) throw new Error(`Server returned ${res.status}
+${(await res.text()).slice(0, 300)}`);
+    const result = await res.json();
+    renderDebugPanel(result);
+    const order = result.isl && result.isl.order ? result.isl.order : result.plan.map((_, i) => i);
+    await playPlan(order.map((i) => result.plan[i]), result.run_id, clientT0, 'adhoc');
+  } catch (err) {
+    console.error('[typed] failed', err);
+    setState('Error');
+    showError(err.message);
+  } finally {
+    btn.disabled = false; recordBtn.disabled = false;
+  }
+}
+
 // --- Eval sentence list (served from eval/*.txt) + remembered speaker name ---
 (async function loadEvalSentences() {
   const sel = document.getElementById('utteranceId');

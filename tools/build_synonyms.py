@@ -6,6 +6,13 @@ database), computed once here so the app needs no NLP library at runtime:
   form     inflected form of a dictionary word: "books" -> "book",
            "going" -> "go", "children" -> "child". Same word, so the
            matcher treats it as an ordinary sign.
+  related  no sign and no synonym: the nearest MORE GENERAL word that has a
+           sign (WordNet hypernym, up to 2 levels): "sparrow" -> bird,
+           "Mumbai" -> city. Only generalisations, which stay true ("a
+           sparrow is a bird"); never siblings, which are different things
+           (dog/cat, husband/wife, man/woman). Nouns only, vague parents
+           (entity, object, person, group ...) excluded. Used unless a
+           reviewer writes reject; shown as type "related", counted apart.
   synonym  a different word with the same meaning: "kid" -> "child",
            "physician" -> "doctor". Only a PROPOSAL: the matcher uses it
            once a person sets review=ok (shown as type "similar", counted
@@ -43,6 +50,29 @@ from src.matcher import ISL_OMITTED, normalize_phrase  # noqa: E402
 MANIFEST = "data/manifest.csv"
 OUT = "data/synonyms.csv"
 FORM_POS_SHARE = 0.7
+DRIVE_MANIFEST = "data/drive_manifest.csv"
+# Generalisations too vague to stand in for a word.
+PLACE_TYPES = {"city", "town", "capital", "national capital", "state capital", "country",
+               "island", "river", "state", "province", "port", "village", "lake", "mountain"}
+VAGUE_PARENTS = {
+    "entity", "physical entity", "abstraction", "abstract entity", "object", "whole", "thing",
+    "matter", "causal agent", "unit", "artifact", "artefact", "act", "event", "state", "group",
+    "part", "attribute", "relation", "measure", "process", "communication", "location",
+    "substance", "quantity", "condition", "activity", "action", "change", "person", "individual",
+    "organism", "being", "living thing", "people", "content", "message", "work", "property",
+    "kind", "type", "form", "way", "point", "line", "set", "system", "structure", "place",
+    "area", "region", "body", "material", "device", "instrument", "instrumentality", "means",
+    "time", "period", "feeling", "idea", "knowledge", "cognition", "psychological feature",
+    # found in review: technically parents, but too vague to sign in place of the word
+    "quality", "amount", "situation", "concept", "power", "parcel", "construction", "piece",
+    "section", "sorting", "organization", "operation", "approval", "figure", "effort", "find",
+    "conclusion", "start", "shift", "advance", "interest", "record", "document", "business",
+    "occupation", "order", "age", "attitude", "goal", "plan", "equal", "force", "phenomenon",
+    "environment", "experience", "support", "implementation", "look", "sign", "account", "word",
+    "head", "terminal", "block", "cut", "vision", "entry", "approach", "expanse", "setting",
+    "map", "drive", "return", "hit", "reach", "opinion", "designation", "good", "deposit",
+    "first", "agreement", "share", "transmission", "medium", "model", "national",
+}
 WORDLIST_URL = ("https://raw.githubusercontent.com/first20hours/google-10000-english/"
                 "master/google-10000-english-no-swears.txt")
 
@@ -86,6 +116,10 @@ def main():
 
     with open(MANIFEST, newline="", encoding="utf-8") as f:
         phrases = {r["phrase"] for r in csv.DictReader(f)}
+    drive_phrases = set()
+    if os.path.exists(DRIVE_MANIFEST):        # fetchable on demand, so usable targets too
+        with open(DRIVE_MANIFEST, newline="", encoding="utf-8") as f:
+            drive_phrases = {r["phrase"] for r in csv.DictReader(f)}
     function_words = set(stopwords.words("english")) | ISL_OMITTED
 
     reviewed = {}
@@ -96,7 +130,7 @@ def main():
 
     def usable(target):
         # > 1: single letters are alphabet signs, not words ("go", "up" are fine)
-        return target in phrases and len(target) > 1 and not re.fullmatch(r"[\d ]+", target)
+        return (target in phrases or target in drive_phrases) and len(target) > 1             and not re.fullmatch(r"[\d ]+", target)
 
     rows = []
     for w in load_wordlist():
@@ -136,6 +170,42 @@ def main():
                             and wn.synsets(lemma.name())[:1] == [top]):
                         found = (t, "synonym", top.name())
                         break
+        if not found and w not in drive_phrases:              # 3) related (generalisation)
+            base = wn.morphy(w, "n") or w
+            share = pos_share(wn, base, "n")
+            nouns = wn.synsets(base, "n")
+            first = wn.synsets(base)
+            noun_main = (share >= FORM_POS_SHARE) if share is not None else                 (bool(first) and first[0].pos() == "n")
+            top = None
+            if nouns and noun_main:
+                # The word's most frequent ATTESTED noun sense (corpus count),
+                # not WordNet's first-listed one: that rule gave chess -> grass,
+                # cake -> block, Cameroon -> volcano.
+                counted = [(sum(l.count() for l in n.lemmas() if l.name().lower() == base), n)
+                           for n in nouns]
+                best_count, best = max(counted, key=lambda x: x[0])
+                if best_count > 0:
+                    top = best
+                elif len(nouns) == 1 and any(
+                        l.name().replace("_", " ").lower() in PLACE_TYPES
+                        for h in nouns[0].instance_hypernyms() for l in h.lemmas()):
+                    top = nouns[0]          # unambiguous place name: Beijing -> city
+            if top is not None:
+                level1 = top.hypernyms() + top.instance_hypernyms()
+                level2 = [h2 for h in level1 for h2 in h.hypernyms()]
+                for depth, parents in ((1, level1), (2, level2)):
+                    for h in parents:
+                        for lemma in h.lemmas():
+                            t = lemma.name().replace("_", " ").lower()
+                            if t in VAGUE_PARENTS or t == w or t == base:
+                                continue
+                            if t in drive_phrases or usable(t):
+                                found = (t, "related", f"hypernym L{depth} {h.name()}")
+                                break
+                        if found:
+                            break
+                    if found:
+                        break
         if found:
             target, kind, evidence = found
             review = reviewed.get((w, target), "")
@@ -148,6 +218,9 @@ def main():
         wr.writerows(sorted(rows, key=lambda r: (r["kind"], r["word"])))
     n_form = sum(r["kind"] == "form" for r in rows)
     n_ok = sum(r["kind"] == "synonym" and r["review"] == "ok" for r in rows)
+    n_rel = sum(r["kind"] == "related" for r in rows)
+    print(f"  related (generalisations): {n_rel} "
+          f"({sum(r['kind'] == 'related' and r['review'] == 'reject' for r in rows)} rejected)")
     print(f"wrote {OUT}: {n_form} word forms + {len(rows) - n_form} synonym proposals "
           f"({n_ok} approved; {sum(r['review'] == 'reject' for r in rows)} rejected)")
 

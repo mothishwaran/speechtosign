@@ -1,38 +1,82 @@
-row_type,run_id,utterance_id,timestamp,transcript,n_total,n_sign,n_spell,n_uncovered,coverage,asr_ms,match_ms,server_ms,e2e_ms,note
-translate,d0fb74c6a81c,u3,1786960981.0137534,,0,0,0,0,0.0,810,0,812,,upload.webm
-translate,eff29919af34,u3,1786960986.6540923,Thank you.,2,2,0,0,1.0,820,0,822,,upload.webm
-frame,eff29919af34,u3,1786960986.7649744,,,,,,,,,,1028,
-translate,f8a01441cb24,u2,1786961017.7703633,Hello!,1,1,0,0,1.0,849,0,850,,upload.webm
-frame,f8a01441cb24,u2,1786961017.8659468,,,,,,,,,,1019,
-translate,344a393c2ed8,u1,1786961157.0027173,"You, my name is Mothishwaran",5,1,1,3,0.2,833,0,834,,upload.webm
-frame,344a393c2ed8,u1,1786961157.484443,,,,,,,,,,1411,
-translate,05361233c89c,u1,1786961177.0242782,"Hello, thank you my name is Mothishwaran.",7,4,1,2,0.5714,848,0,853,,upload.webm
-frame,05361233c89c,u1,1786961177.8727784,,,,,,,,,,1790,
-translate,06042480838a,adhoc,1787129859.51311,"Hello, thank you. My name is Mothishwaran.",7,4,1,2,0.5714,1006,0,1008,,upload.wav
-frame,06042480838a,adhoc,1787129893.4196107,,,,,,,,,,1290,
-translate,9cfdfb82c8c8,adhoc,1787129949.0136616,"Hello, my name is Alo. My name is Alo.",9,3,2,4,0.3333,855,0,856,,upload.webm
-frame,9cfdfb82c8c8,adhoc,1787129949.6691933,,,,,,,,,,1733,
-translate,8cdb51f1063c,adhoc,1787129973.5724027,"Hello, my name is Dog",5,2,1,2,0.4,849,0,851,,upload.webm
-frame,8cdb51f1063c,adhoc,1787129973.827133,,,,,,,,,,1175,
-translate,782899cfa382,adhoc,1787132760.8726323,How are you?,3,0,0,3,0.0,949,0,950,,upload.webm
-translate,16243eb087e7,adhoc,1787134921.5481334,"Thank you so far, so good.",6,6,0,0,1.0,798,0,800,,upload.webm
-frame,16243eb087e7,adhoc,1787134921.8027875,,,,,,,,,,1134,
-translate,c35d29d5929f,adhoc,1787134982.819616,Mothishwaran,1,0,0,1,0.0,821,0,823,,upload.webm
-translate,b75e1e30b93a,adhoc,1787134991.2104058,My name is Mothishwaran.,4,1,1,2,0.25,845,0,847,,upload.webm
-frame,b75e1e30b93a,adhoc,1787134991.9821208,,,,,,,,,,1703,
-translate,8f556189f02f,adhoc,1791282016.5451903,"Hello, my name is Abhishek.",5,4,1,0,0.8,3200,1,3273,,upload.wav
-frame,8f556189f02f,adhoc,1791282017.134721,,,,,,,,,,4233,
-translate,049abf0a6cdd,adhoc,1791282061.312135,"Indian Sign Language Speech Conversion Hello, Thank You and Goodbye!",10,4,4,2,0.4,3130,0,3168,,upload.wav
-frame,049abf0a6cdd,adhoc,1791282062.978418,,,,,,,,,,5254,
-translate,6b922b088b42,adhoc,1791282094.853478,Good morning. What is your name?,6,6,0,0,1.0,4569,0,4574,,upload.wav
-frame,6b922b088b42,adhoc,1791282095.0015996,,,,,,,,,,5034,
-translate,0356de66ee1c,adhoc,1791305035.207415,Happy Birthday Ramesh,3,1,2,0,0.3333,973,1,1030,,upload.wav; whisper-base-en-svarah@cuda
-frame,0356de66ee1c,adhoc,1791305035.7380745,,,,,,,,,,1712,
-translate,f81a6bb19d9e,adhoc,1791305143.7051744,Happy Birthday Ramesh,3,1,2,0,0.3333,488,0,492,,upload.wav; whisper-base-en-svarah@cuda
-frame,f81a6bb19d9e,adhoc,1791305144.1611426,,,,,,,,,,1024,
-translate,7e833cfbde8f,adhoc,1791305170.1090791,How are you my boy?,5,2,0,3,0.4,493,0,499,,upload.wav; whisper-base-en-svarah@cuda
-frame,7e833cfbde8f,adhoc,1791305170.2181928,,,,,,,,,,685,
-translate,b2cc7b6d807d,adhoc,1791305193.315893,"Good morning, Ramesh, man.",4,3,1,0,0.75,533,0,536,,upload.wav; whisper-base-en-svarah@cuda
-frame,b2cc7b6d807d,adhoc,1791305193.5249712,,,,,,,,,,822,
-translate,4b0f6d148dca,adhoc,1791305346.080966,How are you my boy?,5,2,0,3,0.4,492,0,495,,upload.wav; whisper-base-en-svarah@cuda
-frame,4b0f6d148dca,adhoc,1791305346.1605778,,,,,,,,,,633,
+row_type,run_id,utterance_id,timestamp,transcript,n_total,n_sign,n_spell,n_uncovered,coverage,asr_ms,match_ms,server_ms,e2e_ms,note,n_omitted,content_coverage,n_similar,speaker,n_related,drive_ms,question,final_rise_st,isl_rules,denoise
+translate,d0fb74c6a81c,u3,1786960981.0137534,,0,0,0,0,0.0,810,0,812,,upload.webm,,,,,,,,,,
+translate,eff29919af34,u3,1786960986.6540923,Thank you.,2,2,0,0,1.0,820,0,822,,upload.webm,,,,,,,,,,
+frame,eff29919af34,u3,1786960986.7649744,,,,,,,,,,1028,,,,,,,,,,,
+translate,f8a01441cb24,u2,1786961017.7703633,Hello!,1,1,0,0,1.0,849,0,850,,upload.webm,,,,,,,,,,
+frame,f8a01441cb24,u2,1786961017.8659468,,,,,,,,,,1019,,,,,,,,,,,
+translate,344a393c2ed8,u1,1786961157.0027173,"You, my name is Mothishwaran",5,1,1,3,0.2,833,0,834,,upload.webm,,,,,,,,,,
+frame,344a393c2ed8,u1,1786961157.484443,,,,,,,,,,1411,,,,,,,,,,,
+translate,05361233c89c,u1,1786961177.0242782,"Hello, thank you my name is Mothishwaran.",7,4,1,2,0.5714,848,0,853,,upload.webm,,,,,,,,,,
+frame,05361233c89c,u1,1786961177.8727784,,,,,,,,,,1790,,,,,,,,,,,
+translate,06042480838a,adhoc,1787129859.51311,"Hello, thank you. My name is Mothishwaran.",7,4,1,2,0.5714,1006,0,1008,,upload.wav,,,,,,,,,,
+frame,06042480838a,adhoc,1787129893.4196107,,,,,,,,,,1290,,,,,,,,,,,
+translate,9cfdfb82c8c8,adhoc,1787129949.0136616,"Hello, my name is Alo. My name is Alo.",9,3,2,4,0.3333,855,0,856,,upload.webm,,,,,,,,,,
+frame,9cfdfb82c8c8,adhoc,1787129949.6691933,,,,,,,,,,1733,,,,,,,,,,,
+translate,8cdb51f1063c,adhoc,1787129973.5724027,"Hello, my name is Dog",5,2,1,2,0.4,849,0,851,,upload.webm,,,,,,,,,,
+frame,8cdb51f1063c,adhoc,1787129973.827133,,,,,,,,,,1175,,,,,,,,,,,
+translate,782899cfa382,adhoc,1787132760.8726323,How are you?,3,0,0,3,0.0,949,0,950,,upload.webm,,,,,,,,,,
+translate,16243eb087e7,adhoc,1787134921.5481334,"Thank you so far, so good.",6,6,0,0,1.0,798,0,800,,upload.webm,,,,,,,,,,
+frame,16243eb087e7,adhoc,1787134921.8027875,,,,,,,,,,1134,,,,,,,,,,,
+translate,c35d29d5929f,adhoc,1787134982.819616,Mothishwaran,1,0,0,1,0.0,821,0,823,,upload.webm,,,,,,,,,,
+translate,b75e1e30b93a,adhoc,1787134991.2104058,My name is Mothishwaran.,4,1,1,2,0.25,845,0,847,,upload.webm,,,,,,,,,,
+frame,b75e1e30b93a,adhoc,1787134991.9821208,,,,,,,,,,1703,,,,,,,,,,,
+translate,8f556189f02f,adhoc,1791282016.5451903,"Hello, my name is Abhishek.",5,4,1,0,0.8,3200,1,3273,,upload.wav,,,,,,,,,,
+frame,8f556189f02f,adhoc,1791282017.134721,,,,,,,,,,4233,,,,,,,,,,,
+translate,049abf0a6cdd,adhoc,1791282061.312135,"Indian Sign Language Speech Conversion Hello, Thank You and Goodbye!",10,4,4,2,0.4,3130,0,3168,,upload.wav,,,,,,,,,,
+frame,049abf0a6cdd,adhoc,1791282062.978418,,,,,,,,,,5254,,,,,,,,,,,
+translate,6b922b088b42,adhoc,1791282094.853478,Good morning. What is your name?,6,6,0,0,1.0,4569,0,4574,,upload.wav,,,,,,,,,,
+frame,6b922b088b42,adhoc,1791282095.0015996,,,,,,,,,,5034,,,,,,,,,,,
+translate,0356de66ee1c,adhoc,1791305035.207415,Happy Birthday Ramesh,3,1,2,0,0.3333,973,1,1030,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+frame,0356de66ee1c,adhoc,1791305035.7380745,,,,,,,,,,1712,,,,,,,,,,,
+translate,f81a6bb19d9e,adhoc,1791305143.7051744,Happy Birthday Ramesh,3,1,2,0,0.3333,488,0,492,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+frame,f81a6bb19d9e,adhoc,1791305144.1611426,,,,,,,,,,1024,,,,,,,,,,,
+translate,7e833cfbde8f,adhoc,1791305170.1090791,How are you my boy?,5,2,0,3,0.4,493,0,499,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+frame,7e833cfbde8f,adhoc,1791305170.2181928,,,,,,,,,,685,,,,,,,,,,,
+translate,b2cc7b6d807d,adhoc,1791305193.315893,"Good morning, Ramesh, man.",4,3,1,0,0.75,533,0,536,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+frame,b2cc7b6d807d,adhoc,1791305193.5249712,,,,,,,,,,822,,,,,,,,,,,
+translate,4b0f6d148dca,adhoc,1791305346.080966,How are you my boy?,5,2,0,3,0.4,492,0,495,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+frame,4b0f6d148dca,adhoc,1791305346.1605778,,,,,,,,,,633,,,,,,,,,,,
+translate,f483b781e5c3,adhoc,1791394837.8677924,I saw a sparrow and a puppy,7,1,0,3,0.1429,425,2,8896,,upload.wav; whisper-base-en-svarah@cuda,2,0.2,0,,1,8416,,,,
+frame,f483b781e5c3,adhoc,1791394838.0922792,,,,,,,,,,9174,,,,,,,,,,,
+translate,3d223fb7c690,adhoc,1791395295.3500082,The elephant and the peacock live near my cottage. The elephant and the peacock,14,6,0,3,0.4286,522,11,24799,,upload.wav; whisper-base-en-svarah@cuda,4,0.6,0,,1,24189,,,,
+frame,3d223fb7c690,adhoc,1791395295.8065598,,,,,,,,,,25311,,,,,,,,,,,
+translate,2afc1bb40e4f,adhoc,1791395419.5939157,My monkey saw a camel and a monkey,8,4,0,2,0.5,356,2,10862,,upload.wav; whisper-base-en-svarah@cuda,2,0.6667,0,,0,10450,,,,
+frame,2afc1bb40e4f,adhoc,1791395419.8586884,,,,,,,,,,11192,,,,,,,,,,,
+translate,05e277c44314,adhoc,1791398322.6585114,Where is the hospital? I go to school tomorrow.,9,5,0,1,0.5556,230,1,398,,upload.wav; whisper-base-en-svarah@cuda,3,0.8333,0,,0,0,,-3.93,question word last: where; time first: tomorrow,0
+frame,05e277c44314,adhoc,1791398322.8083832,,,,,,,,,,596,,,,,,,,,,,
+translate,e647633e5481,adhoc,1791398404.1901562,Where is the hospital? I go to school tomorrow.,9,5,0,1,0.5556,710,0,860,,upload.wav; whisper-base-en-svarah@cuda,3,0.8333,0,,0,0,wh,-3.93,question word last: where; time first: tomorrow,0
+translate,2a0821ff49a2,adhoc,1791398405.032183,Where is the hospital? I go to school tomorrow.,9,5,0,1,0.5556,716,0,825,,upload.wav; whisper-base-en-svarah@cuda,3,0.8333,0,,0,0,wh,-3.93,,0
+translate,ca6d37dec1fb,adhoc,1791398405.950472,Where is the hospital? I go to school tomorrow.,9,5,0,1,0.5556,753,0,868,,upload.wav; whisper-base-en-svarah@cuda,3,0.8333,0,,0,0,wh,-4.07,question word last: where; time first: tomorrow,0
+translate,211575cda706,adhoc,1791398406.8021228,Where is the hospital? I go to school tomorrow,9,5,0,1,0.5556,660,0,796,,upload.wav; whisper-base-en-svarah@cuda,3,0.8333,0,,0,0,wh,-4.07,question word last: where; time first: tomorrow,1
+translate,85499651d21a,adhoc,1791416532.0180583,Can you help me tomorrow? I am 25 years-,9,5,0,3,0.5556,625,0,1246,,upload.wav; whisper-base-en-svarah@cuda,1,0.625,0,,0,0,yesno,-1.47,time first: tomorrow,0
+frame,85499651d21a,adhoc,1791416532.3369215,,,,,,,,,,1620,,,,,,,,,,,
+translate,d0ae1341ff59,adhoc,1791452735.8486006,Happy Birthday my boy,4,4,0,0,1.0,567,3,1299,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,,-2.04,,0
+frame,d0ae1341ff59,adhoc,1791452736.1207688,,,,,,,,,,1629,,,,,,,,,,,
+translate,276b500a9ebc,adhoc,1791452756.445979,"How about you, my boy?",5,3,0,2,0.6,470,0,861,,upload.wav; whisper-base-en-svarah@cuda,0,0.6,0,,0,0,wh,4.62,,0
+frame,276b500a9ebc,adhoc,1791452756.7043335,,,,,,,,,,1148,,,,,,,,,,,
+translate,0a446cb1f74b,adhoc,1791452988.5447786,"How about you, my boy?",5,3,2,0,0.6,303,2,791,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.6,0,,0,0,wh,-6.0,question word last: How,0
+frame,0a446cb1f74b,adhoc,1791452989.3445537,,,,,,,,,,1668,,,,,,,,,,,
+translate,630869db18d6,adhoc,1791453076.4487548,"How about you, my boy?",5,3,2,0,0.6,505,2,950,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.6,0,,0,0,wh,-6.0,,0
+frame,630869db18d6,adhoc,1791453077.17286,,,,,,,,,,1746,,,,,,,,,,,
+translate,c6bf53ed0145,adhoc,1791453097.2281017,I like the giraffe and the zebra,7,3,1,1,0.4286,279,0,594,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,2,0.6,0,,0,0,,-3.88,,0
+frame,c6bf53ed0145,adhoc,1791453098.2877796,,,,,,,,,,1734,,,,,,,,,,,
+translate,f4494990dafb,adhoc,1791453949.0768578,My Parrot and my Rabbit,5,3,2,0,0.6,169,1,4745,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.6,0,,0,4264,,-3.74,,0
+frame,f4494990dafb,adhoc,1791453949.8205495,,,,,,,,,,5546,,,,,,,,,,,
+translate,f4d16dd71fdb,adhoc,1791454052.419019,"Tiger, Lion, Horse",3,2,1,0,0.6667,150,2,504,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.6667,0,,0,0,,1.85,,0
+frame,f4d16dd71fdb,adhoc,1791454052.8837056,,,,,,,,,,1100,,,,,,,,,,,
+translate,a893c018783a,adhoc,1791454224.8182688,"Hello, my name is Ravi.",5,4,1,0,0.8,496,0,818,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.8,0,,0,0,,-4.4,,0
+frame,a893c018783a,adhoc,1791454225.5425382,,,,,,,,,,1612,,,,,,,,,,,
+translate,73c9843ad72d,adhoc,1791454261.4233367,"Hello, my name is Ravi.",5,4,1,0,0.8,472,1,870,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.8,0,,0,0,,-4.4,,0
+frame,73c9843ad72d,adhoc,1791454262.0205724,,,,,,,,,,1527,,,,,,,,,,,
+translate,822875ac858a,adhoc,1791455300.3504112,I play chicken and hockey,5,2,2,1,0.4,489,4,4955,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.4,0,,0,3911,,9.11,,0
+frame,822875ac858a,adhoc,1791455300.7312117,,,,,,,,,,5430,,,,,,,,,,,
+translate,c05921f04df7,adhoc,1791455422.1605806,Thank you very much for watching.,6,4,2,0,0.6667,1723,0,2020,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.6667,0,,0,0,,,,0
+frame,c05921f04df7,adhoc,1791455422.5479748,,,,,,,,,,2415,,,,,,,,,,,
+translate,0012b99c24d2,adhoc,1791455536.507912,Trickier to match,3,1,1,0,0.3333,386,0,730,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,1,0.5,0,,0,0,,-3.9,,0
+frame,0012b99c24d2,adhoc,1791455537.104903,,,,,,,,,,1383,,,,,,,,,,,
+translate,a112a1730d70,adhoc,1791456876.8428633,I like to watch a cricket match with Ravi,9,4,2,1,0.4444,0,2,96,,typed; typed@-; spell_unknown; related_off,2,0.5714,0,,0,0,,,,0
+frame,a112a1730d70,adhoc,1791456877.6610622,,,,,,,,,,914,,,,,,,,,,,
+translate,e2804581b320,adhoc,1791456958.573896,I play cricket every day.,5,3,1,1,0.6,186,0,443,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,0,0.6,0,,0,0,,-2.42,,0
+frame,e2804581b320,adhoc,1791456958.84511,,,,,,,,,,784,,,,,,,,,,,
+translate,91f61c7ceded,adhoc,1791457002.7703054,Call the ambulance for me,5,2,2,0,0.4,321,1,9147,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,1,0.5,0,,0,8615,,1.14,,0
+frame,91f61c7ceded,adhoc,1791457003.070718,,,,,,,,,,9542,,,,,,,,,,,

@@ -10,7 +10,7 @@ from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-from src import asr, matcher
+from src import asr, drive_fetch, fingerspell, isl_order, matcher, prosody
 from src.eval_sets import eval_sentences
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +27,8 @@ CSV_FIELDS = [
     "asr_ms", "match_ms", "server_ms", "e2e_ms", "note",
     # added after Phase 0 - appended at the end so old rows keep their meaning
     "n_omitted", "content_coverage", "n_similar", "speaker",
+    "n_related", "drive_ms",
+    "question", "final_rise_st", "isl_rules", "denoise",
 ]
 
 
@@ -45,6 +47,22 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def revalidate_clips(request, call_next):
+    """Make browsers re-check sign clips and the page instead of guessing.
+
+    Without Cache-Control a browser may reuse an old copy for hours, e.g.
+    the letter clips after they were re-timed. "no-cache" still uses the
+    cache - the server answers 304 Not Modified via the ETag - it only forces
+    the check.
+    """
+    response = await call_next(request)
+    path = request.url.path
+    if path.startswith("/data/") or path in ("/", "/index.html"):
+        response.headers["Cache-Control"] = "no-cache"
+    return response
 
 
 def _upgrade_results_header(path: str) -> None:
@@ -107,7 +125,46 @@ def health():
         "missing_clips": missing_clips[:MISSING_CLIPS_SHOWN],
         "alphabet_present": alphabet_present,
         "alphabet_expected": len(ALPHABET_LETTERS),
+        "drive": {"fetchable_phrases": len(matcher._load_remote()),
+                  "api_key": drive_fetch.api_key() is not None},
     }
+
+
+def _fetch_drive_clips(plan: list, spell_fallback: bool = True) -> int:
+    """Download the Drive clips a plan needs, in parallel; downgrade failures.
+
+    Returns the wall-clock ms spent. Each fetched entry gets "source":
+    "drive" and a status; one that cannot be fetched becomes "uncovered" with
+    the reason, so the counts stay honest (recomputed by matcher.score).
+    """
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    todo = [e for e in plan if "drive" in e]
+    if not todo:
+        return 0
+    t0 = time.perf_counter()
+    # One download per file even when a word repeats in the sentence.
+    unique = {e["drive"]["rel"]: e["drive"]["id"] for e in todo}
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        fetched = dict(zip(unique, pool.map(lambda rel: drive_fetch.fetch(unique[rel], rel), unique)))
+    for entry in todo:
+        path, status = fetched[entry["drive"]["rel"]]
+        info = entry.pop("drive")
+        entry["source"] = "drive"
+        entry["drive_status"] = status
+        if path:
+            entry["clips"] = [path]
+        else:
+            matcher.forget_remote(info["phrase"])
+            entry.pop("means", None)
+            letters = fingerspell.spell(entry["token"]) if spell_fallback else []
+            if len(letters) > 1:      # not on disk, not fetchable -> spell it
+                entry.update(type="spell", clips=letters, why="unknown",
+                             drive_status=f"{status} - fingerspelled instead")
+            else:
+                entry.update(type="uncovered", clips=[], why=f"Drive: {status}")
+    return int((time.perf_counter() - t0) * 1000)
 
 
 def _clip_url(local_path: str) -> str:
@@ -122,9 +179,12 @@ async def translate(
     audio: UploadFile = File(...),
     client_t0: str = Form(...),
     utterance_id: str = Form("adhoc"),
-    spell_unknown: str = Form("0"),
+    spell_unknown: str = Form("1"),
     speaker: str = Form(""),
     encode_error: str = Form(""),
+    use_related: str = Form("0"),
+    use_isl_order: str = Form("0"),
+    denoise: str = Form("0"),
 ):
     import time
 
@@ -141,9 +201,66 @@ async def translate(
     with open(upload_path, "wb") as f:
         f.write(await audio.read())
 
-    asr_result = asr.transcribe(upload_path)
+    from faster_whisper import decode_audio
+    audio16k = decode_audio(upload_path, sampling_rate=16000)
+    denoise_on = denoise.lower() in ("1", "true", "on")
+    asr_result = asr.transcribe(audio16k, denoise=denoise_on)
+    pitch = prosody.final_rise(audio16k)
+    return _sign_and_log(
+        run_id=run_id, server_start=server_start, asr_result=asr_result, pitch=pitch,
+        note_source=f"upload{suffix}", utterance_id=utterance_id, speaker=speaker,
+        spell_unknown=spell_unknown, use_related=use_related, use_isl_order=use_isl_order,
+        denoise_on=denoise_on, encode_error=encode_error)
+
+
+@app.post("/translate_text")
+async def translate_text(
+    text: str = Form(...),
+    utterance_id: str = Form("adhoc"),
+    spell_unknown: str = Form("1"),
+    speaker: str = Form(""),
+    use_related: str = Form("0"),
+    use_isl_order: str = Form("0"),
+):
+    """Sign a typed (or corrected) transcript - the same pipeline without ASR.
+
+    For when speech recognition mishears: the user fixes the text in the
+    page and signs it, instead of re-recording. Logged with note "typed", so
+    typed runs never count as ASR results.
+    """
+    import time
+    server_start = time.perf_counter()
+    asr_result = {"text": text.strip()[:500], "asr_ms": 0, "denoise_ms": 0,
+                  "model": "typed", "device": "-"}
+    pitch = {"voiced_ratio": 0.0, "median_f0": None, "final_rise_st": None, "rising": False}
+    return _sign_and_log(
+        run_id=uuid.uuid4().hex[:12], server_start=server_start, asr_result=asr_result,
+        pitch=pitch, note_source="typed", utterance_id=utterance_id, speaker=speaker,
+        spell_unknown=spell_unknown, use_related=use_related, use_isl_order=use_isl_order,
+        denoise_on=False, encode_error="")
+
+
+def _sign_and_log(*, run_id, server_start, asr_result, pitch, note_source, utterance_id,
+                  speaker, spell_unknown, use_related, use_isl_order, denoise_on,
+                  encode_error):
+    """Text -> signs: match, Drive fetch, question, ISL order, log, response."""
+    import time
+
     spell_unknown_on = spell_unknown.lower() in ("1", "true", "on")
-    match_result = matcher.match(asr_result["text"], spell_unknown=spell_unknown_on)
+    related_on = use_related.lower() in ("1", "true", "on")
+    match_result = matcher.match(asr_result["text"], spell_unknown=spell_unknown_on,
+                                 use_related=related_on)
+    drive_ms = _fetch_drive_clips(match_result["plan"], spell_fallback=spell_unknown_on)
+    if drive_ms:
+        match_result.update(matcher.score(match_result["plan"]))
+
+    question = isl_order.detect_question(asr_result["text"], match_result["plan"])
+    question["pitch"] = pitch                     # evidence, not the decision (see isl_order)
+    isl_on = use_isl_order.lower() in ("1", "true", "on")
+    if isl_on:
+        play_order, isl_rules = isl_order.reorder(match_result["plan"])
+    else:
+        play_order, isl_rules = list(range(len(match_result["plan"]))), []
 
     plan = [
         {
@@ -151,6 +268,8 @@ async def translate(
             "type": entry["type"],
             "why": entry.get("why"),
             "means": entry.get("means"),
+            "source": entry.get("source", "local"),
+            "drive_status": entry.get("drive_status"),
             "clips": [_clip_url(clip) for clip in entry["clips"]],
         }
         for entry in match_result["plan"]
@@ -173,14 +292,21 @@ async def translate(
         "n_omitted": match_result["counts"]["omitted"],
         "content_coverage": round(match_result["content_coverage"], 4),
         "n_similar": match_result["counts"]["similar"],
+        "n_related": match_result["counts"]["related"],
+        "drive_ms": drive_ms,
+        "question": question["type"] or "",
+        "final_rise_st": "" if pitch["final_rise_st"] is None else pitch["final_rise_st"],
+        "isl_rules": "; ".join(isl_rules),
+        "denoise": int(denoise_on),
         "asr_ms": asr_result["asr_ms"],
         "match_ms": match_result["match_ms"],
         "server_ms": server_ms,
         "e2e_ms": "",
         # Which client audio path ran: browser-side 16kHz WAV encode, or the
         # raw-container fallback (still resampled to 16kHz mono by PyAV).
-        "note": f"upload{suffix}; {asr_result['model']}@{asr_result['device']}"
+        "note": f"{note_source}; {asr_result['model']}@{asr_result['device']}"
                 + ("; spell_unknown" if spell_unknown_on else "")
+                + ("" if related_on else "; related_off")
                 # Why the browser could not make the 16 kHz WAV, when it could not.
                 + (f"; encode_error={encode_error[:120]}" if encode_error else ""),
     })
@@ -193,14 +319,21 @@ async def translate(
         "coverage": round(match_result["coverage"], 4),
         "content_coverage": round(match_result["content_coverage"], 4),
         "content_coverage_with_similar": round(match_result["content_coverage_with_similar"], 4),
+        "content_coverage_with_related": round(match_result["content_coverage_with_related"], 4),
+        "question": question,
+        "isl": {"enabled": isl_on, "order": play_order, "rules": isl_rules,
+                "gloss": isl_order.gloss(match_result["plan"], play_order)},
         "counts": match_result["counts"],
         "timings": {
             "asr_ms": asr_result["asr_ms"],
             "match_ms": match_result["match_ms"],
+            "drive_ms": drive_ms,
+            "denoise_ms": asr_result["denoise_ms"],
             "server_ms": server_ms,
         },
         "asr": {"model": asr_result["model"], "device": asr_result["device"]},
     }
+
 
 
 @app.get("/eval_sentences")

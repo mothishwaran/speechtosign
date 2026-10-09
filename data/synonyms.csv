@@ -1,11 +1,24 @@
 word,target,kind,evidence,review
+accepted,accept,form,morphy v; v-share 1.00,
+accepting,accept,form,morphy v; v-share 1.00,
+accepts,accept,form,morphy v; v-share 1.00,
+accidents,accident,form,morphy n; n-share 1.00,
 accommodations,accommodation,form,morphy n; n-share n/a,
+accompanied,accompany,form,morphy v; v-share 1.00,
+accompanying,accompany,form,morphy v; v-share 1.00,
+achieved,achieve,form,morphy v; v-share 1.00,
+achieving,achieve,form,morphy v; v-share 1.00,
 actions,action,form,morphy n; n-share 1.00,
+actors,actor,form,morphy n; n-share 1.00,
 added,add,form,morphy v; v-share 1.00,
 adding,add,form,morphy v; v-share 1.00,
 additions,addition,form,morphy n; n-share 1.00,
 adds,add,form,morphy v; v-share 1.00,
+administrators,administrator,form,morphy n; n-share 1.00,
+adopted,adopt,form,morphy v; v-share 1.00,
 adults,adult,form,morphy n; n-share 0.91,
+advantages,advantage,form,morphy n; n-share 1.00,
+advertisements,advertisement,form,morphy n; n-share 1.00,
 ages,age,form,morphy n; n-share 0.98,
 agreements,agreement,form,morphy n; n-share 1.00,
 airports,airport,form,morphy n; n-share 1.00,
@@ -15,73 +28,128 @@ allows,allow,form,morphy v; v-share 1.00,
 amounts,amount,form,morphy n; n-share 0.85,
 analyses,analysis,form,morphy n; n-share 1.00,
 angels,angel,form,morphy n; n-share 1.00,
+apartments,apartment,form,morphy n; n-share 1.00,
+applicants,applicant,form,morphy n; n-share 1.00,
 applications,application,form,morphy n; n-share 1.00,
 applied,apply,form,morphy v; v-share 1.00,
 applies,apply,form,morphy v; v-share 1.00,
 applying,apply,form,morphy v; v-share 1.00,
+appointments,appointment,form,morphy n; n-share 1.00,
+approved,approve,form,morphy v; v-share 1.00,
+architects,architect,form,morphy n; n-share 1.00,
 areas,area,form,morphy n; n-share 1.00,
+arguments,argument,form,morphy n; n-share 1.00,
+arrested,arrest,form,morphy v; v-share 0.82,
 articles,article,form,morphy n; n-share 1.00,
 artists,artist,form,morphy n; n-share 1.00,
 asked,ask,form,morphy v; v-share 1.00,
 asking,ask,form,morphy v; v-share 1.00,
 asks,ask,form,morphy v; v-share 1.00,
 associations,association,form,morphy n; n-share 1.00,
+assumed,assume,form,morphy v; v-share 1.00,
+assumes,assume,form,morphy v; v-share 1.00,
+assuming,assume,form,morphy v; v-share 1.00,
 ate,eat,form,morphy v; v-share 1.00,
+attitudes,attitude,form,morphy n; n-share 1.00,
+attractions,attraction,form,morphy n; n-share 1.00,
 auctions,auction,form,morphy n; n-share n/a,
 babies,baby,form,morphy n; n-share 1.00,
+backgrounds,background,form,morphy n; n-share 1.00,
 bags,bag,form,morphy n; n-share 0.94,
+baking,bake,form,morphy v; v-share 1.00,
+banned,ban,form,morphy v; v-share 0.80,
 banners,banner,form,morphy n; n-share 1.00,
+barriers,barrier,form,morphy n; n-share 1.00,
+baskets,basket,form,morphy n; n-share 1.00,
+bathrooms,bathroom,form,morphy n; n-share 1.00,
+baths,bath,form,morphy n; n-share 1.00,
 batteries,battery,form,morphy n; n-share 1.00,
 beaches,beach,form,morphy n; n-share 1.00,
+bearing,bear,form,morphy v; v-share 0.99,
+bears,bear,form,morphy v; v-share 0.99,
 beats,beat,form,morphy v; v-share 0.94,
+bedrooms,bedroom,form,morphy n; n-share 1.00,
 began,begin,form,morphy v; v-share 1.00,
 beginning,begin,form,morphy v; v-share 1.00,
 begins,begin,form,morphy v; v-share 1.00,
 begun,begin,form,morphy v; v-share 1.00,
 believed,believe,form,morphy v; v-share 1.00,
 believes,believe,form,morphy v; v-share 1.00,
+belts,belt,form,morphy n; n-share 0.85,
 beverages,beverage,form,morphy n; n-share 1.00,
 biggest,big,form,morphy a; a-share 0.98,
 bills,bill,form,morphy n; n-share 0.92,
+bit,bite,form,morphy v; v-share 0.88,
+blessed,bless,form,morphy v; v-share 1.00,
 blocks,block,form,morphy n; n-share 0.76,
 bloggers,blogger,form,morphy n; n-share n/a,
+boats,boat,form,morphy n; n-share 1.00,
 bodies,body,form,morphy n; n-share 1.00,
 bookmarks,bookmark,form,morphy n; n-share n/a,
 books,book,form,morphy n; n-share 0.92,
+bottles,bottle,form,morphy n; n-share 1.00,
 boxes,box,form,morphy n; n-share 0.97,
 boys,boy,form,morphy n; n-share 1.00,
+breaking,break,form,morphy v; v-share 0.91,
+breaks,break,form,morphy v; v-share 0.91,
+breathing,breathe,form,morphy v; v-share 1.00,
+brochures,brochure,form,morphy n; n-share n/a,
+broke,break,form,morphy v; v-share 0.91,
+broken,break,form,morphy v; v-share 0.91,
 brokers,broker,form,morphy n; n-share 1.00,
 brothers,brother,form,morphy n; n-share 1.00,
 budgets,budget,form,morphy n; n-share 0.78,
+builders,builder,form,morphy n; n-share 1.00,
+buried,bury,form,morphy v; v-share 1.00,
+burning,burn,form,morphy v; v-share 0.96,
+burns,burn,form,morphy v; v-share 0.96,
 buses,bus,form,morphy n; n-share 1.00,
 businesses,business,form,morphy n; n-share 1.00,
+calculators,calculator,form,morphy n; n-share n/a,
 calendars,calendar,form,morphy n; n-share 1.00,
 called,call,form,morphy v; v-share 0.93,
 calling,call,form,morphy v; v-share 0.93,
 calls,call,form,morphy v; v-share 0.93,
 came,come,form,morphy v; v-share 1.00,
 cameras,camera,form,morphy n; n-share 1.00,
+cams,cam,form,morphy n; n-share n/a,
 cancelled,cancel,form,morphy v; v-share 1.00,
+candles,candle,form,morphy n; n-share 1.00,
+caps,cap,form,morphy n; n-share 0.82,
 cars,car,form,morphy n; n-share 1.00,
+cartoons,cartoon,form,morphy n; n-share 1.00,
+cashiers,cashier,form,morphy n; n-share n/a,
 casinos,casino,form,morphy n; n-share 1.00,
+cats,cat,form,morphy n; n-share 1.00,
 caught,catch,form,morphy v; v-share 0.99,
 cds,cd,form,morphy n; n-share n/a,
 cells,cell,form,morphy n; n-share 1.00,
 centers,center,form,morphy n; n-share 0.84,
 centuries,century,form,morphy n; n-share 1.00,
+certificates,certificate,form,morphy n; n-share 1.00,
 chairs,chair,form,morphy n; n-share 1.00,
+challenged,challenge,form,morphy v; v-share 0.70,
+challenges,challenge,form,morphy v; v-share 0.70,
+challenging,challenge,form,morphy v; v-share 0.70,
 chapters,chapter,form,morphy n; n-share 1.00,
+chargers,charger,form,morphy n; n-share 1.00,
 cheaper,cheap,form,morphy a; a-share 1.00,
 cheapest,cheap,form,morphy a; a-share 1.00,
+cheats,cheat,form,morphy v; v-share 1.00,
 children,child,form,morphy n; n-share 1.00,
+circles,circle,form,morphy n; n-share 0.76,
 cities,city,form,morphy n; n-share 1.00,
 classes,class,form,morphy n; n-share 0.95,
 clicking,click,form,morphy v; v-share 0.75,
 clicks,click,form,morphy v; v-share 0.75,
-clubs,club,form,morphy n; n-share 1.00,
+climbing,climb,form,morphy v; v-share 1.00,
+clouds,cloud,form,morphy n; n-share 0.93,
+coaches,coach,form,morphy n; n-share 0.87,
+coins,coin,form,morphy n; n-share 0.70,
 collected,collect,form,morphy v; v-share 1.00,
 collecting,collect,form,morphy v; v-share 1.00,
 colleges,college,form,morphy n; n-share 1.00,
+columns,column,form,morphy n; n-share 1.00,
 comes,come,form,morphy v; v-share 1.00,
 coming,come,form,morphy v; v-share 1.00,
 committees,committee,form,morphy n; n-share 1.00,
@@ -89,39 +157,59 @@ communities,community,form,morphy n; n-share 1.00,
 companies,company,form,morphy n; n-share 1.00,
 compared,compare,form,morphy v; v-share 1.00,
 comparing,compare,form,morphy v; v-share 1.00,
+competitions,competition,form,morphy n; n-share 1.00,
+compressed,compress,form,morphy v; v-share 0.80,
 computers,computer,form,morphy n; n-share 1.00,
+concepts,concept,form,morphy n; n-share 1.00,
+concluded,conclude,form,morphy v; v-share 1.00,
+conclusions,conclusion,form,morphy n; n-share 1.00,
 conferences,conference,form,morphy n; n-share 1.00,
+confirmed,confirm,form,morphy v; v-share 1.00,
+conflicts,conflict,form,morphy n; n-share 0.86,
+constructed,construct,form,morphy v; v-share 1.00,
+consultants,consultant,form,morphy n; n-share 1.00,
+consulting,consult,form,morphy v; v-share 1.00,
 consumers,consumer,form,morphy n; n-share 1.00,
 contained,contain,form,morphy v; v-share 1.00,
 containing,contain,form,morphy v; v-share 1.00,
 contains,contain,form,morphy v; v-share 1.00,
+contractors,contractor,form,morphy n; n-share 1.00,
+conventions,convention,form,morphy n; n-share 1.00,
 cooked,cook,form,morphy v; v-share 0.77,
 cooking,cook,form,morphy v; v-share 0.77,
 copies,copy,form,morphy n; n-share 0.71,
+corners,corner,form,morphy n; n-share 0.99,
 countries,country,form,morphy n; n-share 1.00,
 courts,court,form,morphy n; n-share 0.90,
 covered,cover,form,morphy v; v-share 0.83,
 covering,cover,form,morphy v; v-share 0.83,
 covers,cover,form,morphy v; v-share 0.83,
+crimes,crime,form,morphy n; n-share 1.00,
 crossing,cross,form,morphy v; v-share 0.86,
 cultures,culture,form,morphy n; n-share 1.00,
+cups,cup,form,morphy n; n-share 0.92,
+curves,curve,form,morphy n; n-share 0.89,
 customers,customer,form,morphy n; n-share 1.00,
 cuts,cut,form,morphy v; v-share 0.92,
 cutting,cut,form,morphy v; v-share 0.92,
+cycles,cycle,form,morphy n; n-share 0.83,
 dates,date,form,morphy n; n-share 0.91,
 daughters,daughter,form,morphy n; n-share 1.00,
 dealing,deal,form,morphy v; v-share 0.89,
 deals,deal,form,morphy v; v-share 0.89,
 dealt,deal,form,morphy v; v-share 0.89,
+decades,decade,form,morphy n; n-share 1.00,
 decided,decide,form,morphy v; v-share 1.00,
 degrees,degree,form,morphy n; n-share 1.00,
 delayed,delay,form,morphy v; v-share 0.81,
 delays,delay,form,morphy v; v-share 0.81,
+dentists,dentist,form,morphy n; n-share 1.00,
 deposits,deposit,form,morphy v; v-share 0.78,
 destinations,destination,form,morphy n; n-share 1.00,
 died,die,form,morphy v; v-share 0.95,
 dies,die,form,morphy v; v-share 0.95,
 directors,director,form,morphy n; n-share 1.00,
+disabilities,disability,form,morphy n; n-share 1.00,
 discounted,discount,form,morphy v; v-share 0.75,
 discounts,discount,form,morphy v; v-share 0.75,
 diseases,disease,form,morphy n; n-share 1.00,
@@ -143,46 +231,82 @@ drawn,draw,form,morphy v; v-share 0.95,
 draws,draw,form,morphy v; v-share 0.95,
 drew,draw,form,morphy v; v-share 0.95,
 driven,drive,form,morphy v; v-share 0.85,
+drivers,driver,form,morphy n; n-share 1.00,
 drives,drive,form,morphy v; v-share 0.85,
 driving,drive,form,morphy v; v-share 0.85,
+dropped,drop,form,morphy v; v-share 0.84,
+drops,drop,form,morphy v; v-share 0.84,
 drove,drive,form,morphy v; v-share 0.85,
 drugs,drug,form,morphy n; n-share 0.97,
+drums,drum,form,morphy n; n-share 0.75,
 dvds,dvd,form,morphy n; n-share n/a,
 dying,die,form,morphy v; v-share 0.95,
+eagles,eagle,form,morphy n; n-share 1.00,
+ears,ear,form,morphy n; n-share 1.00,
 easier,easy,form,morphy a; a-share 0.93,
 eating,eat,form,morphy v; v-share 1.00,
+economies,economy,form,morphy n; n-share 1.00,
 edges,edge,form,morphy n; n-share 0.93,
 edited,edit,form,morphy v; v-share 1.00,
 editing,edit,form,morphy v; v-share 1.00,
 efforts,effort,form,morphy n; n-share 1.00,
+elections,election,form,morphy n; n-share 1.00,
 emails,email,form,morphy n; n-share n/a,
+encouraged,encourage,form,morphy v; v-share 1.00,
+encourages,encourage,form,morphy v; v-share 1.00,
+encouraging,encourage,form,morphy v; v-share 1.00,
+endangered,endanger,form,morphy v; v-share 1.00,
+enemies,enemy,form,morphy n; n-share 1.00,
+engineers,engineer,form,morphy n; n-share 1.00,
 engines,engine,form,morphy n; n-share 1.00,
+enhanced,enhance,form,morphy v; v-share 1.00,
+enhancing,enhance,form,morphy v; v-share 1.00,
+enjoyed,enjoy,form,morphy v; v-share 1.00,
+enjoying,enjoy,form,morphy v; v-share 1.00,
 entered,enter,form,morphy v; v-share 1.00,
 entering,enter,form,morphy v; v-share 1.00,
 enters,enter,form,morphy v; v-share 1.00,
 entries,entry,form,morphy n; n-share 1.00,
 environments,environment,form,morphy n; n-share 1.00,
+established,establish,form,morphy v; v-share 1.00,
+establishing,establish,form,morphy v; v-share 1.00,
+euros,euro,form,morphy n; n-share n/a,
 evaluations,evaluation,form,morphy n; n-share 1.00,
 events,event,form,morphy n; n-share 1.00,
 examples,example,form,morphy n; n-share 1.00,
+exams,exam,form,morphy n; n-share n/a,
+excluded,exclude,form,morphy v; v-share 1.00,
+excluding,exclude,form,morphy v; v-share 1.00,
 executed,execute,form,morphy v; v-share 1.00,
 existed,exist,form,morphy v; v-share 1.00,
 existing,exist,form,morphy v; v-share 1.00,
 exists,exist,form,morphy v; v-share 1.00,
 expenses,expense,form,morphy n; n-share 1.00,
 experiences,experience,form,morphy n; n-share 0.76,
+experiments,experiment,form,morphy n; n-share 0.82,
+explained,explain,form,morphy v; v-share 1.00,
+explaining,explain,form,morphy v; v-share 1.00,
+explains,explain,form,morphy v; v-share 1.00,
 expressed,express,form,morphy v; v-share 0.98,
+extended,extend,form,morphy v; v-share 1.00,
+extending,extend,form,morphy v; v-share 1.00,
+extends,extend,form,morphy v; v-share 1.00,
 facts,fact,form,morphy n; n-share 1.00,
 fallen,fall,form,morphy v; v-share 0.81,
 falling,fall,form,morphy v; v-share 0.81,
 falls,fall,form,morphy v; v-share 0.81,
 families,family,form,morphy n; n-share 1.00,
 farmers,farmer,form,morphy n; n-share 1.00,
+farms,farm,form,morphy n; n-share 0.92,
 fathers,father,form,morphy n; n-share 0.98,
+favourites,favourite,form,morphy n; n-share n/a,
 fed,feed,form,morphy v; v-share 0.71,
 feeding,feed,form,morphy v; v-share 0.71,
 feeds,feed,form,morphy v; v-share 0.71,
+fees,fee,form,morphy n; n-share 1.00,
+feet,foot,form,morphy n; n-share 0.99,
 festivals,festival,form,morphy n; n-share 1.00,
+fighting,fight,form,morphy v; v-share 0.80,
 figures,figure,form,morphy n; n-share 0.84,
 filed,file,form,morphy v; v-share 0.77,
 files,file,form,morphy v; v-share 0.77,
@@ -198,23 +322,34 @@ fits,fit,form,morphy v; v-share 0.74,
 fitted,fit,form,morphy v; v-share 0.74,
 fitting,fit,form,morphy v; v-share 0.74,
 flags,flag,form,morphy n; n-share 0.95,
+floating,float,form,morphy v; v-share 1.00,
+floors,floor,form,morphy n; n-share 1.00,
+flowers,flower,form,morphy n; n-share 0.97,
+flying,fly,form,morphy v; v-share 0.87,
+folders,folder,form,morphy n; n-share n/a,
 followed,follow,form,morphy v; v-share 1.00,
 following,follow,form,morphy v; v-share 1.00,
 follows,follow,form,morphy v; v-share 1.00,
 fonts,font,form,morphy n; n-share n/a,
 foods,food,form,morphy n; n-share 1.00,
+forests,forest,form,morphy n; n-share 1.00,
 forgot,forget,form,morphy v; v-share 1.00,
 forgotten,forget,form,morphy v; v-share 1.00,
 formats,format,form,morphy n; n-share n/a,
 forms,form,form,morphy n; n-share 0.72,
+fought,fight,form,morphy v; v-share 0.80,
 foundations,foundation,form,morphy n; n-share 1.00,
+frequencies,frequency,form,morphy n; n-share 1.00,
 friends,friend,form,morphy n; n-share 1.00,
+frozen,freeze,form,morphy v; v-share 1.00,
 futures,future,form,morphy n; n-share 0.72,
 games,game,form,morphy n; n-share 1.00,
 gardens,garden,form,morphy n; n-share 0.86,
 gathered,gather,form,morphy v; v-share 1.00,
 gathering,gather,form,morphy v; v-share 1.00,
 gave,give,form,morphy v; v-share 1.00,
+generations,generation,form,morphy n; n-share 1.00,
+generators,generator,form,morphy n; n-share 1.00,
 genres,genre,form,morphy n; n-share 1.00,
 gets,get,form,morphy v; v-share 1.00,
 getting,get,form,morphy v; v-share 1.00,
@@ -231,6 +366,7 @@ gone,go,form,morphy v; v-share 1.00,
 got,get,form,morphy v; v-share 1.00,
 gotten,get,form,morphy v; v-share 1.00,
 governments,government,form,morphy n; n-share 1.00,
+grams,gram,form,morphy n; n-share 1.00,
 grew,grow,form,morphy v; v-share 1.00,
 groups,group,form,morphy n; n-share 1.00,
 growing,grow,form,morphy v; v-share 1.00,
@@ -239,11 +375,16 @@ grows,grow,form,morphy v; v-share 1.00,
 guests,guest,form,morphy n; n-share 1.00,
 guided,guide,form,morphy v; v-share 0.89,
 guides,guide,form,morphy v; v-share 0.89,
+guitars,guitar,form,morphy n; n-share 1.00,
 guns,gun,form,morphy n; n-share 1.00,
+habits,habit,form,morphy n; n-share 1.00,
 handled,handle,form,morphy v; v-share 0.94,
 handles,handle,form,morphy v; v-share 0.94,
 handling,handle,form,morphy v; v-share 0.94,
 hanging,hang,form,morphy v; v-share 1.00,
+happened,happen,form,morphy v; v-share 1.00,
+happening,happen,form,morphy v; v-share 1.00,
+happens,happen,form,morphy v; v-share 1.00,
 harder,hard,form,morphy a; a-share 0.82,
 hats,hat,form,morphy n; n-share 0.97,
 heads,head,form,morphy n; n-share 0.82,
@@ -253,8 +394,14 @@ held,hold,form,morphy v; v-share 0.97,
 helped,help,form,morphy v; v-share 0.90,
 helping,help,form,morphy v; v-share 0.90,
 helps,help,form,morphy v; v-share 0.90,
+heroes,hero,form,morphy n; n-share 1.00,
 highways,highway,form,morphy n; n-share 1.00,
 hills,hill,form,morphy n; n-share 1.00,
+hired,hire,form,morphy v; v-share 1.00,
+hiring,hire,form,morphy v; v-share 1.00,
+hits,hit,form,morphy v; v-share 0.85,
+hitting,hit,form,morphy v; v-share 0.85,
+hobbies,hobby,form,morphy n; n-share 1.00,
 holding,hold,form,morphy v; v-share 0.97,
 holds,hold,form,morphy v; v-share 0.97,
 holidays,holiday,form,morphy n; n-share 1.00,
@@ -263,6 +410,7 @@ hopes,hope,form,morphy v; v-share 0.70,
 hoping,hope,form,morphy v; v-share 0.70,
 horses,horse,form,morphy n; n-share 1.00,
 hospitals,hospital,form,morphy n; n-share 1.00,
+hostels,hostel,form,morphy n; n-share n/a,
 hosts,host,form,morphy n; n-share 1.00,
 hotels,hotel,form,morphy n; n-share 1.00,
 hottest,hot,form,morphy a; a-share 1.00,
@@ -274,12 +422,17 @@ impacts,impact,form,morphy n; n-share 1.00,
 improved,improve,form,morphy v; v-share 1.00,
 improving,improve,form,morphy v; v-share 1.00,
 incentives,incentive,form,morphy n; n-share 1.00,
+inches,inch,form,morphy n; n-share 0.98,
 included,include,form,morphy v; v-share 1.00,
 includes,include,form,morphy v; v-share 1.00,
 including,include,form,morphy v; v-share 1.00,
 indicators,indicator,form,morphy n; n-share 1.00,
 infants,infant,form,morphy n; n-share 1.00,
 infections,infection,form,morphy n; n-share 1.00,
+injuries,injury,form,morphy n; n-share 1.00,
+insects,insect,form,morphy n; n-share 1.00,
+inspections,inspection,form,morphy n; n-share 1.00,
+institutions,institution,form,morphy n; n-share 1.00,
 interests,interest,form,morphy n; n-share 0.95,
 interpreted,interpret,form,morphy v; v-share 1.00,
 introduced,introduce,form,morphy v; v-share 1.00,
@@ -287,6 +440,9 @@ introduces,introduce,form,morphy v; v-share 1.00,
 introducing,introduce,form,morphy v; v-share 1.00,
 investments,investment,form,morphy n; n-share 1.00,
 investors,investor,form,morphy n; n-share 1.00,
+involved,involve,form,morphy v; v-share 1.00,
+involves,involve,form,morphy v; v-share 1.00,
+involving,involve,form,morphy v; v-share 1.00,
 islands,island,form,morphy n; n-share 1.00,
 jackets,jacket,form,morphy n; n-share 0.94,
 jews,jew,form,morphy n; n-share 1.00,
@@ -313,14 +469,19 @@ knows,know,form,morphy v; v-share 1.00,
 laboratories,laboratory,form,morphy n; n-share 1.00,
 ladies,lady,form,morphy n; n-share 1.00,
 lakes,lake,form,morphy n; n-share 1.00,
+lamps,lamp,form,morphy n; n-share 1.00,
 lands,land,form,morphy n; n-share 0.74,
 landscapes,landscape,form,morphy n; n-share 1.00,
+lanes,lane,form,morphy n; n-share 1.00,
 languages,language,form,morphy n; n-share 1.00,
+laptops,laptop,form,morphy n; n-share n/a,
 largest,large,form,morphy a; a-share 1.00,
+laughing,laugh,form,morphy v; v-share 0.79,
+lawyers,lawyer,form,morphy n; n-share 1.00,
 learned,learn,form,morphy v; v-share 1.00,
 learning,learn,form,morphy v; v-share 1.00,
-leaves,leave,form,morphy v; v-share 0.99,
 leaving,leave,form,morphy v; v-share 0.99,
+legends,legend,form,morphy n; n-share 1.00,
 levels,level,form,morphy n; n-share 0.90,
 libraries,library,form,morphy n; n-share 1.00,
 licenses,license,form,morphy n; n-share 0.78,
@@ -328,26 +489,42 @@ liked,like,form,morphy v; v-share 0.84,
 likes,like,form,morphy v; v-share 0.84,
 limitations,limitation,form,morphy n; n-share 1.00,
 lines,line,form,morphy n; n-share 0.94,
+lions,lion,form,morphy n; n-share 1.00,
 listening,listen,form,morphy v; v-share 1.00,
 lived,live,form,morphy v; v-share 0.98,
 living,live,form,morphy v; v-share 0.98,
 loans,loan,form,morphy n; n-share 0.86,
 locations,location,form,morphy n; n-share 1.00,
+locked,lock,form,morphy v; v-share 0.74,
+locking,lock,form,morphy v; v-share 0.74,
+locks,lock,form,morphy v; v-share 0.74,
 longer,long,form,morphy a; a-share 0.84,
 longest,long,form,morphy a; a-share 0.84,
 looked,look,form,morphy v; v-share 0.90,
 looking,look,form,morphy v; v-share 0.90,
 looks,look,form,morphy v; v-share 0.90,
+losing,lose,form,morphy v; v-share 1.00,
+lost,lose,form,morphy v; v-share 1.00,
 lower,low,form,morphy a; a-share 0.97,
+lyrics,lyric,form,morphy n; n-share 0.75,
 machines,machine,form,morphy n; n-share 1.00,
 made,make,form,morphy v; v-share 1.00,
 makes,make,form,morphy v; v-share 1.00,
 making,make,form,morphy v; v-share 1.00,
 managers,manager,form,morphy n; n-share 1.00,
 markets,market,form,morphy n; n-share 0.90,
+matched,match,form,morphy v; v-share 0.86,
+matches,match,form,morphy v; v-share 0.86,
+matching,match,form,morphy v; v-share 0.86,
 materials,material,form,morphy n; n-share 0.92,
+mats,mat,form,morphy n; n-share 1.00,
 meaning,mean,form,morphy v; v-share 0.88,
 meant,mean,form,morphy v; v-share 0.88,
+measured,measure,form,morphy v; v-share 0.83,
+measurements,measurement,form,morphy n; n-share 1.00,
+measures,measure,form,morphy v; v-share 0.83,
+measuring,measure,form,morphy v; v-share 0.83,
+media,medium,form,morphy n; n-share 0.71,
 medicines,medicine,form,morphy n; n-share 1.00,
 meetings,meeting,form,morphy n; n-share 1.00,
 meets,meet,form,morphy v; v-share 0.98,
@@ -355,15 +532,25 @@ menus,menu,form,morphy n; n-share 1.00,
 met,meet,form,morphy v; v-share 0.98,
 metals,metal,form,morphy n; n-share 0.81,
 methods,method,form,morphy n; n-share 1.00,
+metres,metre,form,morphy n; n-share n/a,
+mice,mouse,form,morphy n; n-share 1.00,
+miles,mile,form,morphy n; n-share 1.00,
+ministers,minister,form,morphy n; n-share 0.77,
+mixed,mix,form,morphy v; v-share 1.00,
+mixing,mix,form,morphy v; v-share 1.00,
 models,model,form,morphy n; n-share 0.94,
 modes,mode,form,morphy n; n-share 1.00,
 months,month,form,morphy n; n-share 1.00,
 mothers,mother,form,morphy n; n-share 0.98,
+motivated,motivate,form,morphy v; v-share 1.00,
+motors,motor,form,morphy n; n-share 0.75,
+mountains,mountain,form,morphy n; n-share 1.00,
 moved,move,form,morphy v; v-share 0.96,
 movements,movement,form,morphy n; n-share 1.00,
 moves,move,form,morphy v; v-share 0.96,
 movies,movie,form,morphy n; n-share 1.00,
 moving,move,form,morphy v; v-share 0.96,
+musicians,musician,form,morphy n; n-share 1.00,
 neighbors,neighbor,form,morphy n; n-share 1.00,
 networks,network,form,morphy n; n-share 1.00,
 newer,new,form,morphy a; a-share 1.00,
@@ -372,18 +559,28 @@ nights,night,form,morphy n; n-share 1.00,
 notebooks,notebook,form,morphy n; n-share 1.00,
 nuts,nut,form,morphy n; n-share 1.00,
 observed,observe,form,morphy v; v-share 1.00,
+occupations,occupation,form,morphy n; n-share 1.00,
 offered,offer,form,morphy v; v-share 0.97,
 offering,offer,form,morphy v; v-share 0.97,
 offers,offer,form,morphy v; v-share 0.97,
 offices,office,form,morphy n; n-share 1.00,
 oils,oil,form,morphy n; n-share 0.94,
 oldest,old,form,morphy a; a-share 1.00,
+operated,operate,form,morphy v; v-share 1.00,
+operates,operate,form,morphy v; v-share 1.00,
+operating,operate,form,morphy v; v-share 1.00,
 opinions,opinion,form,morphy n; n-share 1.00,
 organised,organise,form,morphy v; v-share 1.00,
 organisms,organism,form,morphy n; n-share 1.00,
 organizations,organization,form,morphy n; n-share 1.00,
+origins,origin,form,morphy n; n-share 1.00,
 owners,owner,form,morphy n; n-share 1.00,
 paid,pay,form,morphy v; v-share 0.93,
+painted,paint,form,morphy v; v-share 0.85,
+painting,paint,form,morphy v; v-share 0.85,
+pairs,pair,form,morphy n; n-share 0.88,
+paragraphs,paragraph,form,morphy n; n-share 1.00,
+parameters,parameter,form,morphy n; n-share 1.00,
 parties,party,form,morphy n; n-share 1.00,
 passed,pass,form,morphy v; v-share 0.92,
 passes,pass,form,morphy v; v-share 0.92,
@@ -392,10 +589,26 @@ patients,patient,form,morphy n; n-share 0.96,
 paying,pay,form,morphy v; v-share 0.93,
 payments,payment,form,morphy n; n-share 1.00,
 pays,pay,form,morphy v; v-share 0.93,
+pens,pen,form,morphy n; n-share 0.75,
 pensions,pension,form,morphy n; n-share 1.00,
+performed,perform,form,morphy v; v-share 1.00,
+performing,perform,form,morphy v; v-share 1.00,
+performs,perform,form,morphy v; v-share 1.00,
 periods,period,form,morphy n; n-share 1.00,
+permissions,permission,form,morphy n; n-share 1.00,
+permits,permit,form,morphy v; v-share 0.93,
+permitted,permit,form,morphy v; v-share 0.93,
 persons,person,form,morphy n; n-share 1.00,
+pharmacies,pharmacy,form,morphy n; n-share 1.00,
+photographers,photographer,form,morphy n; n-share n/a,
+picked,pick,form,morphy v; v-share 0.96,
+picking,pick,form,morphy v; v-share 0.96,
+picks,pick,form,morphy v; v-share 0.96,
 pictures,picture,form,morphy n; n-share 0.91,
+pieces,piece,form,morphy n; n-share 0.98,
+pins,pin,form,morphy v; v-share 0.75,
+planets,planet,form,morphy n; n-share 1.00,
+plates,plate,form,morphy n; n-share 1.00,
 platforms,platform,form,morphy n; n-share 1.00,
 played,play,form,morphy v; v-share 0.80,
 playing,play,form,morphy v; v-share 0.80,
@@ -403,7 +616,16 @@ plays,play,form,morphy v; v-share 0.80,
 pleased,please,form,morphy v; v-share 1.00,
 points,point,form,morphy n; n-share 0.77,
 policies,policy,form,morphy n; n-share 1.00,
+politicians,politician,form,morphy n; n-share 1.00,
+pools,pool,form,morphy n; n-share 0.84,
+potatoes,potato,form,morphy n; n-share 1.00,
 powers,power,form,morphy n; n-share 0.97,
+predicted,predict,form,morphy v; v-share 1.00,
+preferred,prefer,form,morphy v; v-share 1.00,
+prefers,prefer,form,morphy v; v-share 1.00,
+prepared,prepare,form,morphy v; v-share 1.00,
+preparing,prepare,form,morphy v; v-share 1.00,
+preventing,prevent,form,morphy v; v-share 1.00,
 prices,price,form,morphy n; n-share 0.95,
 printed,print,form,morphy v; v-share 0.76,
 printers,printer,form,morphy n; n-share n/a,
@@ -413,10 +635,30 @@ problems,problem,form,morphy n; n-share 1.00,
 processes,process,form,morphy n; n-share 0.94,
 programmes,programme,form,morphy n; n-share n/a,
 programs,program,form,morphy n; n-share 0.96,
+projectors,projector,form,morphy n; n-share n/a,
+promised,promise,form,morphy v; v-share 0.74,
+promises,promise,form,morphy v; v-share 0.74,
+promising,promise,form,morphy v; v-share 0.74,
+promoted,promote,form,morphy v; v-share 1.00,
+promotes,promote,form,morphy v; v-share 1.00,
+promoting,promote,form,morphy v; v-share 1.00,
+promotions,promotion,form,morphy n; n-share 1.00,
 properties,property,form,morphy n; n-share 1.00,
+protected,protect,form,morphy v; v-share 1.00,
+protecting,protect,form,morphy v; v-share 1.00,
 proteins,protein,form,morphy n; n-share 1.00,
+proved,prove,form,morphy v; v-share 1.00,
+proven,prove,form,morphy v; v-share 1.00,
+published,publish,form,morphy v; v-share 1.00,
+publishing,publish,form,morphy v; v-share 1.00,
+pulled,pull,form,morphy v; v-share 0.88,
+pulling,pull,form,morphy v; v-share 0.88,
+pupils,pupil,form,morphy n; n-share 1.00,
+pushed,push,form,morphy v; v-share 0.94,
+pushing,push,form,morphy v; v-share 0.94,
 puts,put,form,morphy v; v-share 1.00,
 putting,put,form,morphy v; v-share 1.00,
+puzzles,puzzle,form,morphy v; v-share 1.00,
 qualifications,qualification,form,morphy n; n-share 1.00,
 qualities,quality,form,morphy n; n-share 1.00,
 quantities,quantity,form,morphy n; n-share 1.00,
@@ -428,24 +670,36 @@ raised,raise,form,morphy v; v-share 0.98,
 raises,raise,form,morphy v; v-share 0.98,
 raising,raise,form,morphy v; v-share 0.98,
 ran,run,form,morphy v; v-share 0.90,
+ranks,rank,form,morphy n; n-share 0.89,
+reached,reach,form,morphy v; v-share 0.97,
+reaches,reach,form,morphy v; v-share 0.97,
+reaching,reach,form,morphy v; v-share 0.97,
 reading,read,form,morphy v; v-share 1.00,
 reads,read,form,morphy v; v-share 1.00,
+realized,realize,form,morphy v; v-share 1.00,
 reasons,reason,form,morphy n; n-share 0.95,
 received,receive,form,morphy v; v-share 1.00,
 receives,receive,form,morphy v; v-share 1.00,
 receiving,receive,form,morphy v; v-share 1.00,
 recipes,recipe,form,morphy n; n-share n/a,
+recognized,recognize,form,morphy v; v-share 1.00,
 reduced,reduce,form,morphy v; v-share 1.00,
 reduces,reduce,form,morphy v; v-share 1.00,
 reducing,reduce,form,morphy v; v-share 1.00,
 reflections,reflection,form,morphy n; n-share 1.00,
+regulated,regulate,form,morphy v; v-share 1.00,
+religions,religion,form,morphy n; n-share 1.00,
 remembered,remember,form,morphy v; v-share 1.00,
 repeated,repeat,form,morphy v; v-share 0.97,
 reporters,reporter,form,morphy n; n-share 1.00,
+researchers,researcher,form,morphy n; n-share 1.00,
+reservations,reservation,form,morphy n; n-share 1.00,
 resolutions,resolution,form,morphy n; n-share 1.00,
+resolved,resolve,form,morphy v; v-share 0.96,
 responded,respond,form,morphy v; v-share 1.00,
 responding,respond,form,morphy v; v-share 1.00,
 restaurants,restaurant,form,morphy n; n-share 1.00,
+retired,retire,form,morphy v; v-share 1.00,
 returned,return,form,morphy v; v-share 0.77,
 returning,return,form,morphy v; v-share 0.77,
 returns,return,form,morphy v; v-share 0.77,
@@ -455,6 +709,7 @@ revenues,revenue,form,morphy n; n-share 1.00,
 rewards,reward,form,morphy n; n-share 0.82,
 rides,ride,form,morphy v; v-share 0.94,
 riding,ride,form,morphy v; v-share 0.94,
+rings,ring,form,morphy v; v-share 0.78,
 rivers,river,form,morphy n; n-share 1.00,
 rocks,rock,form,morphy n; n-share 0.77,
 roles,role,form,morphy n; n-share 1.00,
@@ -462,15 +717,21 @@ rolled,roll,form,morphy v; v-share 0.90,
 rolling,roll,form,morphy v; v-share 0.90,
 rolls,roll,form,morphy v; v-share 0.90,
 roses,rose,form,morphy n; n-share 0.83,
+routes,route,form,morphy n; n-share 1.00,
 running,run,form,morphy v; v-share 0.90,
 safer,safe,form,morphy a; a-share 0.81,
+salaries,salary,form,morphy n; n-share 1.00,
 sat,sit,form,morphy v; v-share 1.00,
+scanned,scan,form,morphy v; v-share 0.84,
+scanning,scan,form,morphy v; v-share 0.84,
 schools,school,form,morphy n; n-share 0.99,
 sciences,science,form,morphy n; n-share 1.00,
+scientists,scientist,form,morphy n; n-share 1.00,
 screens,screen,form,morphy n; n-share 0.75,
 seas,sea,form,morphy n; n-share 1.00,
 seasons,season,form,morphy n; n-share 1.00,
 sections,section,form,morphy n; n-share 1.00,
+seeds,seed,form,morphy n; n-share 0.94,
 seeing,see,form,morphy v; v-share 1.00,
 seeking,seek,form,morphy v; v-share 1.00,
 seeks,seek,form,morphy v; v-share 1.00,
@@ -480,27 +741,40 @@ selected,select,form,morphy v; v-share 0.97,
 selecting,select,form,morphy v; v-share 0.97,
 selling,sell,form,morphy v; v-share 1.00,
 sells,sell,form,morphy v; v-share 1.00,
+seminars,seminar,form,morphy n; n-share n/a,
 sending,send,form,morphy v; v-share 1.00,
 sends,send,form,morphy v; v-share 1.00,
 sent,send,form,morphy v; v-share 1.00,
+sentences,sentence,form,morphy n; n-share 0.87,
+settings,setting,form,morphy n; n-share 1.00,
 sewing,sew,form,morphy v; v-share 1.00,
+shapes,shape,form,morphy n; n-share 0.72,
 ships,ship,form,morphy n; n-share 0.88,
+shirts,shirt,form,morphy n; n-share 0.94,
+shooting,shoot,form,morphy v; v-share 1.00,
 shorter,short,form,morphy a; a-share 0.95,
+shots,shot,form,morphy n; n-share 1.00,
 showed,show,form,morphy v; v-share 0.94,
 showing,show,form,morphy v; v-share 0.94,
 shown,show,form,morphy v; v-share 0.94,
 shows,show,form,morphy v; v-share 0.94,
 sides,side,form,morphy n; n-share 0.97,
+singing,sing,form,morphy v; v-share 1.00,
 sisters,sister,form,morphy n; n-share 1.00,
 sitting,sit,form,morphy v; v-share 1.00,
+situations,situation,form,morphy n; n-share 1.00,
 sizes,size,form,morphy n; n-share 0.97,
+skins,skin,form,morphy n; n-share 1.00,
 sleeping,sleep,form,morphy v; v-share 0.71,
 sleeps,sleep,form,morphy v; v-share 0.71,
 slides,slide,form,morphy v; v-share 0.85,
 smallest,small,form,morphy a; a-share 1.00,
 societies,society,form,morphy n; n-share 1.00,
 sold,sell,form,morphy v; v-share 1.00,
+soldiers,soldier,form,morphy n; n-share 1.00,
 solutions,solution,form,morphy n; n-share 1.00,
+solved,solve,form,morphy v; v-share 1.00,
+solving,solve,form,morphy v; v-share 1.00,
 sons,son,form,morphy n; n-share 1.00,
 sought,seek,form,morphy v; v-share 1.00,
 speaking,speak,form,morphy v; v-share 1.00,
@@ -508,6 +782,7 @@ speaks,speak,form,morphy v; v-share 1.00,
 speeches,speech,form,morphy n; n-share 1.00,
 spoke,speak,form,morphy v; v-share 1.00,
 spoken,speak,form,morphy v; v-share 1.00,
+stages,stage,form,morphy n; n-share 0.83,
 standing,stand,form,morphy v; v-share 0.95,
 stands,stand,form,morphy v; v-share 0.95,
 stars,star,form,morphy n; n-share 0.79,
@@ -517,20 +792,36 @@ starts,start,form,morphy v; v-share 0.94,
 stayed,stay,form,morphy v; v-share 0.98,
 staying,stay,form,morphy v; v-share 0.98,
 stays,stay,form,morphy v; v-share 0.98,
+stones,stone,form,morphy n; n-share 0.97,
 stood,stand,form,morphy v; v-share 0.95,
 stopped,stop,form,morphy v; v-share 0.94,
 stopping,stop,form,morphy v; v-share 0.94,
 stops,stop,form,morphy v; v-share 0.94,
+stranger,strange,form,morphy a; a-share 1.00,
+strengths,strength,form,morphy n; n-share 1.00,
 structures,structure,form,morphy n; n-share 0.98,
 students,student,form,morphy n; n-share 1.00,
+studios,studio,form,morphy n; n-share 1.00,
+suffered,suffer,form,morphy v; v-share 1.00,
+suffering,suffer,form,morphy v; v-share 1.00,
+suggested,suggest,form,morphy v; v-share 1.00,
+suggesting,suggest,form,morphy v; v-share 1.00,
+suggests,suggest,form,morphy v; v-share 1.00,
+summaries,summary,form,morphy n; n-share 1.00,
+supervisors,supervisor,form,morphy n; n-share 1.00,
+surgeons,surgeon,form,morphy n; n-share 1.00,
+suspected,suspect,form,morphy v; v-share 0.75,
+swimming,swim,form,morphy v; v-share 1.00,
 systems,system,form,morphy n; n-share 1.00,
 tables,table,form,morphy n; n-share 1.00,
+tablets,tablet,form,morphy n; n-share 1.00,
 taken,take,form,morphy v; v-share 1.00,
 takes,take,form,morphy v; v-share 1.00,
 taking,take,form,morphy v; v-share 1.00,
 talked,talk,form,morphy v; v-share 0.91,
 talking,talk,form,morphy v; v-share 0.91,ok
 talks,talk,form,morphy v; v-share 0.91,
+tapes,tape,form,morphy n; n-share 1.00,
 taught,teach,form,morphy v; v-share 1.00,
 taxes,tax,form,morphy n; n-share 0.73,
 teachers,teacher,form,morphy n; n-share 1.00,
@@ -539,18 +830,32 @@ teaching,teach,form,morphy v; v-share 1.00,
 teams,team,form,morphy n; n-share 1.00,
 tears,tear,form,morphy v; v-share 0.81,
 technologies,technology,form,morphy n; n-share 1.00,
+televisions,television,form,morphy n; n-share 1.00,
+temperatures,temperature,form,morphy n; n-share 1.00,
+terminals,terminal,form,morphy n; n-share 1.00,
+themes,theme,form,morphy n; n-share 1.00,
 theories,theory,form,morphy n; n-share 1.00,
 thinking,think,form,morphy v; v-share 1.00,
 thinks,think,form,morphy v; v-share 1.00,
 thought,think,form,morphy v; v-share 1.00,
 threats,threat,form,morphy n; n-share 1.00,
+throwing,throw,form,morphy v; v-share 0.95,
+thrown,throw,form,morphy v; v-share 0.95,
+throws,throw,form,morphy v; v-share 0.95,
+thumbs,thumb,form,morphy n; n-share 0.71,
+tickets,ticket,form,morphy n; n-share 1.00,
+tomatoes,tomato,form,morphy n; n-share 1.00,
+tones,tone,form,morphy n; n-share 1.00,
 took,take,form,morphy v; v-share 1.00,
 tools,tool,form,morphy n; n-share 0.91,
 tops,top,form,morphy n; n-share 0.79,
+touched,touch,form,morphy v; v-share 0.76,
 towers,tower,form,morphy n; n-share 0.71,
 towns,town,form,morphy n; n-share 1.00,
+toys,toy,form,morphy n; n-share 1.00,
 trademarks,trademark,form,morphy n; n-share 1.00,
 trades,trade,form,morphy n; n-share 0.73,
+translated,translate,form,morphy v; v-share 1.00,
 traveling,travel,form,morphy v; v-share 0.86,
 travels,travel,form,morphy v; v-share 0.86,
 trees,tree,form,morphy n; n-share 1.00,
@@ -625,60 +930,871 @@ written,write,form,morphy v; v-share 1.00,
 wrote,write,form,morphy v; v-share 1.00,
 yields,yield,form,morphy v; v-share 0.79,
 zones,zone,form,morphy n; n-share 1.00,
+absence,want,related,hypernym L1 lack.n.01,reject
+academy,school,related,hypernym L2 school.n.01,
+access,right,related,hypernym L1 right.n.01,reject
+accessories,wear,related,hypernym L1 clothing.n.01,
+accessory,wear,related,hypernym L1 clothing.n.01,
+accreditation,authorisation,related,hypernym L2 authorization.n.04,
+acid,compound,related,hypernym L1 compound.n.02,
+acids,compound,related,hypernym L1 compound.n.02,
+adam,man,related,hypernym L1 man.n.01,
+adelaide,capital,related,hypernym L2 capital.n.03,
+ads,promotion,related,hypernym L1 promotion.n.01,
+advisors,authority,related,hypernym L1 authority.n.03,
+advocacy,help,related,hypernym L2 aid.n.02,reject
+aerial,pass,related,hypernym L1 pass.n.03,reject
+aircraft,vehicle,related,hypernym L2 vehicle.n.01,
+alabama,south,related,hypernym L1 south.n.01,reject
+albany,capital,related,hypernym L2 capital.n.03,
+albuquerque,city,related,hypernym L1 city.n.01,
+allocation,percentage,related,hypernym L1 share.n.01,reject
+allowance,percentage,related,hypernym L1 share.n.01,reject
+alpha,letter,related,hypernym L1 letter.n.02,
+aluminum,metal,related,hypernym L1 metallic_element.n.01,
+ambassador,official,related,hypernym L2 official.n.01,
+americas,country,related,hypernym L2 country.n.02,reject
+amplifier,equipment,related,hypernym L2 equipment.n.01,
+amsterdam,capital,related,hypernym L2 capital.n.03,
+anaheim,city,related,hypernym L1 city.n.01,
+anger,emotion,related,hypernym L1 emotion.n.01,
+anthropology,science,related,hypernym L2 science.n.01,
+antibodies,protein,related,hypernym L1 protein.n.01,
+antibody,protein,related,hypernym L1 protein.n.01,
+antigua,island,related,hypernym L1 island.n.01,
+apparatus,equipment,related,hypernym L1 equipment.n.01,
+appeal,request,related,hypernym L1 request.n.02,
+appeals,request,related,hypernym L1 request.n.02,
+appendix,addendum,related,hypernym L1 addendum.n.01,
+appropriations,money,related,hypernym L1 money.n.01,
+arlington,city,related,hypernym L1 city.n.01,
+arts,discipline,related,hypernym L1 discipline.n.01,
+aruba,island,related,hypernym L1 island.n.01,
+astronomy,physics,related,hypernym L1 physics.n.01,
+athens,capital,related,hypernym L2 capital.n.03,
+athletics,recreation,related,hypernym L1 diversion.n.01,
+atlanta,capital,related,hypernym L2 capital.n.03,
+atlantic,water,related,hypernym L2 body_of_water.n.01,
+attachment,heart,related,hypernym L1 affection.n.01,reject
+attorneys,professional,related,hypernym L1 professional.n.01,
+auckland,city,related,hypernym L1 city.n.01,
+austin,capital,related,hypernym L2 capital.n.03,
+babes,child,related,hypernym L1 child.n.02,reject
+bachelor,man,related,hypernym L1 man.n.01,
+baghdad,capital,related,hypernym L2 capital.n.03,
+bahamas,country,related,hypernym L1 country.n.02,
+bali,island,related,hypernym L1 island.n.01,
+baltimore,city,related,hypernym L1 city.n.01,
+bangkok,capital,related,hypernym L2 capital.n.03,
+bankruptcy,luck,related,hypernym L2 fortune.n.04,reject
+barcelona,city,related,hypernym L1 city.n.01,
+basement,floor,related,hypernym L1 floor.n.02,
+basin,vessel,related,hypernym L1 vessel.n.03,
+basis,foundation,related,hypernym L1 foundation.n.01,
+bass,pitch,related,hypernym L1 pitch.n.01,reject
+beauty,appearance,related,hypernym L1 appearance.n.01,
+bee,insect,related,hypernym L2 insect.n.01,
+behalf,office,related,hypernym L2 function.n.03,reject
+beijing,capital,related,hypernym L2 capital.n.03,
+belfast,capital,related,hypernym L1 capital.n.03,
+belle,girl,related,hypernym L1 girl.n.01,reject
+bent,inclination,related,hypernym L1 inclination.n.01,reject
+berlin,capital,related,hypernym L2 capital.n.03,
+bermuda,island,related,hypernym L1 island.n.01,
+beta,letter,related,hypernym L1 letter.n.02,
+bibliography,list,related,hypernym L1 list.n.01,
+bicycle,vehicle,related,hypernym L2 vehicle.n.01,
+binding,attraction,related,hypernym L1 attraction.n.03,reject
+biographies,history,related,hypernym L1 history.n.02,
+biography,history,related,hypernym L1 history.n.02,
+birmingham,city,related,hypernym L1 city.n.01,
+blade,leaf,related,hypernym L1 leaf.n.01,reject
+blades,leaf,related,hypernym L1 leaf.n.01,reject
+blues,genre,related,hypernym L2 music_genre.n.01,
+boating,travel,related,hypernym L2 travel.n.01,
+bond,attraction,related,hypernym L1 attraction.n.01,reject
+booking,job,related,hypernym L2 occupation.n.01,reject
+bookings,job,related,hypernym L2 occupation.n.01,reject
+booth,table,related,hypernym L1 table.n.02,reject
+borough,district,related,hypernym L2 district.n.01,
+boston,capital,related,hypernym L2 capital.n.03,
+bottom,side,related,hypernym L1 side.n.04,reject
+boulder,rock,related,hypernym L1 rock.n.01,
+brad,nail,related,hypernym L1 nail.n.02,
+branch,division,related,hypernym L1 division.n.04,
+branches,division,related,hypernym L1 division.n.04,
+brand,name,related,hypernym L1 name.n.01,
+brands,name,related,hypernym L1 name.n.01,
+brass,metal,related,hypernym L2 alloy.n.01,
+brighton,city,related,hypernym L1 city.n.01,
+bringing,transport,related,hypernym L1 transportation.n.02,reject
+brisbane,capital,related,hypernym L2 capital.n.03,
+bristol,city,related,hypernym L1 city.n.01,
+brook,water,related,hypernym L2 body_of_water.n.01,
+brussels,capital,related,hypernym L2 capital.n.03,
+budapest,capital,related,hypernym L2 capital.n.03,
+buddy,friend,related,hypernym L1 friend.n.01,
+burden,worry,related,hypernym L1 concern.n.04,
+burlington,city,related,hypernym L1 city.n.01,
+butler,servant,related,hypernym L2 servant.n.01,
+buyer,customer,related,hypernym L1 customer.n.01,
+buyers,customer,related,hypernym L1 customer.n.01,
+cab,room,related,hypernym L2 room.n.01,reject
+cabin,room,related,hypernym L2 room.n.01,
+cafe,restaurant,related,hypernym L1 restaurant.n.01,
+calcium,metal,related,hypernym L1 metallic_element.n.01,
+calgary,city,related,hypernym L1 city.n.01,
+cambridge,university,related,hypernym L1 university.n.02,
+canberra,capital,related,hypernym L2 capital.n.03,
+candidate,politician,related,hypernym L1 politician.n.02,
+candidates,politician,related,hypernym L1 politician.n.02,
+candy,sweet,related,hypernym L1 sweet.n.03,
+cannon,gun,related,hypernym L1 artillery.n.01,
+canon,rule,related,hypernym L1 rule.n.03,reject
+canyon,valley,related,hypernym L2 valley.n.01,
+cape,land,related,hypernym L1 land.n.04,reject
+cardiff,capital,related,hypernym L1 capital.n.03,
+cards,game,related,hypernym L1 game.n.01,
+careers,job,related,hypernym L1 occupation.n.01,
+caribbean,sea,related,hypernym L1 sea.n.01,
+carnival,festival,related,hypernym L1 festival.n.02,
+castle,house,related,hypernym L2 house.n.01,
+catalog,book,related,hypernym L1 book.n.01,
+catalogs,book,related,hypernym L1 book.n.01,
+celebration,occasion,related,hypernym L1 affair.n.03,
+celebrities,adult,related,hypernym L2 adult.n.01,
+celebrity,adult,related,hypernym L2 adult.n.01,
+cent,rupee,related,hypernym L1 sri_lanka_rupee.n.01,reject
+cents,rupee,related,hypernym L1 sri_lanka_rupee.n.01,reject
+ceremony,occasion,related,hypernym L1 affair.n.03,
+certification,authorisation,related,hypernym L1 authorization.n.04,
+champagne,wine,related,hypernym L2 wine.n.01,
+champion,competition,related,hypernym L1 rival.n.01,
+champions,competition,related,hypernym L1 rival.n.01,
+charleston,capital,related,hypernym L2 capital.n.03,
+checklist,list,related,hypernym L1 list.n.01,
+checkout,inspection,related,hypernym L1 inspection.n.01,
+cheese,food,related,hypernym L1 food.n.02,
+chester,city,related,hypernym L1 city.n.01,
+chicago,city,related,hypernym L1 city.n.01,
+chick,young,related,hypernym L2 young.n.01,reject
+cholesterol,alcohol,related,hypernym L2 alcohol.n.02,reject
+chosen,favourite,related,hypernym L1 darling.n.01,reject
+christianity,religion,related,hypernym L1 religion.n.01,
+chrome,metal,related,hypernym L2 metallic_element.n.01,
+church,religion,related,hypernym L1 religion.n.02,
+churches,religion,related,hypernym L1 religion.n.02,
+cigarette,smoke,related,hypernym L1 roll_of_tobacco.n.01,
+cigarettes,smoke,related,hypernym L1 roll_of_tobacco.n.01,
+cincinnati,city,related,hypernym L1 city.n.01,
+citation,accolade,related,hypernym L1 award.n.02,reject
+citations,accolade,related,hypernym L1 award.n.02,reject
+civilization,society,related,hypernym L1 society.n.01,
+classroom,room,related,hypernym L1 room.n.01,
+clay,soil,related,hypernym L1 soil.n.02,
+cleaner,compound,related,hypernym L2 compound.n.02,reject
+clearance,distance,related,hypernym L2 distance.n.01,reject
+cleveland,city,related,hypernym L1 city.n.01,
+closure,movement,related,hypernym L2 motion.n.06,reject
+clothes,wear,related,hypernym L1 clothing.n.01,
+coaching,job,related,hypernym L2 occupation.n.01,
+collar,slip,related,hypernym L2 strip.n.02,reject
+colleague,match,related,hypernym L2 peer.n.01,reject
+colleagues,match,related,hypernym L2 peer.n.01,reject
+colors,flag,related,hypernym L1 flag.n.01,reject
+columbus,capital,related,hypernym L2 capital.n.03,
+comedy,genre,related,hypernym L2 writing_style.n.01,
+commander,man,related,hypernym L2 serviceman.n.01,reject
+commissioner,administrator,related,hypernym L1 administrator.n.03,
+commissioners,administrator,related,hypernym L1 administrator.n.03,
+companion,friend,related,hypernym L1 friend.n.01,
+compensation,payment,related,hypernym L2 payment.n.01,
+completion,play,related,hypernym L1 maneuver.n.03,reject
+component,division,related,hypernym L1 part.n.09,
+components,division,related,hypernym L1 part.n.09,
+composer,musician,related,hypernym L1 musician.n.02,
+composite,construct,related,hypernym L2 concept.n.01,reject
+concert,show,related,hypernym L2 show.n.03,
+concerts,show,related,hypernym L2 show.n.03,
+concord,capital,related,hypernym L2 capital.n.03,
+congo,country,related,hypernym L2 country.n.02,
+congress,legislative assembly,related,hypernym L1 legislature.n.01,
+consensus,harmony,related,hypernym L2 harmony.n.03,
+consolidation,union,related,hypernym L2 union.n.09,
+continent,landmass,related,hypernym L1 landmass.n.01,
+contrast,opposition,related,hypernym L1 opposition.n.02,reject
+contribution,try,related,hypernym L1 attempt.n.01,reject
+contributions,try,related,hypernym L1 attempt.n.01,reject
+controversy,conflict,related,hypernym L1 dispute.n.01,
+conversation,speech,related,hypernym L1 speech.n.02,
+conversations,speech,related,hypernym L1 speech.n.02,
+convertible,car,related,hypernym L1 car.n.01,
+cooler,refrigerator,related,hypernym L1 refrigerator.n.01,
+coral,pink,related,hypernym L1 pink.n.01,
+cork,cover,related,hypernym L2 covering.n.01,reject
+corporation,firm,related,hypernym L1 firm.n.01,
+corporations,firm,related,hypernym L1 firm.n.01,
+costume,dress,related,hypernym L1 attire.n.01,
+costumes,dress,related,hypernym L1 attire.n.01,
+cottage,house,related,hypernym L1 house.n.01,
+cottages,house,related,hypernym L1 house.n.01,
+couple,pair,related,hypernym L1 pair.n.03,
+couples,pair,related,hypernym L1 pair.n.03,
+course,education,related,hypernym L1 education.n.01,
+courses,education,related,hypernym L1 education.n.01,
+cove,water,related,hypernym L2 body_of_water.n.01,
+cowboy,hand,related,hypernym L2 hired_hand.n.01,reject
+craft,job,related,hypernym L1 occupation.n.01,
+crafts,job,related,hypernym L1 occupation.n.01,
+creator,god,related,hypernym L1 god.n.01,reject
+creek,water,related,hypernym L2 body_of_water.n.01,
+critics,professional,related,hypernym L1 professional.n.01,
+crop,yield,related,hypernym L1 output.n.02,
+cult,religion,related,hypernym L1 religion.n.02,
+custom,practice,related,hypernym L1 practice.n.01,
+dad,father,related,hypernym L1 father.n.01,
+daddy,father,related,hypernym L1 father.n.01,
+dairy,farm,related,hypernym L1 farm.n.01,
+daisy,flower,related,hypernym L1 flower.n.01,
+dallas,city,related,hypernym L1 city.n.01,
+dame,girl,related,hypernym L1 girl.n.01,reject
+dancing,recreation,related,hypernym L1 diversion.n.01,
+days,life,related,hypernym L1 life.n.07,reject
+dayton,city,related,hypernym L1 city.n.01,
+dean,administrator,related,hypernym L2 administrator.n.01,
+decision,pick,related,hypernym L1 choice.n.02,reject
+decisions,pick,related,hypernym L1 choice.n.02,reject
+defendant,party,related,hypernym L2 party.n.05,reject
+delaware,river,related,hypernym L1 river.n.01,reject
+delivery,transport,related,hypernym L1 transportation.n.02,
+democracy,ideology,related,hypernym L1 political_orientation.n.01,
+democrat,politician,related,hypernym L1 politician.n.02,
+democrats,politician,related,hypernym L1 politician.n.02,
+demonstration,show,related,hypernym L1 show.n.01,
+denver,capital,related,hypernym L2 capital.n.03,
+department,division,related,hypernym L1 division.n.04,
+departments,division,related,hypernym L1 division.n.04,
+deputy,defender,related,hypernym L2 defender.n.01,reject
+des,estrogen,related,hypernym L1 estrogen.n.01,reject
+detail,fact,related,hypernym L1 fact.n.01,reject
+detroit,city,related,hypernym L1 city.n.01,
+deviation,variation,related,hypernym L1 variation.n.01,
+diameter,length,related,hypernym L1 length.n.01,
+difficulties,sweat,related,hypernym L1 effort.n.02,reject
+difficulty,sweat,related,hypernym L1 effort.n.02,reject
+direction,route,related,hypernym L1 path.n.03,
+directions,route,related,hypernym L1 path.n.03,
+directories,book,related,hypernym L2 book.n.01,
+directory,book,related,hypernym L2 book.n.01,
+dirt,earth,related,hypernym L1 earth.n.02,
+discretion,liberty,related,hypernym L1 liberty.n.02,reject
+disk,shape,related,hypernym L2 shape.n.02,reject
+disks,shape,related,hypernym L2 shape.n.02,reject
+disposition,nature,related,hypernym L1 nature.n.04,reject
+dividend,net,related,hypernym L1 net_income.n.01,reject
+documentary,movie,related,hypernym L1 movie.n.01,
+doll,toy,related,hypernym L1 plaything.n.01,
+dolls,toy,related,hypernym L1 plaything.n.01,
+donation,gift,related,hypernym L1 gift.n.01,
+donations,gift,related,hypernym L1 gift.n.01,
+dose,medicine,related,hypernym L1 medicine.n.02,
+dover,capital,related,hypernym L2 capital.n.03,
+drawings,art,related,hypernym L1 artwork.n.01,
+drinking,consumption,related,hypernym L1 consumption.n.01,
+dublin,capital,related,hypernym L2 capital.n.03,
+dynamics,physics,related,hypernym L2 physics.n.01,
+ebony,black,related,hypernym L1 black.n.01,
+edinburgh,capital,related,hypernym L1 capital.n.03,
+editorial,article,related,hypernym L1 article.n.01,
+editorials,article,related,hypernym L1 article.n.01,
+educators,professional,related,hypernym L1 professional.n.01,
+eggs,food,related,hypernym L2 food.n.01,
+electronics,physics,related,hypernym L1 physics.n.01,
+element,division,related,hypernym L1 part.n.09,reject
+empire,land,related,hypernym L1 domain.n.02,
+encyclopedia,book,related,hypernym L2 book.n.01,
+enlargement,increase,related,hypernym L1 increase.n.05,
+entertainment,recreation,related,hypernym L1 diversion.n.01,
+eve,woman,related,hypernym L1 woman.n.01,
+excitement,emotion,related,hypernym L2 emotion.n.01,
+exhibition,show,related,hypernym L2 show.n.01,
+exhibitions,show,related,hypernym L2 show.n.01,
+expansion,increase,related,hypernym L1 increase.n.05,
+exploration,journey,related,hypernym L2 journey.n.01,
+expressions,appearance,related,hypernym L2 appearance.n.01,reject
+extension,delay,related,hypernym L1 delay.n.01,reject
+extensions,delay,related,hypernym L1 delay.n.01,reject
+extent,degree,related,hypernym L1 degree.n.02,
+factor,origin,related,hypernym L2 origin.n.03,reject
+farming,cultivation,related,hypernym L1 cultivation.n.02,
+favorite,pick,related,hypernym L1 choice.n.01,reject
+favorites,pick,related,hypernym L1 choice.n.01,reject
+feature,construct,related,hypernym L2 concept.n.01,reject
+features,construct,related,hypernym L2 concept.n.01,reject
+fellowship,association,related,hypernym L1 association.n.01,
+films,show,related,hypernym L1 show.n.03,
+fist,hand,related,hypernym L1 hand.n.01,
+flavor,atmosphere,related,hypernym L1 atmosphere.n.01,reject
+florence,city,related,hypernym L1 city.n.01,
+florist,shopkeeper,related,hypernym L1 shopkeeper.n.01,
+florists,shopkeeper,related,hypernym L1 shopkeeper.n.01,
+flu,disease,related,hypernym L2 disease.n.01,
+flyer,advertisement,related,hypernym L1 ad.n.01,
+folks,kin,related,hypernym L1 kin.n.02,reject
+fort,post,related,hypernym L1 military_post.n.01,reject
+fragrance,smell,related,hypernym L1 smell.n.01,
+fragrances,smell,related,hypernym L1 smell.n.01,
+frankfurt,city,related,hypernym L1 city.n.01,
+fraud,crime,related,hypernym L1 crime.n.01,
+frederick,town,related,hypernym L1 town.n.01,
+fun,recreation,related,hypernym L1 diversion.n.01,
+fund,money,related,hypernym L1 money.n.01,
+fundamentals,law,related,hypernym L2 law.n.03,reject
+gambling,recreation,related,hypernym L1 diversion.n.01,
+gamma,letter,related,hypernym L1 letter.n.02,
+gap,disparity,related,hypernym L1 disparity.n.01,
+gaps,disparity,related,hypernym L1 disparity.n.01,
+gardening,agriculture,related,hypernym L1 farming.n.01,
+gary,city,related,hypernym L1 city.n.01,
+gem,art,related,hypernym L1 art.n.01,
+gentleman,man,related,hypernym L1 man.n.01,
+geometry,maths,related,hypernym L2 mathematics.n.01,
+gig,boat,related,hypernym L2 boat.n.01,reject
+glasgow,city,related,hypernym L1 city.n.01,
+governor,politician,related,hypernym L1 politician.n.01,
+greensboro,city,related,hypernym L1 city.n.01,
+grenada,country,related,hypernym L1 country.n.02,
+grocery,market,related,hypernym L1 marketplace.n.02,
+groove,depression,related,hypernym L1 depression.n.08,reject
+grove,forest,related,hypernym L1 forest.n.01,
+guam,island,related,hypernym L1 island.n.01,
+guy,man,related,hypernym L1 man.n.01,reject
+guys,man,related,hypernym L1 man.n.01,reject
+halloween,day,related,hypernym L1 day.n.03,
+halo,light,related,hypernym L1 light.n.07,reject
+hamburg,city,related,hypernym L1 city.n.01,
+happiness,emotion,related,hypernym L2 emotion.n.01,
+hartford,capital,related,hypernym L2 capital.n.03,
+harvard,university,related,hypernym L1 university.n.02,
+hay,feed,related,hypernym L2 feed.n.01,
+headquarters,office,related,hypernym L1 office.n.01,
+heat,energy,related,hypernym L1 energy.n.01,
+heights,spot,related,hypernym L1 topographic_point.n.01,reject
+helena,capital,related,hypernym L2 capital.n.03,
+heritage,practice,related,hypernym L1 practice.n.05,reject
+holdings,ownership,related,hypernym L1 possession.n.01,reject
+holland,country,related,hypernym L2 country.n.02,
+homeland,country,related,hypernym L1 country.n.02,
+hometown,town,related,hypernym L1 town.n.01,
+honolulu,capital,related,hypernym L2 capital.n.03,
+hood,criminal,related,hypernym L1 criminal.n.01,reject
+hospitality,welcome,related,hypernym L1 welcome.n.02,
+housewives,wife,related,hypernym L1 wife.n.01,
+houston,city,related,hypernym L1 city.n.01,
+hudson,river,related,hypernym L1 river.n.01,
+illustration,art,related,hypernym L1 artwork.n.01,
+illustrations,art,related,hypernym L1 artwork.n.01,
+implications,inference,related,hypernym L1 inference.n.01,reject
+incidence,frequency,related,hypernym L1 frequency.n.02,
+indianapolis,capital,related,hypernym L2 capital.n.03,
+induction,occasion,related,hypernym L2 affair.n.03,reject
+inn,hotel,related,hypernym L1 hotel.n.01,
+inns,hotel,related,hypernym L1 hotel.n.01,
+inspector,policeman,related,hypernym L1 policeman.n.01,
+instant,second,related,hypernym L1 moment.n.02,reject
+instructors,professional,related,hypernym L2 professional.n.01,
+interference,policy,related,hypernym L2 policy.n.02,reject
+intervention,engagement,related,hypernym L1 engagement.n.07,reject
+interventions,engagement,related,hypernym L1 engagement.n.07,reject
+investigation,research,related,hypernym L1 inquiry.n.01,
+investigations,research,related,hypernym L1 inquiry.n.01,
+investigators,scientist,related,hypernym L1 scientist.n.01,
+invitation,letter,related,hypernym L1 letter.n.01,
+invitations,letter,related,hypernym L1 letter.n.01,
+isle,island,related,hypernym L1 island.n.01,
+israeli,inhabitant,related,hypernym L2 inhabitant.n.01,
+istanbul,city,related,hypernym L1 city.n.01,
+italic,handwriting,related,hypernym L2 handwriting.n.01,
+jacksonville,city,related,hypernym L1 city.n.01,
+jade,stone,related,hypernym L2 gem.n.02,
+java,island,related,hypernym L1 island.n.01,
+jeep,car,related,hypernym L1 car.n.01,
+jerusalem,capital,related,hypernym L2 capital.n.03,
+jet,aeroplane,related,hypernym L1 airplane.n.01,
+jets,aeroplane,related,hypernym L1 airplane.n.01,
+john,room,related,hypernym L1 room.n.01,reject
+johnny,soldier,related,hypernym L2 soldier.n.01,reject
+joy,emotion,related,hypernym L1 emotion.n.01,
+junction,spot,related,hypernym L1 topographic_point.n.01,reject
+killing,expiry,related,hypernym L2 death.n.01,reject
+kind,construct,related,hypernym L2 concept.n.01,reject
+kinds,construct,related,hypernym L2 concept.n.01,reject
+kingdom,sphere,related,hypernym L1 sphere.n.01,reject
+lance,weapon,related,hypernym L1 weapon.n.01,
+landing,platform,related,hypernym L1 platform.n.01,reject
+lap,thigh,related,hypernym L1 thigh.n.01,
+latitude,angle,related,hypernym L2 angle.n.01,
+laundry,wear,related,hypernym L2 clothing.n.01,
+league,association,related,hypernym L1 association.n.01,
+leeds,city,related,hypernym L1 city.n.01,
+legacy,gift,related,hypernym L1 gift.n.01,
+legislature,assembly,related,hypernym L1 assembly.n.04,
+lesson,education,related,hypernym L2 education.n.04,
+lessons,education,related,hypernym L2 education.n.04,
+letters,culture,related,hypernym L1 culture.n.02,reject
+licking,finish,related,hypernym L1 ending.n.04,reject
+lincoln,president,related,hypernym L1 president_of_the_united_states.n.01,
+liverpool,city,related,hypernym L1 city.n.01,
+lobby,room,related,hypernym L1 room.n.01,
+locale,country,related,hypernym L2 area.n.01,reject
+log,wood,related,hypernym L1 wood.n.01,
+logic,philosophy,related,hypernym L1 philosophy.n.02,
+logs,wood,related,hypernym L1 wood.n.01,
+london,capital,related,hypernym L2 capital.n.03,
+lord,god,related,hypernym L1 god.n.01,reject
+losses,loss,related,hypernym L2 loss.n.01,
+louisville,city,related,hypernym L1 city.n.01,
+machinery,machine,related,hypernym L1 machine.n.01,
+madrid,capital,related,hypernym L2 capital.n.03,
+maiden,girl,related,hypernym L1 girl.n.01,reject
+mainland,land,related,hypernym L1 land.n.04,
+manchester,city,related,hypernym L1 city.n.01,
+manor,house,related,hypernym L2 house.n.01,
+maple,wood,related,hypernym L1 wood.n.01,
+marble,rock,related,hypernym L1 rock.n.02,
+marketing,commerce,related,hypernym L1 commerce.n.01,
+mars,planet,related,hypernym L2 planet.n.01,
+marsh,land,related,hypernym L2 land.n.02,
+mary,mother,related,hypernym L1 mother.n.01,reject
+mas,mother,related,hypernym L1 mother.n.01,reject
+master,artist,related,hypernym L1 artist.n.01,reject
+math,science,related,hypernym L1 science.n.01,
+mathematics,science,related,hypernym L1 science.n.01,
+mating,sex,related,hypernym L1 sexual_activity.n.01,reject
+maui,island,related,hypernym L1 island.n.01,
+mayor,politician,related,hypernym L1 politician.n.01,
+meal,nutrition,related,hypernym L1 nutriment.n.01,
+meals,nutrition,related,hypernym L1 nutriment.n.01,
+mechanics,physics,related,hypernym L1 physics.n.01,
+medication,drug,related,hypernym L1 drug.n.01,
+medications,drug,related,hypernym L1 drug.n.01,
+meditation,reflection,related,hypernym L1 contemplation.n.02,
+mediterranean,sea,related,hypernym L1 sea.n.01,
+member,match,related,hypernym L2 peer.n.01,reject
+members,match,related,hypernym L2 peer.n.01,reject
+memphis,city,related,hypernym L1 city.n.01,
+mercury,metal,related,hypernym L1 metallic_element.n.01,
+microwave,radiation,related,hypernym L2 radiation.n.01,reject
+midnight,hour,related,hypernym L1 hour.n.02,
+milan,city,related,hypernym L1 city.n.01,
+mileage,distance,related,hypernym L1 distance.n.01,
+milwaukee,city,related,hypernym L1 city.n.01,
+mine,excavation,related,hypernym L1 excavation.n.03,reject
+mines,excavation,related,hypernym L1 excavation.n.03,reject
+ministries,profession,related,hypernym L2 profession.n.01,
+ministry,profession,related,hypernym L2 profession.n.01,
+minneapolis,city,related,hypernym L1 city.n.01,
+missile,weapon,related,hypernym L1 weapon.n.01,
+mississippi,river,related,hypernym L1 river.n.01,
+mistress,woman,related,hypernym L1 woman.n.01,reject
+momentum,strength,related,hypernym L1 force.n.03,reject
+montreal,city,related,hypernym L1 city.n.01,
+mortality,length,related,hypernym L2 duration.n.03,reject
+moscow,capital,related,hypernym L2 capital.n.03,
+motel,court,related,hypernym L1 motor_hotel.n.01,reject
+motels,court,related,hypernym L1 motor_hotel.n.01,reject
+mud,soil,related,hypernym L1 soil.n.02,
+munich,city,related,hypernym L1 city.n.01,
+murder,homicide,related,hypernym L1 homicide.n.01,
+muscle,contractor,related,hypernym L1 contractile_organ.n.01,reject
+muscles,contractor,related,hypernym L1 contractile_organ.n.01,reject
+nancy,city,related,hypernym L1 city.n.01,
+naples,city,related,hypernym L1 city.n.01,
+nashville,capital,related,hypernym L2 capital.n.03,
+navigator,jack,related,hypernym L2 mariner.n.01,reject
+navy,service,related,hypernym L1 military_service.n.01,
+necessity,demand,related,hypernym L1 need.n.01,reject
+negotiation,speech,related,hypernym L2 speech.n.02,reject
+negotiations,speech,related,hypernym L2 speech.n.02,reject
+neighborhood,country,related,hypernym L2 area.n.01,reject
+newark,city,related,hypernym L1 city.n.01,
+newcastle,city,related,hypernym L1 city.n.01,
+newfoundland,dog,related,hypernym L1 dog.n.01,reject
+newport,city,related,hypernym L1 city.n.01,
+newsletter,report,related,hypernym L1 report.n.03,
+newsletters,report,related,hypernym L1 report.n.03,
+newton,scientist,related,hypernym L2 scientist.n.01,
+nomination,appointment,related,hypernym L1 appointment.n.01,
+nominations,appointment,related,hypernym L1 appointment.n.01,
+norfolk,city,related,hypernym L1 city.n.01,
+nursery,bedroom,related,hypernym L2 bedroom.n.01,
+oak,wood,related,hypernym L1 wood.n.01,
+oakland,city,related,hypernym L1 city.n.01,
+oaks,wood,related,hypernym L1 wood.n.01,
+observation,measurement,related,hypernym L1 measurement.n.01,
+observations,measurement,related,hypernym L1 measurement.n.01,
+ocean,water,related,hypernym L1 body_of_water.n.01,
+officer,man,related,hypernym L1 serviceman.n.01,reject
+officers,man,related,hypernym L1 serviceman.n.01,reject
+olympics,competition,related,hypernym L2 contest.n.01,
+opera,genre,related,hypernym L2 music_genre.n.01,
+orlando,city,related,hypernym L1 city.n.01,
+outcome,finish,related,hypernym L1 ending.n.04,reject
+outreach,movement,related,hypernym L2 motion.n.03,reject
+oxford,city,related,hypernym L1 city.n.01,
+ozone,gas,related,hypernym L1 gas.n.02,
+pacific,water,related,hypernym L2 body_of_water.n.01,
+packaging,commerce,related,hypernym L2 commerce.n.01,
+page,leaf,related,hypernym L1 leaf.n.02,reject
+pages,leaf,related,hypernym L1 leaf.n.02,reject
+paintings,art,related,hypernym L2 art.n.01,
+palace,house,related,hypernym L2 house.n.01,
+palestine,mandate,related,hypernym L1 mandate.n.02,reject
+paperback,book,related,hypernym L1 book.n.02,
+paperbacks,book,related,hypernym L1 book.n.02,
+par,score,related,hypernym L1 score.n.03,
+paris,capital,related,hypernym L2 capital.n.03,
+parish,community,related,hypernym L1 community.n.01,
+participant,match,related,hypernym L2 peer.n.01,reject
+participants,match,related,hypernym L2 peer.n.01,reject
+payday,day,related,hypernym L1 day.n.03,
+peak,limit,related,hypernym L1 limit.n.06,reject
+peninsula,land,related,hypernym L1 land.n.04,
+performance,show,related,hypernym L1 show.n.03,
+performances,show,related,hypernym L1 show.n.03,
+perfume,smell,related,hypernym L1 smell.n.01,
+perth,capital,related,hypernym L2 capital.n.03,
+philadelphia,city,related,hypernym L1 city.n.01,
+phoenix,capital,related,hypernym L2 capital.n.03,
+pickup,truck,related,hypernym L1 truck.n.01,
+picnic,holiday,related,hypernym L1 vacation.n.01,
+pie,pastry,related,hypernym L1 pastry.n.02,
+pierre,capital,related,hypernym L2 capital.n.03,
+pike,highway,related,hypernym L1 highway.n.01,reject
+pirates,criminal,related,hypernym L2 criminal.n.01,
+pittsburgh,city,related,hypernym L1 city.n.01,
+platinum,metal,related,hypernym L2 metallic_element.n.01,
+playback,reproduction,related,hypernym L2 reproduction.n.04,
+plug,stop,related,hypernym L1 blockage.n.02,reject
+plymouth,town,related,hypernym L1 town.n.01,
+pocket,bag,related,hypernym L2 bag.n.01,reject
+pockets,bag,related,hypernym L2 bag.n.01,reject
+poetry,genre,related,hypernym L1 writing_style.n.01,
+poll,research,related,hypernym L1 inquiry.n.01,
+pork,meat,related,hypernym L1 meat.n.01,
+porter,labourer,related,hypernym L1 laborer.n.01,
+portrait,picture,related,hypernym L1 word_picture.n.01,
+portraits,picture,related,hypernym L1 word_picture.n.01,
+pot,vessel,related,hypernym L1 vessel.n.03,
+practitioner,professional,related,hypernym L1 professional.n.01,
+practitioners,professional,related,hypernym L1 professional.n.01,
+prague,capital,related,hypernym L2 capital.n.03,
+premiere,show,related,hypernym L2 show.n.03,
+pricing,evaluation,related,hypernym L1 evaluation.n.02,reject
+privilege,advantage,related,hypernym L1 advantage.n.01,
+privileges,advantage,related,hypernym L1 advantage.n.01,
+prize,gift,related,hypernym L1 gift.n.01,
+prizes,gift,related,hypernym L1 gift.n.01,
+proceeds,income,related,hypernym L1 income.n.01,
+profile,chart,related,hypernym L1 chart.n.01,reject
+profiles,chart,related,hypernym L1 chart.n.01,reject
+prospect,potential,related,hypernym L1 potential.n.01,
+prospects,potential,related,hypernym L1 potential.n.01,
+prototype,example,related,hypernym L1 model.n.07,
+providence,capital,related,hypernym L2 capital.n.03,
+provinces,district,related,hypernym L2 district.n.01,
+provisions,food,related,hypernym L1 food.n.01,
+publisher,firm,related,hypernym L1 firm.n.01,
+publishers,firm,related,hypernym L1 firm.n.01,
+punk,criminal,related,hypernym L1 criminal.n.01,reject
+puppy,dog,related,hypernym L1 dog.n.01,
+pursuit,movement,related,hypernym L1 motion.n.06,reject
+quarters,housing,related,hypernym L1 housing.n.01,
+quest,search,related,hypernym L1 search.n.04,
+quiz,exam,related,hypernym L1 examination.n.02,
+quizzes,exam,related,hypernym L1 examination.n.02,
+racing,recreation,related,hypernym L2 diversion.n.01,
+radius,length,related,hypernym L1 length.n.01,
+rail,barrier,related,hypernym L1 barrier.n.01,reject
+ranch,farm,related,hypernym L1 farm.n.01,
+ray,light,related,hypernym L1 light.n.01,
+rays,light,related,hypernym L1 light.n.01,
+reader,student,related,hypernym L1 scholar.n.01,reject
+readers,student,related,hypernym L1 scholar.n.01,reject
+readings,language,related,hypernym L1 linguistic_process.n.02,reject
+realm,sphere,related,hypernym L1 sphere.n.01,reject
+recognition,acceptance,related,hypernym L1 acceptance.n.03,
+reconstruction,era,related,hypernym L2 era.n.01,reject
+recorder,equipment,related,hypernym L1 equipment.n.01,
+recorders,equipment,related,hypernym L1 equipment.n.01,
+reef,elevation,related,hypernym L2 natural_elevation.n.01,reject
+reliance,certainty,related,hypernym L1 certainty.n.01,reject
+renaissance,era,related,hypernym L2 era.n.01,reject
+renewal,repair,related,hypernym L2 repair.n.01,
+reno,city,related,hypernym L1 city.n.01,
+reporting,news,related,hypernym L1 news.n.02,
+response,result,related,hypernym L1 consequence.n.01,reject
+responses,result,related,hypernym L1 consequence.n.01,reject
+restoration,era,related,hypernym L2 era.n.01,reject
+restrictions,rule,related,hypernym L1 rule.n.01,
+retention,ownership,related,hypernym L1 possession.n.01,reject
+reunion,party,related,hypernym L1 party.n.02,
+reviewer,judge,related,hypernym L2 evaluator.n.01,
+richmond,capital,related,hypernym L2 capital.n.03,
+ridge,elevation,related,hypernym L1 natural_elevation.n.01,
+rio,city,related,hypernym L1 city.n.01,
+rome,capital,related,hypernym L2 capital.n.03,
+rooms,apartment,related,hypernym L1 apartment.n.01,reject
+roster,list,related,hypernym L1 list.n.01,
+rotation,movement,related,hypernym L1 motion.n.03,
+royalty,payment,related,hypernym L1 payment.n.01,
+ruling,judgement,related,hypernym L1 judgment.n.03,
+sacramento,capital,related,hypernym L2 capital.n.03,
+sailing,job,related,hypernym L2 occupation.n.01,
+saint,god,related,hypernym L1 deity.n.01,reject
+saints,god,related,hypernym L1 deity.n.01,reject
+sake,welfare,related,hypernym L1 benefit.n.02,reject
+salad,nutrition,related,hypernym L2 nutriment.n.01,
+sale,commerce,related,hypernym L2 commerce.n.01,
+salmon,fish,related,hypernym L2 fish.n.01,
+salon,room,related,hypernym L2 room.n.01,
+sample,example,related,hypernym L1 example.n.01,
+samples,example,related,hypernym L1 example.n.01,
+sampling,pick,related,hypernym L1 choice.n.02,reject
+satellite,equipment,related,hypernym L1 equipment.n.01,
+satin,cloth,related,hypernym L1 fabric.n.01,
+saturn,planet,related,hypernym L2 planet.n.01,
+savannah,city,related,hypernym L1 city.n.01,
+savings,money,related,hypernym L2 money.n.01,
+scenario,book,related,hypernym L1 script.n.01,reject
+scenarios,book,related,hypernym L1 script.n.01,reject
+scene,country,related,hypernym L1 area.n.01,reject
+scenes,country,related,hypernym L1 area.n.01,reject
+scheme,program,related,hypernym L2 plan.n.01,
+schemes,program,related,hypernym L2 plan.n.01,
+scholarship,gift,related,hypernym L2 gift.n.01,
+scholarships,gift,related,hypernym L2 gift.n.01,
+sculpture,art,related,hypernym L2 art.n.01,
+seattle,city,related,hypernym L1 city.n.01,
+senate,legislative assembly,related,hypernym L1 legislature.n.01,
+senator,politician,related,hypernym L2 politician.n.01,
+senators,politician,related,hypernym L2 politician.n.01,
+session,conference,related,hypernym L1 conference.n.03,
+setup,equipment,related,hypernym L1 equipment.n.01,
+shade,dark,related,hypernym L2 dark.n.01,
+shanghai,city,related,hypernym L1 city.n.01,
+sheffield,city,related,hypernym L1 city.n.01,
+sheriff,defender,related,hypernym L2 defender.n.01,reject
+shipping,commerce,related,hypernym L2 commerce.n.01,
+shopper,customer,related,hypernym L1 customer.n.01,
+shoppers,customer,related,hypernym L1 customer.n.01,
+shortcuts,road,related,hypernym L1 road.n.01,reject
+showcase,background,related,hypernym L1 setting.n.02,reject
+signature,name,related,hypernym L1 name.n.01,
+signatures,name,related,hypernym L1 name.n.01,
+sir,man,related,hypernym L1 man.n.01,reject
+slight,offence,related,hypernym L1 discourtesy.n.03,reject
+smoking,ventilation,related,hypernym L1 breathing.n.01,reject
+snapshot,picture,related,hypernym L1 photograph.n.01,
+sodium,metal,related,hypernym L1 metallic_element.n.01,
+song,music,related,hypernym L2 music.n.01,
+songs,music,related,hypernym L2 music.n.01,
+sort,construct,related,hypernym L2 concept.n.01,reject
+sorts,construct,related,hypernym L2 concept.n.01,reject
+spending,payment,related,hypernym L1 payment.n.02,
+spirits,alcohol,related,hypernym L1 alcohol.n.01,
+spokesman,voice,related,hypernym L1 spokesperson.n.01,reject
+sponsorship,help,related,hypernym L2 aid.n.02,reject
+sport,recreation,related,hypernym L1 diversion.n.01,
+springfield,capital,related,hypernym L2 capital.n.03,
+starter,motor,related,hypernym L2 motor.n.01,reject
+stockholm,capital,related,hypernym L2 capital.n.03,
+storage,ownership,related,hypernym L2 possession.n.01,reject
+strategies,program,related,hypernym L2 plan.n.01,
+strategy,program,related,hypernym L2 plan.n.01,
+stream,water,related,hypernym L1 body_of_water.n.01,
+streams,water,related,hypernym L1 body_of_water.n.01,
+street,road,related,hypernym L2 road.n.01,
+streets,road,related,hypernym L2 road.n.01,
+subcommittee,committee,related,hypernym L1 committee.n.01,
+subscription,payment,related,hypernym L1 payment.n.01,
+subscriptions,payment,related,hypernym L1 payment.n.01,
+suite,music,related,hypernym L2 music.n.01,reject
+suites,music,related,hypernym L2 music.n.01,reject
+sunshine,light,related,hypernym L1 light.n.01,
+superintendent,supervisor,related,hypernym L1 supervisor.n.01,
+supporters,advocate,related,hypernym L1 advocate.n.01,
+sur,city,related,hypernym L1 city.n.01,reject
+surf,wave,related,hypernym L1 wave.n.01,
+survival,life,related,hypernym L1 animation.n.01,
+sword,weapon,related,hypernym L1 weapon.n.01,
+sydney,capital,related,hypernym L2 capital.n.03,
+symposium,conference,related,hypernym L1 conference.n.01,
+tactics,discipline,related,hypernym L2 discipline.n.01,
+tampa,city,related,hypernym L1 city.n.01,
+tank,vehicle,related,hypernym L2 vehicle.n.01,
+tanks,vehicle,related,hypernym L2 vehicle.n.01,
+target,indicator,related,hypernym L2 indicator.n.02,reject
+targets,indicator,related,hypernym L2 indicator.n.02,reject
+tariff,tax,related,hypernym L2 tax.n.01,
+technique,method,related,hypernym L1 method.n.01,
+techniques,method,related,hypernym L1 method.n.01,
+testament,doctrine,related,hypernym L2 doctrine.n.01,reject
+testing,experiment,related,hypernym L1 experiment.n.01,
+thanksgiving,holiday,related,hypernym L2 holiday.n.02,
+theology,discipline,related,hypernym L1 discipline.n.01,
+thumbnail,nail,related,hypernym L2 nail.n.01,
+thumbnails,nail,related,hypernym L2 nail.n.01,
+tin,metal,related,hypernym L1 metallic_element.n.01,
+tobacco,drug,related,hypernym L2 drug.n.01,
+tobago,island,related,hypernym L1 island.n.01,
+toilet,room,related,hypernym L1 room.n.01,
+tokyo,capital,related,hypernym L2 capital.n.03,
+tolerance,strength,related,hypernym L2 strength.n.01,reject
+toronto,capital,related,hypernym L2 capital.n.03,
+tournament,competition,related,hypernym L1 contest.n.01,
+tournaments,competition,related,hypernym L1 contest.n.01,
+trading,commerce,related,hypernym L1 commerce.n.01,
+treasure,wealth,related,hypernym L1 wealth.n.03,
+treasures,wealth,related,hypernym L1 wealth.n.03,
+trend,route,related,hypernym L2 path.n.03,reject
+trends,route,related,hypernym L2 path.n.03,reject
+trial,try,related,hypernym L1 attempt.n.01,reject
+trials,try,related,hypernym L1 attempt.n.01,reject
+trinidad,island,related,hypernym L1 island.n.01,
+trip,journey,related,hypernym L1 journey.n.01,
+trips,journey,related,hypernym L1 journey.n.01,
+triumph,finish,related,hypernym L1 ending.n.04,reject
+truth,fact,related,hypernym L1 fact.n.01,
+tub,vessel,related,hypernym L1 vessel.n.03,
+tucson,city,related,hypernym L1 city.n.01,
+tuition,fee,related,hypernym L1 fee.n.01,
+tulsa,city,related,hypernym L1 city.n.01,
+tumor,sickness,related,hypernym L2 illness.n.01,
+tune,music,related,hypernym L1 music.n.01,
+tunes,music,related,hypernym L1 music.n.01,
+tutorial,conference,related,hypernym L2 conference.n.03,
+tutorials,conference,related,hypernym L2 conference.n.03,
+undergraduate,student,related,hypernym L2 student.n.01,
+uniform,wear,related,hypernym L1 clothing.n.01,
+utilities,service,related,hypernym L1 service.n.04,
+utility,service,related,hypernym L1 service.n.04,
+vacations,leisure,related,hypernym L1 leisure.n.01,
+vatican,house,related,hypernym L2 house.n.01,reject
+vault,chamber,related,hypernym L2 chamber.n.01,
+vector,variable,related,hypernym L1 variable.n.02,reject
+vegetable,food,related,hypernym L2 food.n.02,
+velvet,cloth,related,hypernym L1 fabric.n.01,
+venice,city,related,hypernym L1 city.n.01,
+verse,genre,related,hypernym L1 writing_style.n.01,
+version,interpretation,related,hypernym L1 interpretation.n.03,reject
+versions,interpretation,related,hypernym L1 interpretation.n.03,reject
+vertex,point of intersection,related,hypernym L1 intersection.n.01,reject
+vice,evil,related,hypernym L1 evil.n.03,
+victory,finish,related,hypernym L1 ending.n.04,reject
+vienna,capital,related,hypernym L2 capital.n.03,
+viewers,audience,related,hypernym L1 audience.n.02,
+vintage,wine,related,hypernym L1 wine.n.01,
+violation,crime,related,hypernym L1 crime.n.01,
+violations,crime,related,hypernym L1 crime.n.01,
+wagon,vehicle,related,hypernym L2 vehicle.n.01,
+wallpaper,paper,related,hypernym L1 paper.n.01,
+wallpapers,paper,related,hypernym L1 paper.n.01,
+washington,capital,related,hypernym L2 capital.n.03,
+wheat,grass,related,hypernym L2 grass.n.01,
+wildlife,life,related,hypernym L1 life.n.10,
+willow,tree,related,hypernym L1 tree.n.01,
+words,speech,related,hypernym L1 speech.n.02,
+yacht,vessel,related,hypernym L1 vessel.n.02,
+yale,university,related,hypernym L1 university.n.02,
+yen,desire,related,hypernym L2 desire.n.01,reject
+yugoslavia,country,related,hypernym L2 country.n.02,
+zealand,island,related,hypernym L1 island.n.01,reject
+zinc,metal,related,hypernym L1 metallic_element.n.01,
+zoning,division,related,hypernym L1 division.n.12,reject
 ace,one,synonym,one.n.01,reject
+advertising,advertisement,synonym,ad.n.01,ok
+advisor,consultant,synonym,adviser.n.01,ok
 agenda,schedule,synonym,agenda.n.01,ok
 aggregate,total,synonym,sum.n.05,ok
 america,united states of america,synonym,united_states.n.01,ok
+arena,sphere,synonym,sphere.n.01,reject
 assist,help,synonym,aid.n.02,ok
 assistance,help,synonym,aid.n.02,ok
+assurance,confidence,synonym,assurance.n.01,ok
 attempt,effort,synonym,attempt.n.01,ok
+attorney,lawyer,synonym,lawyer.n.01,ok
 aug,august,synonym,august.n.01,ok
 authorities,government,synonym,government.n.01,ok
+authorization,mandate,synonym,mandate.n.01,reject
 auto,car,synonym,car.n.01,ok
 automobile,car,synonym,car.n.01,ok
 autumn,fall,synonym,fall.n.01,reject
 babe,baby,synonym,baby.n.01,ok
+bang,smash,synonym,knock.n.03,reject
+battle,fight,synonym,battle.n.01,ok
+belly,abdomen,synonym,abdomen.n.01,ok
 bend,turn,synonym,bend.n.01,reject
 beneath,below,synonym,below.r.01,ok
+bias,prejudice,synonym,bias.n.01,ok
 britain,united kingdom,synonym,united_kingdom.n.01,ok
 career,vocation,synonym,career.n.01,ok
 category,class,synonym,class.n.01,ok
+choice,pick,synonym,choice.n.01,reject
 choose,select,synonym,choose.v.01,ok
 christ,jesus christ,synonym,jesus.n.01,ok
 circumstances,luck,synonym,fortune.n.04,reject
 colony,settlement,synonym,colony.n.01,ok
 commission,committee,synonym,committee.n.01,ok
 compile,accumulate,synonym,roll_up.v.02,reject
+confirm,affirm,synonym,confirm.v.01,ok
 confirmation,verification,synonym,confirmation.n.01,ok
+congratulations,praise,synonym,praise.n.01,reject
 consequence,result,synonym,consequence.n.01,ok
+contrary,reverse,synonym,reverse.n.01,reject
 darkness,dark,synonym,dark.n.01,ok
+dealer,trader,synonym,trader.n.01,ok
 dec,december,synonym,december.n.01,ok
+depot,terminal,synonym,terminal.n.01,reject
 detect,observe,synonym,detect.v.01,reject
 discover,observe,synonym,detect.v.01,reject
 doctrine,philosophy,synonym,doctrine.n.01,reject
+domain,sphere,synonym,sphere.n.01,reject
 dozen,twelve,synonym,twelve.n.01,ok
 drama,play,synonym,play.n.01,ok
 earnings,profit,synonym,net_income.n.01,ok
 effect,result,synonym,consequence.n.01,ok
+encourage,promote,synonym,promote.v.01,reject
+engagement,fight,synonym,battle.n.01,reject
 engineering,technology,synonym,technology.n.01,reject
+execution,capital punishment,synonym,execution.n.01,ok
 expression,look,synonym,expression.n.01,reject
+fabric,cloth,synonym,fabric.n.01,ok
 fashion,mode,synonym,manner.n.01,reject
 feb,february,synonym,february.n.01,ok
 fig,figure,synonym,figure.n.01,ok
 film,movie,synonym,movie.n.01,ok
+fisher,fisherman,synonym,fisherman.n.01,ok
+flooring,floor,synonym,floor.n.01,ok
 focusing,focus,synonym,focus.n.01,ok
-framework,model,synonym,model.n.01,reject
+freight,cargo,synonym,cargo.n.01,ok
 frequently,often,synonym,frequently.r.01,ok
 gain,increase,synonym,addition.n.03,ok
+glasses,spectacles,synonym,spectacles.n.01,ok
 granny,grandmother,synonym,grandma.n.01,ok
 grip,hold,synonym,clasp.n.02,ok
+guardian,defender,synonym,defender.n.01,reject
+harm,injury,synonym,injury.n.01,ok
 household,family,synonym,family.n.01,ok
+hurt,injury,synonym,injury.n.01,ok
 illness,sickness,synonym,illness.n.01,ok
-inch,in,synonym,inch.n.01,reject
 inexpensive,cheap,synonym,cheap.a.01,ok
 inquire,ask,synonym,ask.v.01,ok
 instructor,teacher,synonym,teacher.n.01,ok
+intake,consumption,synonym,consumption.n.01,ok
 integer,whole number,synonym,integer.n.01,ok
+intersection,point of intersection,synonym,intersection.n.01,reject
+investigator,researcher,synonym,research_worker.n.01,reject
 jan,january,synonym,january.n.01,ok
 jesus,jesus christ,synonym,jesus.n.01,ok
 lab,laboratory,synonym,lab.n.01,ok
@@ -687,47 +1803,79 @@ last,close,synonym,stopping_point.n.01,reject
 lately,recently,synonym,recently.r.01,ok
 load,loading,synonym,load.n.01,ok
 lodging,housing,synonym,housing.n.01,ok
+majority,bulk,synonym,majority.n.01,reject
 manner,mode,synonym,manner.n.01,reject
 mark,score,synonym,mark.n.01,reject
 marketplace,market,synonym,market.n.01,ok
-measure,step,synonym,measure.n.01,reject
-minor,child,synonym,child.n.01,reject
+metro,subway,synonym,metro.n.01,ok
+mill,factory,synonym,factory.n.01,ok
 miss,girl,synonym,girl.n.01,reject
 moisture,wet,synonym,moisture.n.01,ok
 nation,country,synonym,state.n.04,ok
 nov,november,synonym,november.n.01,ok
 occupation,job,synonym,occupation.n.01,ok
+occur,happen,synonym,happen.v.01,ok
 oct,october,synonym,october.n.01,ok
 offensive,offence,synonym,offense.n.05,reject
+ordinance,regulation,synonym,regulation.n.01,ok
 papers,document,synonym,document.n.01,ok
 paradise,heaven,synonym,eden.n.01,ok
-permit,license,synonym,license.n.01,ok
+pastor,minister,synonym,curate.n.01,ok
+peer,equal,synonym,peer.n.01,reject
+percent,percentage,synonym,percentage.n.01,ok
+perhaps,maybe,synonym,possibly.r.01,ok
 petition,request,synonym,request.n.01,ok
+phase,stage,synonym,phase.n.01,ok
 physician,doctor,synonym,doctor.n.01,ok
+pit,cavity,synonym,pit.n.01,reject
 portion,part,synonym,part.n.01,ok
+possibly,maybe,synonym,possibly.r.01,ok
+praise,congratulations,synonym,praise.n.01,reject
 presently,soon,synonym,soon.r.01,reject
 procedure,process,synonym,procedure.n.01,ok
 profits,profit,synonym,net_income.n.01,ok
+propose,suggest,synonym,propose.v.01,ok
 province,state,synonym,state.n.01,ok
+publicity,promotion,synonym,promotion.n.01,ok
+push,pushing,synonym,push.n.01,ok
 rapidly,quickly,synonym,quickly.r.01,ok
+refuse,garbage,synonym,garbage.n.01,reject
+regard,respect,synonym,respect.n.01,reject
 regime,government,synonym,government.n.01,ok
+remainder,rest,synonym,remainder.n.01,ok
 reply,answer,synonym,answer.n.01,ok
+residence,abode,synonym,residence.n.01,ok
 resistance,opposition,synonym,resistance.n.01,ok
 restriction,limitation,synonym,restriction.n.01,ok
+rug,carpet,synonym,rug.n.01,ok
 salary,pay,synonym,wage.n.01,ok
+scope,range,synonym,scope.n.01,reject
+scout,picket,synonym,lookout.n.01,reject
 sec,second,synonym,second.n.01,ok
 sept,september,synonym,september.n.01,ok
+shipment,cargo,synonym,cargo.n.01,ok
 someone,person,synonym,person.n.01,ok
+source,origin,synonym,beginning.n.04,ok
 speed,velocity,synonym,speed.n.01,ok
-stone,rock,synonym,rock.n.01,ok
+steps,stairs,synonym,stairs.n.01,ok
 store,shop,synonym,shop.n.01,ok
+story,narrative,synonym,narrative.n.01,ok
 stuff,material,synonym,material.n.01,ok
 style,mode,synonym,manner.n.01,reject
+subject,theme,synonym,subject.n.01,reject
 sum,amount,synonym,sum.n.01,ok
 survey,study,synonym,survey.n.01,reject
+syntax,sentence structure,synonym,syntax.n.01,ok
+tale,narrative,synonym,narrative.n.01,ok
 telephone,phone,synonym,telephone.n.01,ok
 territory,district,synonym,district.n.01,reject
+terror,panic,synonym,panic.n.01,reject
+textile,cloth,synonym,fabric.n.01,ok
+theater,theatre,synonym,theater.n.01,ok
+therapist,healer,synonym,therapist.n.01,reject
 thunder,boom,synonym,boom.n.01,reject
+topic,theme,synonym,subject.n.01,ok
+trance,spell,synonym,enchantment.n.02,reject
 tribunal,court,synonym,court.n.01,ok
 trio,three,synonym,three.n.01,reject
 utilize,apply,synonym,use.v.01,reject
@@ -735,4 +1883,6 @@ vacation,holiday,synonym,vacation.n.01,ok
 vast,huge,synonym,huge.s.01,ok
 wage,pay,synonym,wage.n.01,ok
 wages,reward,synonym,wages.n.01,reject
+woods,forest,synonym,forest.n.01,ok
+workout,exercise,synonym,exercise.n.01,ok
 world,universe,synonym,universe.n.01,reject

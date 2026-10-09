@@ -50,6 +50,11 @@ DERIVED_DIR = "data/_derived/h264"
 PROBE_CACHE = "data/_derived/probe_cache.csv"
 ALIASES_CSV = "data/aliases.csv"
 TRIMS_CSV = "data/trims.csv"
+DRIVE_INDEX = "data/_derived/drive_index.csv"      # from tools/drive_sync.py index
+DRIVE_MANIFEST = "data/drive_manifest.csv"         # committed: phrase -> Drive file id
+# Size stands in for duration before download: <= 8 MB clips are single signs
+# (median 4-12 s); the few that still turn out > 30 s are rejected after fetch.
+DRIVE_MAX_BYTES = 8_000_000
 TRIMMED_DIR = "data/_derived/trimmed"
 MANIFEST_CSV = "data/manifest.csv"
 
@@ -418,6 +423,39 @@ def main():
         w.writeheader()
         w.writerows(rows)
     print(f"wrote {MANIFEST_CSV}")
+    write_drive_manifest({r["phrase"] for r in rows}, set(rels))
+
+
+def write_drive_manifest(local_phrases: set, local_rels: set) -> None:
+    """Catalogue the Drive-only signs the app can fetch on demand (src/drive_fetch.py).
+
+    Same name parsing and ranking as the local manifest, with file size in
+    place of duration. Only phrases the local manifest lacks are listed.
+    """
+    if not os.path.exists(DRIVE_INDEX):
+        print(f"(no {DRIVE_INDEX} - run tools/drive_sync.py index to enable Drive fetch)")
+        return
+    best = {}
+    with open(DRIVE_INDEX, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            size = int(r["size"] or 0)
+            if r["rel"] in local_rels or not 0 < size <= DRIVE_MAX_BYTES:
+                continue
+            cands, _ = parse_name(r["rel"])
+            for c in cands:
+                if c["explanation"] or c["phrase"] in local_phrases:
+                    continue
+                key = (c["from_synonym"], bool(c["qualifiers"]), c["variant"], size)
+                if c["phrase"] not in best or key < best[c["phrase"]][0]:
+                    best[c["phrase"]] = (key, r)
+    out = [{"phrase": ph, "ngram_len": len(ph.split()), "drive_id": r["id"],
+            "rel": r["rel"], "size_bytes": r["size"]}
+           for ph, (_, r) in sorted(best.items())]
+    with open(DRIVE_MANIFEST, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["phrase", "ngram_len", "drive_id", "rel", "size_bytes"])
+        w.writeheader()
+        w.writerows(out)
+    print(f"wrote {DRIVE_MANIFEST}: {len(out)} more phrases fetchable from Drive on demand")
 
 
 if __name__ == "__main__":

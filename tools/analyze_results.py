@@ -83,7 +83,9 @@ def main():
         print(f"no results yet at {args.csv} - record some runs first.")
         return
 
-    complete = [r for r in runs.values() if "transcript" in r and r["ts"] >= since]
+    # typed corrections (/translate_text) have no audio: not ASR results
+    complete = [r for r in runs.values() if "transcript" in r and r["ts"] >= since
+                and not r["note"].startswith("typed")]
     if not complete:
         print("no completed runs in range.")
         return

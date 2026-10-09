@@ -1,181 +1,261 @@
-row_type,run_id,utterance_id,timestamp,transcript,n_total,n_sign,n_spell,n_uncovered,coverage,asr_ms,match_ms,server_ms,e2e_ms,note,n_omitted,content_coverage,n_similar
-translate,9a3ad434bf03,tts_s01,1791281088.790899,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,3495,0,3507,,upload.wav,,,
-translate,e88ed48b6587,tts_s02,1791281095.9272969,Good morning. How are you?,5,4,0,1,0.8,5660,0,5666,,upload.wav,,,
-translate,2fa504c870ae,tts_s03,1791281100.318043,I am fine. Thank you.,5,2,0,3,0.4,3048,0,3052,,upload.wav,,,
-translate,7f40cb38305d,tts_s04,1791281104.2869875,What is your name?,4,4,0,0,1.0,2818,0,2821,,upload.wav,,,
-translate,2aa307f16010,tts_s05,1791281108.1398835,My name is Abishak.,4,3,1,0,0.75,2961,0,2965,,upload.wav,,,
-translate,d75c607993f2,tts_s06,1791281112.082965,Where is the hospital?,4,2,0,2,0.5,2831,0,2867,,upload.wav,,,
-translate,5a99fb52959a,tts_s07,1791281116.3469796,I don't understand. Please help me.,6,5,0,1,0.8333,3218,0,3222,,upload.wav,,,
-translate,3c593c736385,tts_s08,1791281120.3185353,I want to drink water.,5,2,0,3,0.4,2793,0,2796,,upload.wav,,,
-translate,8774d1ab81ac,tts_s09,1791281124.4142396,My mother is a teacher.,5,3,0,2,0.6,2956,0,2959,,upload.wav,,,
-translate,59f370d6c24b,tts_s10,1791281128.912183,I go to school every day.,6,2,0,4,0.3333,3291,0,3295,,upload.wav,,,
-translate,42d948ed8167,tts_s11,1791281134.607235,Today I am very happy.,5,3,0,2,0.6,4586,0,4590,,upload.wav,,,
-translate,4de6c20ff736,tts_s12,1791281138.721582,"Sorry, I am late.",4,2,0,2,0.5,2915,0,2921,,upload.wav,,,
-translate,1e43001f806f,tts_s13,1791281142.619358,Please wait here.,3,2,0,1,0.6667,2861,0,2865,,upload.wav,,,
-translate,ca5de93577f4,tts_s14,1791281147.1683846,I don't know the answer.,5,3,0,2,0.6,3365,0,3369,,upload.wav,,,
-translate,8196f54fd05d,tts_s15,1791281154.4019873,We eat food at night.,5,4,0,1,0.8,5925,0,5932,,upload.wav,,,
-translate,12c21c3be54e,tts_s16,1791281158.7894373,My friend is from India.,5,3,0,2,0.6,3140,0,3145,,upload.wav,,,
-translate,17fad26c50ac,tts_s17,1791281163.4582295,Can you write your name?,5,5,0,0,1.0,3260,0,3264,,upload.wav,,,
-translate,de27e233dbfa,tts_s18,1791281168.001226,The weather is very hot today.,6,4,0,2,0.6667,3066,0,3071,,upload.wav,,,
-translate,7f097791a118,tts_s19,1791281172.369795,Good night. See you tomorrow.,5,5,0,0,1.0,3002,0,3005,,upload.wav,,,
-translate,b2a0fbae1ea2,tts_s20,1791281176.542357,Thank you very much. Goodbye.,5,4,0,1,0.8,2948,0,2986,,upload.wav,,,
-translate,f04f8e4d6d48,tts_s01,1791281253.8678727,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,3585,0,3590,,upload.wav,,,
-translate,e4fbbbe4858d,tts_s02,1791281257.4164178,Good morning. How are you?,5,3,0,2,0.6,3014,0,3018,,upload.wav,,,
-translate,4cef73c151ff,tts_s03,1791281260.7113652,I am fine. Thank you.,5,2,0,3,0.4,3142,0,3179,,upload.wav,,,
-translate,63533b261fe6,tts_s04,1791281266.456951,What is your name?,4,4,0,0,1.0,5683,0,5687,,upload.wav,,,
-translate,aabadc6d1fd6,tts_s05,1791281269.6927557,My name is Abishak.,4,3,1,0,0.75,3162,0,3166,,upload.wav,,,
-translate,ee4e468f90d1,tts_s06,1791281272.981745,Where is the hospital?,4,2,0,2,0.5,3135,0,3139,,upload.wav,,,
-translate,dfc5c77a039f,tts_s07,1791281276.518318,I don't understand. Please help me.,6,5,0,1,0.8333,3407,0,3412,,upload.wav,,,
-translate,7a272414edca,tts_s08,1791281279.7195294,I want to drink water.,5,2,0,3,0.4,3021,0,3024,,upload.wav,,,
-translate,116fd8df34b4,tts_s09,1791281282.858417,My mother is a teacher.,5,3,0,2,0.6,2917,0,2945,,upload.wav,,,
-translate,07cd73339d27,tts_s10,1791281286.1237094,I go to school every day.,6,2,0,4,0.3333,3095,0,3100,,upload.wav,,,
-translate,3a3674c70e01,tts_s11,1791281289.1325758,Today I am very happy.,5,3,0,2,0.6,2929,0,2934,,upload.wav,,,
-translate,1011d1f54921,tts_s12,1791281292.3919587,"Sorry, I am late.",4,2,0,2,0.5,3123,0,3135,,upload.wav,,,
-translate,04acb541dd15,tts_s13,1791281295.6796665,Please wait here.,3,2,0,1,0.6667,3136,0,3140,,upload.wav,,,
-translate,700a22497729,tts_s14,1791281299.0723958,I don't know the answer.,5,3,0,2,0.6,3217,0,3252,,upload.wav,,,
-translate,2704f7c2dad8,tts_s15,1791281302.2100098,We eat food at night.,5,4,0,1,0.8,3027,0,3064,,upload.wav,,,
-translate,b8522bddf800,tts_s16,1791281305.967316,My friend is from India.,5,3,0,2,0.6,3494,0,3531,,upload.wav,,,
-translate,4d0187044ff9,tts_s17,1791281309.597508,Can you write your name?,5,5,0,0,1.0,3367,0,3372,,upload.wav,,,
-translate,9b4f875e7c5e,tts_s18,1791281314.9114084,The weather is very hot today.,6,4,0,2,0.6667,5072,0,5075,,upload.wav,,,
-translate,3215e0501245,tts_s19,1791281318.4357786,Good night. See you tomorrow.,5,5,0,0,1.0,3310,0,3314,,upload.wav,,,
-translate,a00eb7dde08e,tts_s20,1791281321.7259483,Thank you very much. Goodbye.,5,4,0,1,0.8,3089,0,3093,,upload.wav,,,
-translate,8f9430056b07,tts_s01,1791284626.9413815,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,299,0,301,,upload.wav; base.en@cuda,,,
-translate,c35eeedb42e2,tts_s02,1791284627.4473639,Good morning. How are you?,5,3,0,2,0.6,200,0,203,,upload.wav; base.en@cuda,,,
-translate,146a572446fa,tts_s03,1791284627.768331,I am fine. Thank you.,5,2,0,3,0.4,252,0,254,,upload.wav; base.en@cuda,,,
-translate,7387239b375b,tts_s04,1791284628.0349348,What is your name?,4,4,0,0,1.0,217,0,219,,upload.wav; base.en@cuda,,,
-translate,5ceee7dbf44e,tts_s05,1791284628.3096404,My name is Abishak.,4,3,1,0,0.75,221,0,225,,upload.wav; base.en@cuda,,,
-translate,0f6451961a7d,tts_s06,1791284628.6348517,Where is the hospital?,4,2,0,2,0.5,239,0,241,,upload.wav; base.en@cuda,,,
-translate,6855b14662d1,tts_s07,1791284628.9313776,I don't understand. Please help me.,6,5,0,1,0.8333,219,0,221,,upload.wav; base.en@cuda,,,
-translate,a988da274d0e,tts_s08,1791284629.2849705,I want to drink water.,5,2,0,3,0.4,208,0,209,,upload.wav; base.en@cuda,,,
-translate,9671826bc051,tts_s09,1791284629.672383,My mother is a teacher.,5,3,0,2,0.6,237,0,240,,upload.wav; base.en@cuda,,,
-translate,317c674c5391,tts_s10,1791284630.0274851,I go to school every day.,6,2,0,4,0.3333,235,0,237,,upload.wav; base.en@cuda,,,
-translate,dc268e9123f0,tts_s11,1791284630.2935553,Today I am very happy.,5,3,0,2,0.6,206,0,208,,upload.wav; base.en@cuda,,,
-translate,978fd10b1719,tts_s12,1791284630.5900877,"Sorry, I am late.",4,2,0,2,0.5,202,0,205,,upload.wav; base.en@cuda,,,
-translate,23569b21675d,tts_s13,1791284630.8756707,Please wait here.,3,2,0,1,0.6667,207,0,208,,upload.wav; base.en@cuda,,,
-translate,1dbdd30dd5fd,tts_s14,1791284631.1735632,I don't know the answer.,5,3,0,2,0.6,211,0,213,,upload.wav; base.en@cuda,,,
-translate,682c374b15e3,tts_s15,1791284631.5603473,We eat food at night.,5,4,0,1,0.8,341,0,343,,upload.wav; base.en@cuda,,,
-translate,357da62c90be,tts_s16,1791284631.935086,My friend is from India.,5,3,0,2,0.6,215,0,217,,upload.wav; base.en@cuda,,,
-translate,b778b61afa8d,tts_s17,1791284632.4101224,Can you write your name?,5,5,0,0,1.0,255,0,260,,upload.wav; base.en@cuda,,,
-translate,b138b8c5cec5,tts_s18,1791284632.8290179,The weather is very hot today.,6,4,0,2,0.6667,265,0,269,,upload.wav; base.en@cuda,,,
-translate,1b84aa1142c6,tts_s19,1791284633.2591922,Good night. See you tomorrow.,5,5,0,0,1.0,262,0,266,,upload.wav; base.en@cuda,,,
-translate,e5dd2cce6e95,tts_s20,1791284633.6505642,Thank you very much. Goodbye.,5,4,0,1,0.8,252,0,254,,upload.wav; base.en@cuda,,,
-translate,570ad37c74c1,tts_s01,1791293886.8526707,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,236,0,238,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,63a3608c4a46,tts_s02,1791293887.2459788,Good morning. How are you?,5,3,0,2,0.6,160,0,161,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,e2a1b29a50d8,tts_s03,1791293887.5043726,I am fine. Thank you.,5,2,0,3,0.4,188,0,191,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,07b71ff3db07,tts_s04,1791293887.6782868,What is your name?,4,4,0,0,1.0,149,0,152,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,24531e8c98e7,tts_s05,1791293887.8615615,My name is Abhishek,4,3,1,0,0.75,149,0,150,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,b3314e6f9656,tts_s06,1791293888.0773091,Where is the hospital?,4,2,0,2,0.5,143,0,144,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,6bcd18469942,tts_s07,1791293888.325528,I don't understand. Please help me.,6,5,0,1,0.8333,187,0,188,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,0eb0533d8f7b,tts_s08,1791293888.5857775,I want to drink water,5,2,0,3,0.4,155,0,157,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,5a3433d9b7bd,tts_s09,1791293888.9116879,My mother is a teacher.,5,3,0,2,0.6,205,0,208,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,2c32575513c1,tts_s10,1791293889.1854331,I go to school every day.,6,2,0,4,0.3333,186,0,188,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,03e1ea3de5fd,tts_s11,1791293889.4186,Today I am very happy.,5,3,0,2,0.6,173,0,174,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,8eae063ba30d,tts_s12,1791293889.7092848,"Sorry, I am late.",4,2,0,2,0.5,176,0,178,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,be1cc61d381c,tts_s13,1791293889.955418,Please wait here,3,2,0,1,0.6667,143,0,144,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,3496d08f9999,tts_s14,1791293890.2149236,I don't know the answer,5,3,0,2,0.6,172,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,d4477444f0e8,tts_s15,1791293890.4006126,We eat food at night.,5,4,0,1,0.8,150,0,152,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,eb487ddd83c9,tts_s16,1791293890.7125447,My friend is from India.,5,3,0,2,0.6,168,0,170,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,140e7bb789f2,tts_s17,1791293890.9927819,Can you write your name?,5,5,0,0,1.0,160,0,162,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,5783ead022c0,tts_s18,1791293891.3082323,The weather is very hot today.,6,4,0,2,0.6667,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,5ff38f66d382,tts_s19,1791293891.5672197,Goodnight. See you tomorrow,4,3,0,1,0.75,178,0,180,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,876fdfcbed74,tts_s20,1791293891.7929914,Thank you very much. Goodbye.,5,4,0,1,0.8,153,0,154,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,a0b7dd16a591,tts_s01,1791293910.8456972,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,216,0,218,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,6558300453dc,tts_s02,1791293911.1258247,Good morning. How are you?,5,3,0,2,0.6,170,0,171,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,e1041823d14b,tts_s03,1791293911.3218813,I am fine. Thank you.,5,2,0,3,0.4,151,0,155,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,c6097ecbff46,tts_s04,1791293911.4929705,What is your name?,4,4,0,0,1.0,157,0,158,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,5c8655c83e0c,tts_s05,1791293911.6640859,My name is Abhishek,4,3,1,0,0.75,150,0,151,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,8330a61673a2,tts_s06,1791293911.8509893,Where is the hospital?,4,2,0,2,0.5,152,0,153,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,392287909329,tts_s07,1791293912.0601928,I don't understand. Please help me.,6,5,0,1,0.8333,169,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,3f816510038d,tts_s08,1791293912.2995653,I want to drink water,5,2,0,3,0.4,181,0,187,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,e4113421be48,tts_s09,1791293912.512836,My mother is a teacher.,5,3,0,2,0.6,152,0,153,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,8fc71a96470e,tts_s10,1791293912.7415895,I go to school every day.,6,2,0,4,0.3333,177,0,179,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,5f412233465e,tts_s11,1791293912.9412348,Today I am very happy.,5,3,0,2,0.6,169,0,172,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,14dd1bdd4546,tts_s12,1791293913.1517954,"Sorry, I am late.",4,2,0,2,0.5,175,0,177,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,d2a515602402,tts_s13,1791293913.3131487,Please wait here,3,2,0,1,0.6667,124,0,129,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,b5b9425709ef,tts_s14,1791293913.5346634,I don't know the answer,5,3,0,2,0.6,168,0,169,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,8ad528e525c7,tts_s15,1791293913.7184706,We eat food at night.,5,4,0,1,0.8,145,0,150,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,7e1af0d5ec3a,tts_s16,1791293914.0004554,My friend is from India.,5,3,0,2,0.6,186,0,188,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,2e36df89c355,tts_s17,1791293914.242687,Can you write your name?,5,5,0,0,1.0,156,0,157,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,3247e01a4118,tts_s18,1791293914.4905255,The weather is very hot today.,6,4,0,2,0.6667,162,0,163,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,cbd9aeb7f17f,tts_s19,1791293914.7002356,Goodnight. See you tomorrow,4,4,0,0,1.0,149,0,155,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,47702e3eb59d,tts_s20,1791293914.9215112,Thank you very much. Goodbye.,5,4,0,1,0.8,146,0,147,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,1c73c4fcea7a,tts_s01,1791308316.1878452,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,192,0,193,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,d76bab5136f1,tts_s02,1791308316.5720892,Good morning. How are you?,5,3,0,2,0.6,185,0,186,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,ffc7cc711be6,tts_s03,1791308316.8083477,I am fine. Thank you.,5,3,0,2,0.6,163,0,164,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,0a803c6b5723,tts_s04,1791308316.9949975,What is your name?,4,4,0,0,1.0,148,0,149,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,5d9d85a399d4,tts_s05,1791308317.220291,My name is Abhishek,4,3,1,0,0.75,170,0,172,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,cbf86b3bd57d,tts_s06,1791308317.4490592,Where is the hospital?,4,2,0,2,0.5,148,0,149,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,a2004e2510fc,tts_s07,1791308317.6879106,I don't understand. Please help me.,6,5,0,1,0.8333,155,0,156,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,62a2c44060e5,tts_s08,1791308317.9889326,I want to drink water,5,3,0,2,0.6,173,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,592ae17fc2c9,tts_s09,1791308318.309103,My mother is a teacher.,5,3,0,2,0.6,182,0,184,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,0275d8562609,tts_s10,1791308318.589715,I go to school every day.,6,3,0,3,0.5,175,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,53bf8516c047,tts_s11,1791308318.826509,Today I am very happy.,5,3,0,2,0.6,153,0,154,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,26480fda76f3,tts_s12,1791308319.0600975,"Sorry, I am late.",4,2,0,2,0.5,151,0,153,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,4adfa3a0ee54,tts_s13,1791308319.2894964,Please wait here,3,3,0,0,1.0,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,577bb74de4cf,tts_s14,1791308319.54782,I don't know the answer,5,4,0,1,0.8,158,0,160,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,968d4dcc582a,tts_s15,1791308319.7655926,We eat food at night.,5,4,0,1,0.8,161,0,162,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,6273b8ed96fb,tts_s16,1791308320.0751069,My friend is from India.,5,3,0,2,0.6,144,0,145,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,92a60a2f71be,tts_s17,1791308320.3459678,Can you write your name?,5,5,0,0,1.0,148,0,149,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,72ddf3373b23,tts_s18,1791308320.6797295,The weather is very hot today.,6,4,0,2,0.6667,181,0,183,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,96857ded470e,tts_s19,1791308320.9909713,Goodnight. See you tomorrow,4,4,0,0,1.0,157,0,160,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,8e7ebe17f23b,tts_s20,1791308321.2738743,Thank you very much. Goodbye.,5,4,0,1,0.8,167,0,168,,upload.wav; whisper-base-en-svarah@cuda,,,
-translate,7a70f1d46893,tts_s01,1791353426.7847733,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,195,0,196,,upload.wav; whisper-base-en-svarah@cuda,0,0.8571,0
-translate,2f79228cdca9,tts_s02,1791353427.1439164,Good morning. How are you?,5,3,0,1,0.6,151,0,152,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,dc1cce93071a,tts_s03,1791353427.3602545,I am fine. Thank you.,5,3,0,1,0.6,168,0,169,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,ea414d68e606,tts_s04,1791353427.5903854,What is your name?,4,4,0,0,1.0,155,0,157,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,0a2a63e1793d,tts_s05,1791353427.8038745,My name is Abhishek,4,3,1,0,0.75,163,0,164,,upload.wav; whisper-base-en-svarah@cuda,0,0.75,0
-translate,accc29ef8b4a,tts_s06,1791353428.0942852,Where is the hospital?,4,2,0,0,0.5,163,0,164,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,1f802efd6b67,tts_s07,1791353428.3415704,I don't understand. Please help me.,6,5,0,1,0.8333,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,0,0.8333,0
-translate,ec5f9f915e71,tts_s08,1791353428.5855398,I want to drink water,5,3,0,1,0.6,146,0,147,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,4d2bc93157e6,tts_s09,1791353428.8912349,My mother is a teacher.,5,3,0,0,0.6,160,0,162,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,38cbc0b661fe,tts_s10,1791353429.0959454,I go to school every day.,6,3,0,2,0.5,141,0,142,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0
-translate,cd54e8fb3eaf,tts_s11,1791353429.303367,Today I am very happy.,5,3,0,1,0.6,147,0,148,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,e7b29a645bdb,tts_s12,1791353429.582557,"Sorry, I am late.",4,2,0,1,0.5,194,0,196,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0
-translate,815f702c66d6,tts_s13,1791353429.8173707,Please wait here,3,3,0,0,1.0,121,0,123,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,744c40e105c6,tts_s14,1791353430.0100555,I don't know the answer,5,4,0,0,0.8,128,0,129,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0
-translate,a40ae46f9221,tts_s15,1791353430.2410378,We eat food at night.,5,4,0,1,0.8,144,0,145,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0
-translate,5a04a0793596,tts_s16,1791353430.5368996,My friend is from India.,5,4,0,0,0.8,181,0,183,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0
-translate,33343ed61d70,tts_s17,1791353430.7815213,Can you write your name?,5,5,0,0,1.0,135,0,136,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,e6e0d8a6972e,tts_s18,1791353431.026213,The weather is very hot today.,6,4,0,0,0.6667,149,0,150,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,e5a80e7d8a6c,tts_s19,1791353431.2347353,Goodnight. See you tomorrow,4,4,0,0,1.0,145,0,146,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,509adb33f6a1,tts_s20,1791353431.4410448,Thank you very much. Goodbye.,5,4,0,1,0.8,140,0,141,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0
-translate,540cc94b4dc7,tts_s01,1791353589.4415147,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,203,0,204,,upload.wav; whisper-base-en-svarah@cuda,0,0.8571,0
-translate,2fae4732e17a,tts_s02,1791353589.8001199,Good morning. How are you?,5,3,0,1,0.6,211,0,212,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,e3d01170d31f,tts_s03,1791353590.0654817,I am fine. Thank you.,5,3,0,1,0.6,196,0,198,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,c6d779ca632a,tts_s04,1791353590.2850869,What is your name?,4,4,0,0,1.0,154,0,155,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,a0073abee5a0,tts_s05,1791353590.4853153,My name is Abhishek,4,3,1,0,0.75,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,0,0.75,0
-translate,c5cc04afe95e,tts_s06,1791353590.7230887,Where is the hospital?,4,2,0,0,0.5,156,0,158,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,1c2dc2dadb19,tts_s07,1791353590.9443676,I don't understand. Please help me.,6,5,0,1,0.8333,171,0,172,,upload.wav; whisper-base-en-svarah@cuda,0,0.8333,0
-translate,162399248eaf,tts_s08,1791353591.1709027,I want to drink water,5,3,0,1,0.6,136,0,137,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,b962d10c6b39,tts_s09,1791353591.4291525,My mother is a teacher.,5,3,0,0,0.6,161,0,163,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,ffc04ef974ce,tts_s10,1791353591.708228,I go to school every day.,6,3,0,2,0.5,194,0,195,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0
-translate,f2f6b3b8d100,tts_s11,1791353591.9407623,Today I am very happy.,5,3,0,1,0.6,148,0,150,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,d4a64d5c0b23,tts_s12,1791353592.1836162,"Sorry, I am late.",4,2,0,1,0.5,166,0,168,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0
-translate,8e6eb742836f,tts_s13,1791353592.40719,Please wait here,3,3,0,0,1.0,151,0,154,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,db4042bbb45c,tts_s14,1791353592.6691725,I don't know the answer,5,4,0,0,0.8,166,0,167,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0
-translate,894b4401d4bd,tts_s15,1791353592.923776,We eat food at night.,5,4,0,1,0.8,179,0,180,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0
-translate,c8668fa1a605,tts_s16,1791353593.239722,My friend is from India.,5,4,0,0,0.8,161,0,163,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0
-translate,1220d9d2e034,tts_s17,1791353593.534845,Can you write your name?,5,5,0,0,1.0,152,0,154,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,7eb1fb19c002,tts_s18,1791353593.793853,The weather is very hot today.,6,4,0,0,0.6667,165,0,166,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,28378c32257e,tts_s19,1791353594.0539696,Goodnight. See you tomorrow,4,4,0,0,1.0,164,0,166,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0
-translate,28d0f9affe19,tts_s20,1791353594.2945936,Thank you very much. Goodbye.,5,4,0,1,0.8,154,0,156,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0
-translate,6289260a6bda,tts_s01,1791353602.1887991,My kids are playing in the garden.,7,5,0,0,0.7143,194,0,196,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,14b3b459ade0,tts_s02,1791353603.2536607,The physician told me to rest for a week.,9,1,0,4,0.1111,182,0,183,,upload.wav; whisper-base-en-svarah@cuda,3,0.1667,1
-translate,c900d1cb5788,tts_s03,1791353604.0961769,I bought new books for my children,7,4,0,3,0.5714,167,0,169,,upload.wav; whisper-base-en-svarah@cuda,0,0.5714,0
-translate,313f9257c150,tts_s04,1791353604.9671497,Can you call me later tonight?,6,3,0,3,0.5,136,0,137,,upload.wav; whisper-base-en-svarah@cuda,0,0.5,0
-translate,66152ce8903e,tts_s05,1791353605.937524,She is my elder sister.,5,3,0,1,0.6,129,0,132,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,ed7dd1d570d6,tts_s06,1791353607.0328484,We went to the market yesterday.,6,4,0,0,0.6667,264,0,264,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,9ad612684bb5,tts_s07,1791353607.958205,The film starts at 7.,5,2,0,1,0.4,164,0,166,,upload.wav; whisper-base-en-svarah@cuda,1,0.5,1
-translate,2e7281d81ad7,tts_s08,1791353608.9420376,Please choose a seat near the window.,7,2,0,2,0.2857,211,0,212,,upload.wav; whisper-base-en-svarah@cuda,2,0.4,1
-translate,b3b00733dbdb,tts_s09,1791353609.8723998,My grandmother lives in a small village.,7,5,0,1,0.7143,185,0,194,,upload.wav; whisper-base-en-svarah@cuda,1,0.8333,0
-translate,761dd1038b39,tts_s10,1791353610.7849123,I need a telephone to call my friends.,8,3,0,2,0.375,197,0,198,,upload.wav; whisper-base-en-svarah@cuda,2,0.5,1
-translate,62f963a5f25d,tts_s11,1791353611.9436414,He works in a big company.,6,4,0,1,0.6667,334,0,338,,upload.wav; whisper-base-en-svarah@cuda,1,0.8,0
-translate,fde98ba87683,tts_s12,1791353612.8926175,The store closes at nine.,5,1,0,2,0.2,145,0,146,,upload.wav; whisper-base-en-svarah@cuda,1,0.25,1
-translate,fae7aef14009,tts_s13,1791353613.7369115,I am learning sign language,5,3,0,1,0.6,135,0,137,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0
-translate,1f6c9c816a16,tts_s14,1791353614.822155,Our teacher gave us homework,5,4,0,1,0.8,267,0,269,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0
-translate,6f0b85077bdd,tts_s15,1791353615.8231754,"It is raining outside, taken umbrella",6,3,0,2,0.5,173,0,175,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0
-translate,945abcd1041d,tts_s16,1791353616.8457882,How much does this cost?,5,2,0,3,0.4,243,0,244,,upload.wav; whisper-base-en-svarah@cuda,0,0.4,0
-translate,a898fa6dbe23,tts_s17,1791353617.8000457,I like to eat rice and vegetables.,7,4,0,2,0.5714,223,0,226,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0
-translate,e17ebe34145b,tts_s18,1791353618.8694904,The doctor is coming tomorrow morning.,6,4,0,0,0.6667,317,0,318,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0
-translate,3abaf1d02071,tts_s19,1791353619.9720793,My brother drives a car,5,4,0,0,0.8,272,0,277,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0
-translate,f824b74be4b5,tts_s20,1791353620.9311583,Let us meet after lunch,5,3,0,2,0.6,161,0,162,,upload.wav; whisper-base-en-svarah@cuda,0,0.6,0
+row_type,run_id,utterance_id,timestamp,transcript,n_total,n_sign,n_spell,n_uncovered,coverage,asr_ms,match_ms,server_ms,e2e_ms,note,n_omitted,content_coverage,n_similar,speaker,n_related,drive_ms,question,final_rise_st,isl_rules,denoise
+translate,9a3ad434bf03,tts_s01,1791281088.790899,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,3495,0,3507,,upload.wav,,,,,,,,,,
+translate,e88ed48b6587,tts_s02,1791281095.9272969,Good morning. How are you?,5,4,0,1,0.8,5660,0,5666,,upload.wav,,,,,,,,,,
+translate,2fa504c870ae,tts_s03,1791281100.318043,I am fine. Thank you.,5,2,0,3,0.4,3048,0,3052,,upload.wav,,,,,,,,,,
+translate,7f40cb38305d,tts_s04,1791281104.2869875,What is your name?,4,4,0,0,1.0,2818,0,2821,,upload.wav,,,,,,,,,,
+translate,2aa307f16010,tts_s05,1791281108.1398835,My name is Abishak.,4,3,1,0,0.75,2961,0,2965,,upload.wav,,,,,,,,,,
+translate,d75c607993f2,tts_s06,1791281112.082965,Where is the hospital?,4,2,0,2,0.5,2831,0,2867,,upload.wav,,,,,,,,,,
+translate,5a99fb52959a,tts_s07,1791281116.3469796,I don't understand. Please help me.,6,5,0,1,0.8333,3218,0,3222,,upload.wav,,,,,,,,,,
+translate,3c593c736385,tts_s08,1791281120.3185353,I want to drink water.,5,2,0,3,0.4,2793,0,2796,,upload.wav,,,,,,,,,,
+translate,8774d1ab81ac,tts_s09,1791281124.4142396,My mother is a teacher.,5,3,0,2,0.6,2956,0,2959,,upload.wav,,,,,,,,,,
+translate,59f370d6c24b,tts_s10,1791281128.912183,I go to school every day.,6,2,0,4,0.3333,3291,0,3295,,upload.wav,,,,,,,,,,
+translate,42d948ed8167,tts_s11,1791281134.607235,Today I am very happy.,5,3,0,2,0.6,4586,0,4590,,upload.wav,,,,,,,,,,
+translate,4de6c20ff736,tts_s12,1791281138.721582,"Sorry, I am late.",4,2,0,2,0.5,2915,0,2921,,upload.wav,,,,,,,,,,
+translate,1e43001f806f,tts_s13,1791281142.619358,Please wait here.,3,2,0,1,0.6667,2861,0,2865,,upload.wav,,,,,,,,,,
+translate,ca5de93577f4,tts_s14,1791281147.1683846,I don't know the answer.,5,3,0,2,0.6,3365,0,3369,,upload.wav,,,,,,,,,,
+translate,8196f54fd05d,tts_s15,1791281154.4019873,We eat food at night.,5,4,0,1,0.8,5925,0,5932,,upload.wav,,,,,,,,,,
+translate,12c21c3be54e,tts_s16,1791281158.7894373,My friend is from India.,5,3,0,2,0.6,3140,0,3145,,upload.wav,,,,,,,,,,
+translate,17fad26c50ac,tts_s17,1791281163.4582295,Can you write your name?,5,5,0,0,1.0,3260,0,3264,,upload.wav,,,,,,,,,,
+translate,de27e233dbfa,tts_s18,1791281168.001226,The weather is very hot today.,6,4,0,2,0.6667,3066,0,3071,,upload.wav,,,,,,,,,,
+translate,7f097791a118,tts_s19,1791281172.369795,Good night. See you tomorrow.,5,5,0,0,1.0,3002,0,3005,,upload.wav,,,,,,,,,,
+translate,b2a0fbae1ea2,tts_s20,1791281176.542357,Thank you very much. Goodbye.,5,4,0,1,0.8,2948,0,2986,,upload.wav,,,,,,,,,,
+translate,f04f8e4d6d48,tts_s01,1791281253.8678727,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,3585,0,3590,,upload.wav,,,,,,,,,,
+translate,e4fbbbe4858d,tts_s02,1791281257.4164178,Good morning. How are you?,5,3,0,2,0.6,3014,0,3018,,upload.wav,,,,,,,,,,
+translate,4cef73c151ff,tts_s03,1791281260.7113652,I am fine. Thank you.,5,2,0,3,0.4,3142,0,3179,,upload.wav,,,,,,,,,,
+translate,63533b261fe6,tts_s04,1791281266.456951,What is your name?,4,4,0,0,1.0,5683,0,5687,,upload.wav,,,,,,,,,,
+translate,aabadc6d1fd6,tts_s05,1791281269.6927557,My name is Abishak.,4,3,1,0,0.75,3162,0,3166,,upload.wav,,,,,,,,,,
+translate,ee4e468f90d1,tts_s06,1791281272.981745,Where is the hospital?,4,2,0,2,0.5,3135,0,3139,,upload.wav,,,,,,,,,,
+translate,dfc5c77a039f,tts_s07,1791281276.518318,I don't understand. Please help me.,6,5,0,1,0.8333,3407,0,3412,,upload.wav,,,,,,,,,,
+translate,7a272414edca,tts_s08,1791281279.7195294,I want to drink water.,5,2,0,3,0.4,3021,0,3024,,upload.wav,,,,,,,,,,
+translate,116fd8df34b4,tts_s09,1791281282.858417,My mother is a teacher.,5,3,0,2,0.6,2917,0,2945,,upload.wav,,,,,,,,,,
+translate,07cd73339d27,tts_s10,1791281286.1237094,I go to school every day.,6,2,0,4,0.3333,3095,0,3100,,upload.wav,,,,,,,,,,
+translate,3a3674c70e01,tts_s11,1791281289.1325758,Today I am very happy.,5,3,0,2,0.6,2929,0,2934,,upload.wav,,,,,,,,,,
+translate,1011d1f54921,tts_s12,1791281292.3919587,"Sorry, I am late.",4,2,0,2,0.5,3123,0,3135,,upload.wav,,,,,,,,,,
+translate,04acb541dd15,tts_s13,1791281295.6796665,Please wait here.,3,2,0,1,0.6667,3136,0,3140,,upload.wav,,,,,,,,,,
+translate,700a22497729,tts_s14,1791281299.0723958,I don't know the answer.,5,3,0,2,0.6,3217,0,3252,,upload.wav,,,,,,,,,,
+translate,2704f7c2dad8,tts_s15,1791281302.2100098,We eat food at night.,5,4,0,1,0.8,3027,0,3064,,upload.wav,,,,,,,,,,
+translate,b8522bddf800,tts_s16,1791281305.967316,My friend is from India.,5,3,0,2,0.6,3494,0,3531,,upload.wav,,,,,,,,,,
+translate,4d0187044ff9,tts_s17,1791281309.597508,Can you write your name?,5,5,0,0,1.0,3367,0,3372,,upload.wav,,,,,,,,,,
+translate,9b4f875e7c5e,tts_s18,1791281314.9114084,The weather is very hot today.,6,4,0,2,0.6667,5072,0,5075,,upload.wav,,,,,,,,,,
+translate,3215e0501245,tts_s19,1791281318.4357786,Good night. See you tomorrow.,5,5,0,0,1.0,3310,0,3314,,upload.wav,,,,,,,,,,
+translate,a00eb7dde08e,tts_s20,1791281321.7259483,Thank you very much. Goodbye.,5,4,0,1,0.8,3089,0,3093,,upload.wav,,,,,,,,,,
+translate,8f9430056b07,tts_s01,1791284626.9413815,"Hello, thank you. My name is Mothishwaran.",7,6,1,0,0.8571,299,0,301,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,c35eeedb42e2,tts_s02,1791284627.4473639,Good morning. How are you?,5,3,0,2,0.6,200,0,203,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,146a572446fa,tts_s03,1791284627.768331,I am fine. Thank you.,5,2,0,3,0.4,252,0,254,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,7387239b375b,tts_s04,1791284628.0349348,What is your name?,4,4,0,0,1.0,217,0,219,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,5ceee7dbf44e,tts_s05,1791284628.3096404,My name is Abishak.,4,3,1,0,0.75,221,0,225,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,0f6451961a7d,tts_s06,1791284628.6348517,Where is the hospital?,4,2,0,2,0.5,239,0,241,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,6855b14662d1,tts_s07,1791284628.9313776,I don't understand. Please help me.,6,5,0,1,0.8333,219,0,221,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,a988da274d0e,tts_s08,1791284629.2849705,I want to drink water.,5,2,0,3,0.4,208,0,209,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,9671826bc051,tts_s09,1791284629.672383,My mother is a teacher.,5,3,0,2,0.6,237,0,240,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,317c674c5391,tts_s10,1791284630.0274851,I go to school every day.,6,2,0,4,0.3333,235,0,237,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,dc268e9123f0,tts_s11,1791284630.2935553,Today I am very happy.,5,3,0,2,0.6,206,0,208,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,978fd10b1719,tts_s12,1791284630.5900877,"Sorry, I am late.",4,2,0,2,0.5,202,0,205,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,23569b21675d,tts_s13,1791284630.8756707,Please wait here.,3,2,0,1,0.6667,207,0,208,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,1dbdd30dd5fd,tts_s14,1791284631.1735632,I don't know the answer.,5,3,0,2,0.6,211,0,213,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,682c374b15e3,tts_s15,1791284631.5603473,We eat food at night.,5,4,0,1,0.8,341,0,343,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,357da62c90be,tts_s16,1791284631.935086,My friend is from India.,5,3,0,2,0.6,215,0,217,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,b778b61afa8d,tts_s17,1791284632.4101224,Can you write your name?,5,5,0,0,1.0,255,0,260,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,b138b8c5cec5,tts_s18,1791284632.8290179,The weather is very hot today.,6,4,0,2,0.6667,265,0,269,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,1b84aa1142c6,tts_s19,1791284633.2591922,Good night. See you tomorrow.,5,5,0,0,1.0,262,0,266,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,e5dd2cce6e95,tts_s20,1791284633.6505642,Thank you very much. Goodbye.,5,4,0,1,0.8,252,0,254,,upload.wav; base.en@cuda,,,,,,,,,,
+translate,570ad37c74c1,tts_s01,1791293886.8526707,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,236,0,238,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,63a3608c4a46,tts_s02,1791293887.2459788,Good morning. How are you?,5,3,0,2,0.6,160,0,161,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,e2a1b29a50d8,tts_s03,1791293887.5043726,I am fine. Thank you.,5,2,0,3,0.4,188,0,191,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,07b71ff3db07,tts_s04,1791293887.6782868,What is your name?,4,4,0,0,1.0,149,0,152,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,24531e8c98e7,tts_s05,1791293887.8615615,My name is Abhishek,4,3,1,0,0.75,149,0,150,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,b3314e6f9656,tts_s06,1791293888.0773091,Where is the hospital?,4,2,0,2,0.5,143,0,144,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,6bcd18469942,tts_s07,1791293888.325528,I don't understand. Please help me.,6,5,0,1,0.8333,187,0,188,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,0eb0533d8f7b,tts_s08,1791293888.5857775,I want to drink water,5,2,0,3,0.4,155,0,157,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,5a3433d9b7bd,tts_s09,1791293888.9116879,My mother is a teacher.,5,3,0,2,0.6,205,0,208,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,2c32575513c1,tts_s10,1791293889.1854331,I go to school every day.,6,2,0,4,0.3333,186,0,188,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,03e1ea3de5fd,tts_s11,1791293889.4186,Today I am very happy.,5,3,0,2,0.6,173,0,174,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,8eae063ba30d,tts_s12,1791293889.7092848,"Sorry, I am late.",4,2,0,2,0.5,176,0,178,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,be1cc61d381c,tts_s13,1791293889.955418,Please wait here,3,2,0,1,0.6667,143,0,144,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,3496d08f9999,tts_s14,1791293890.2149236,I don't know the answer,5,3,0,2,0.6,172,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,d4477444f0e8,tts_s15,1791293890.4006126,We eat food at night.,5,4,0,1,0.8,150,0,152,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,eb487ddd83c9,tts_s16,1791293890.7125447,My friend is from India.,5,3,0,2,0.6,168,0,170,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,140e7bb789f2,tts_s17,1791293890.9927819,Can you write your name?,5,5,0,0,1.0,160,0,162,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,5783ead022c0,tts_s18,1791293891.3082323,The weather is very hot today.,6,4,0,2,0.6667,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,5ff38f66d382,tts_s19,1791293891.5672197,Goodnight. See you tomorrow,4,3,0,1,0.75,178,0,180,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,876fdfcbed74,tts_s20,1791293891.7929914,Thank you very much. Goodbye.,5,4,0,1,0.8,153,0,154,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,a0b7dd16a591,tts_s01,1791293910.8456972,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,216,0,218,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,6558300453dc,tts_s02,1791293911.1258247,Good morning. How are you?,5,3,0,2,0.6,170,0,171,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,e1041823d14b,tts_s03,1791293911.3218813,I am fine. Thank you.,5,2,0,3,0.4,151,0,155,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,c6097ecbff46,tts_s04,1791293911.4929705,What is your name?,4,4,0,0,1.0,157,0,158,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,5c8655c83e0c,tts_s05,1791293911.6640859,My name is Abhishek,4,3,1,0,0.75,150,0,151,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,8330a61673a2,tts_s06,1791293911.8509893,Where is the hospital?,4,2,0,2,0.5,152,0,153,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,392287909329,tts_s07,1791293912.0601928,I don't understand. Please help me.,6,5,0,1,0.8333,169,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,3f816510038d,tts_s08,1791293912.2995653,I want to drink water,5,2,0,3,0.4,181,0,187,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,e4113421be48,tts_s09,1791293912.512836,My mother is a teacher.,5,3,0,2,0.6,152,0,153,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,8fc71a96470e,tts_s10,1791293912.7415895,I go to school every day.,6,2,0,4,0.3333,177,0,179,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,5f412233465e,tts_s11,1791293912.9412348,Today I am very happy.,5,3,0,2,0.6,169,0,172,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,14dd1bdd4546,tts_s12,1791293913.1517954,"Sorry, I am late.",4,2,0,2,0.5,175,0,177,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,d2a515602402,tts_s13,1791293913.3131487,Please wait here,3,2,0,1,0.6667,124,0,129,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,b5b9425709ef,tts_s14,1791293913.5346634,I don't know the answer,5,3,0,2,0.6,168,0,169,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,8ad528e525c7,tts_s15,1791293913.7184706,We eat food at night.,5,4,0,1,0.8,145,0,150,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,7e1af0d5ec3a,tts_s16,1791293914.0004554,My friend is from India.,5,3,0,2,0.6,186,0,188,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,2e36df89c355,tts_s17,1791293914.242687,Can you write your name?,5,5,0,0,1.0,156,0,157,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,3247e01a4118,tts_s18,1791293914.4905255,The weather is very hot today.,6,4,0,2,0.6667,162,0,163,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,cbd9aeb7f17f,tts_s19,1791293914.7002356,Goodnight. See you tomorrow,4,4,0,0,1.0,149,0,155,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,47702e3eb59d,tts_s20,1791293914.9215112,Thank you very much. Goodbye.,5,4,0,1,0.8,146,0,147,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,1c73c4fcea7a,tts_s01,1791308316.1878452,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,192,0,193,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,d76bab5136f1,tts_s02,1791308316.5720892,Good morning. How are you?,5,3,0,2,0.6,185,0,186,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,ffc7cc711be6,tts_s03,1791308316.8083477,I am fine. Thank you.,5,3,0,2,0.6,163,0,164,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,0a803c6b5723,tts_s04,1791308316.9949975,What is your name?,4,4,0,0,1.0,148,0,149,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,5d9d85a399d4,tts_s05,1791308317.220291,My name is Abhishek,4,3,1,0,0.75,170,0,172,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,cbf86b3bd57d,tts_s06,1791308317.4490592,Where is the hospital?,4,2,0,2,0.5,148,0,149,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,a2004e2510fc,tts_s07,1791308317.6879106,I don't understand. Please help me.,6,5,0,1,0.8333,155,0,156,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,62a2c44060e5,tts_s08,1791308317.9889326,I want to drink water,5,3,0,2,0.6,173,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,592ae17fc2c9,tts_s09,1791308318.309103,My mother is a teacher.,5,3,0,2,0.6,182,0,184,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,0275d8562609,tts_s10,1791308318.589715,I go to school every day.,6,3,0,3,0.5,175,0,175,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,53bf8516c047,tts_s11,1791308318.826509,Today I am very happy.,5,3,0,2,0.6,153,0,154,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,26480fda76f3,tts_s12,1791308319.0600975,"Sorry, I am late.",4,2,0,2,0.5,151,0,153,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,4adfa3a0ee54,tts_s13,1791308319.2894964,Please wait here,3,3,0,0,1.0,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,577bb74de4cf,tts_s14,1791308319.54782,I don't know the answer,5,4,0,1,0.8,158,0,160,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,968d4dcc582a,tts_s15,1791308319.7655926,We eat food at night.,5,4,0,1,0.8,161,0,162,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,6273b8ed96fb,tts_s16,1791308320.0751069,My friend is from India.,5,3,0,2,0.6,144,0,145,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,92a60a2f71be,tts_s17,1791308320.3459678,Can you write your name?,5,5,0,0,1.0,148,0,149,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,72ddf3373b23,tts_s18,1791308320.6797295,The weather is very hot today.,6,4,0,2,0.6667,181,0,183,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,96857ded470e,tts_s19,1791308320.9909713,Goodnight. See you tomorrow,4,4,0,0,1.0,157,0,160,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,8e7ebe17f23b,tts_s20,1791308321.2738743,Thank you very much. Goodbye.,5,4,0,1,0.8,167,0,168,,upload.wav; whisper-base-en-svarah@cuda,,,,,,,,,,
+translate,7a70f1d46893,tts_s01,1791353426.7847733,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,195,0,196,,upload.wav; whisper-base-en-svarah@cuda,0,0.8571,0,,,,,,,
+translate,2f79228cdca9,tts_s02,1791353427.1439164,Good morning. How are you?,5,3,0,1,0.6,151,0,152,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,dc1cce93071a,tts_s03,1791353427.3602545,I am fine. Thank you.,5,3,0,1,0.6,168,0,169,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,ea414d68e606,tts_s04,1791353427.5903854,What is your name?,4,4,0,0,1.0,155,0,157,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,0a2a63e1793d,tts_s05,1791353427.8038745,My name is Abhishek,4,3,1,0,0.75,163,0,164,,upload.wav; whisper-base-en-svarah@cuda,0,0.75,0,,,,,,,
+translate,accc29ef8b4a,tts_s06,1791353428.0942852,Where is the hospital?,4,2,0,0,0.5,163,0,164,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,1f802efd6b67,tts_s07,1791353428.3415704,I don't understand. Please help me.,6,5,0,1,0.8333,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,0,0.8333,0,,,,,,,
+translate,ec5f9f915e71,tts_s08,1791353428.5855398,I want to drink water,5,3,0,1,0.6,146,0,147,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,4d2bc93157e6,tts_s09,1791353428.8912349,My mother is a teacher.,5,3,0,0,0.6,160,0,162,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,38cbc0b661fe,tts_s10,1791353429.0959454,I go to school every day.,6,3,0,2,0.5,141,0,142,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,,,,,,
+translate,cd54e8fb3eaf,tts_s11,1791353429.303367,Today I am very happy.,5,3,0,1,0.6,147,0,148,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,e7b29a645bdb,tts_s12,1791353429.582557,"Sorry, I am late.",4,2,0,1,0.5,194,0,196,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,,,,,,
+translate,815f702c66d6,tts_s13,1791353429.8173707,Please wait here,3,3,0,0,1.0,121,0,123,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,744c40e105c6,tts_s14,1791353430.0100555,I don't know the answer,5,4,0,0,0.8,128,0,129,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,,,,,,
+translate,a40ae46f9221,tts_s15,1791353430.2410378,We eat food at night.,5,4,0,1,0.8,144,0,145,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,,,,,,
+translate,5a04a0793596,tts_s16,1791353430.5368996,My friend is from India.,5,4,0,0,0.8,181,0,183,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,,,,,,
+translate,33343ed61d70,tts_s17,1791353430.7815213,Can you write your name?,5,5,0,0,1.0,135,0,136,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,e6e0d8a6972e,tts_s18,1791353431.026213,The weather is very hot today.,6,4,0,0,0.6667,149,0,150,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,e5a80e7d8a6c,tts_s19,1791353431.2347353,Goodnight. See you tomorrow,4,4,0,0,1.0,145,0,146,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,509adb33f6a1,tts_s20,1791353431.4410448,Thank you very much. Goodbye.,5,4,0,1,0.8,140,0,141,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,,,,,,
+translate,540cc94b4dc7,tts_s01,1791353589.4415147,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,203,0,204,,upload.wav; whisper-base-en-svarah@cuda,0,0.8571,0,,,,,,,
+translate,2fae4732e17a,tts_s02,1791353589.8001199,Good morning. How are you?,5,3,0,1,0.6,211,0,212,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,e3d01170d31f,tts_s03,1791353590.0654817,I am fine. Thank you.,5,3,0,1,0.6,196,0,198,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,c6d779ca632a,tts_s04,1791353590.2850869,What is your name?,4,4,0,0,1.0,154,0,155,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,a0073abee5a0,tts_s05,1791353590.4853153,My name is Abhishek,4,3,1,0,0.75,157,0,159,,upload.wav; whisper-base-en-svarah@cuda,0,0.75,0,,,,,,,
+translate,c5cc04afe95e,tts_s06,1791353590.7230887,Where is the hospital?,4,2,0,0,0.5,156,0,158,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,1c2dc2dadb19,tts_s07,1791353590.9443676,I don't understand. Please help me.,6,5,0,1,0.8333,171,0,172,,upload.wav; whisper-base-en-svarah@cuda,0,0.8333,0,,,,,,,
+translate,162399248eaf,tts_s08,1791353591.1709027,I want to drink water,5,3,0,1,0.6,136,0,137,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,b962d10c6b39,tts_s09,1791353591.4291525,My mother is a teacher.,5,3,0,0,0.6,161,0,163,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,ffc04ef974ce,tts_s10,1791353591.708228,I go to school every day.,6,3,0,2,0.5,194,0,195,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,,,,,,
+translate,f2f6b3b8d100,tts_s11,1791353591.9407623,Today I am very happy.,5,3,0,1,0.6,148,0,150,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,d4a64d5c0b23,tts_s12,1791353592.1836162,"Sorry, I am late.",4,2,0,1,0.5,166,0,168,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,,,,,,
+translate,8e6eb742836f,tts_s13,1791353592.40719,Please wait here,3,3,0,0,1.0,151,0,154,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,db4042bbb45c,tts_s14,1791353592.6691725,I don't know the answer,5,4,0,0,0.8,166,0,167,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,,,,,,
+translate,894b4401d4bd,tts_s15,1791353592.923776,We eat food at night.,5,4,0,1,0.8,179,0,180,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,,,,,,
+translate,c8668fa1a605,tts_s16,1791353593.239722,My friend is from India.,5,4,0,0,0.8,161,0,163,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,,,,,,
+translate,1220d9d2e034,tts_s17,1791353593.534845,Can you write your name?,5,5,0,0,1.0,152,0,154,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,7eb1fb19c002,tts_s18,1791353593.793853,The weather is very hot today.,6,4,0,0,0.6667,165,0,166,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,28378c32257e,tts_s19,1791353594.0539696,Goodnight. See you tomorrow,4,4,0,0,1.0,164,0,166,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,,,,,,
+translate,28d0f9affe19,tts_s20,1791353594.2945936,Thank you very much. Goodbye.,5,4,0,1,0.8,154,0,156,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,,,,,,
+translate,6289260a6bda,tts_s01,1791353602.1887991,My kids are playing in the garden.,7,5,0,0,0.7143,194,0,196,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,14b3b459ade0,tts_s02,1791353603.2536607,The physician told me to rest for a week.,9,1,0,4,0.1111,182,0,183,,upload.wav; whisper-base-en-svarah@cuda,3,0.1667,1,,,,,,,
+translate,c900d1cb5788,tts_s03,1791353604.0961769,I bought new books for my children,7,4,0,3,0.5714,167,0,169,,upload.wav; whisper-base-en-svarah@cuda,0,0.5714,0,,,,,,,
+translate,313f9257c150,tts_s04,1791353604.9671497,Can you call me later tonight?,6,3,0,3,0.5,136,0,137,,upload.wav; whisper-base-en-svarah@cuda,0,0.5,0,,,,,,,
+translate,66152ce8903e,tts_s05,1791353605.937524,She is my elder sister.,5,3,0,1,0.6,129,0,132,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,ed7dd1d570d6,tts_s06,1791353607.0328484,We went to the market yesterday.,6,4,0,0,0.6667,264,0,264,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,9ad612684bb5,tts_s07,1791353607.958205,The film starts at 7.,5,2,0,1,0.4,164,0,166,,upload.wav; whisper-base-en-svarah@cuda,1,0.5,1,,,,,,,
+translate,2e7281d81ad7,tts_s08,1791353608.9420376,Please choose a seat near the window.,7,2,0,2,0.2857,211,0,212,,upload.wav; whisper-base-en-svarah@cuda,2,0.4,1,,,,,,,
+translate,b3b00733dbdb,tts_s09,1791353609.8723998,My grandmother lives in a small village.,7,5,0,1,0.7143,185,0,194,,upload.wav; whisper-base-en-svarah@cuda,1,0.8333,0,,,,,,,
+translate,761dd1038b39,tts_s10,1791353610.7849123,I need a telephone to call my friends.,8,3,0,2,0.375,197,0,198,,upload.wav; whisper-base-en-svarah@cuda,2,0.5,1,,,,,,,
+translate,62f963a5f25d,tts_s11,1791353611.9436414,He works in a big company.,6,4,0,1,0.6667,334,0,338,,upload.wav; whisper-base-en-svarah@cuda,1,0.8,0,,,,,,,
+translate,fde98ba87683,tts_s12,1791353612.8926175,The store closes at nine.,5,1,0,2,0.2,145,0,146,,upload.wav; whisper-base-en-svarah@cuda,1,0.25,1,,,,,,,
+translate,fae7aef14009,tts_s13,1791353613.7369115,I am learning sign language,5,3,0,1,0.6,135,0,137,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,,,,,,
+translate,1f6c9c816a16,tts_s14,1791353614.822155,Our teacher gave us homework,5,4,0,1,0.8,267,0,269,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,,,,,,
+translate,6f0b85077bdd,tts_s15,1791353615.8231754,"It is raining outside, taken umbrella",6,3,0,2,0.5,173,0,175,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,,,,,,
+translate,945abcd1041d,tts_s16,1791353616.8457882,How much does this cost?,5,2,0,3,0.4,243,0,244,,upload.wav; whisper-base-en-svarah@cuda,0,0.4,0,,,,,,,
+translate,a898fa6dbe23,tts_s17,1791353617.8000457,I like to eat rice and vegetables.,7,4,0,2,0.5714,223,0,226,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,,,,,,
+translate,e17ebe34145b,tts_s18,1791353618.8694904,The doctor is coming tomorrow morning.,6,4,0,0,0.6667,317,0,318,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,,,,,,
+translate,3abaf1d02071,tts_s19,1791353619.9720793,My brother drives a car,5,4,0,0,0.8,272,0,277,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,,,,,,
+translate,f824b74be4b5,tts_s20,1791353620.9311583,Let us meet after lunch,5,3,0,2,0.6,161,0,162,,upload.wav; whisper-base-en-svarah@cuda,0,0.6,0,,,,,,,
+translate,6f486870a660,tts_s01,1791395180.441881,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,454,0,457,,upload.wav; whisper-base-en-svarah@cuda,0,0.8571,0,,0,0,,,,
+translate,46195d458034,tts_s02,1791395181.3600159,Good morning. How are you?,5,3,0,1,0.6,353,0,356,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,,,
+translate,9efdca395431,tts_s03,1791395181.7933652,I am fine. Thank you.,5,3,0,1,0.6,344,0,347,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,,,
+translate,c2c7837c4a15,tts_s04,1791395182.1903205,What is your name?,4,4,0,0,1.0,311,0,313,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,,,,
+translate,dba59ad19a7b,tts_s05,1791395182.6572714,My name is Abhishek,4,3,1,0,0.75,409,0,411,,upload.wav; whisper-base-en-svarah@cuda,0,0.75,0,,0,0,,,,
+translate,70155626a102,tts_s06,1791395183.220623,Where is the hospital?,4,2,0,0,0.5,369,0,371,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,,,
+translate,c9bc4c4ba683,tts_s07,1791395183.7034795,I don't understand. Please help me.,6,5,0,1,0.8333,383,0,385,,upload.wav; whisper-base-en-svarah@cuda,0,0.8333,0,,0,0,,,,
+translate,453b89665ded,tts_s08,1791395184.243922,I want to drink water,5,3,0,1,0.6,373,0,376,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,,,
+translate,9d824d6fe7d7,tts_s09,1791395184.7717357,My mother is a teacher.,5,3,0,0,0.6,348,0,350,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,,,
+translate,208c85f0d37d,tts_s10,1791395185.3889663,I go to school every day.,6,3,0,2,0.5,478,0,480,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,0,0,,,,
+translate,456f6950907b,tts_s11,1791395185.8633277,Today I am very happy.,5,3,0,1,0.6,357,0,360,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,,,
+translate,1e5cc721f0af,tts_s12,1791395186.3570502,"Sorry, I am late.",4,2,0,1,0.5,365,0,369,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,0,0,,,,
+translate,42cae232eeb1,tts_s13,1791395186.8159204,Please wait here,3,3,0,0,1.0,327,0,330,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,,,,
+translate,cfdd3b37dcc3,tts_s14,1791395187.2629297,I don't know the answer,5,4,0,0,0.8,329,0,331,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,0,0,,,,
+translate,31527be054f1,tts_s15,1791395187.7189462,We eat food at night.,5,4,0,1,0.8,335,0,337,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,0,0,,,,
+translate,a1b28069748b,tts_s16,1791395188.2755947,My friend is from India.,5,4,0,0,0.8,345,0,347,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,0,0,,,,
+translate,ac3936884cda,tts_s17,1791395188.8309212,Can you write your name?,5,5,0,0,1.0,341,0,344,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,,,,
+translate,b0454d2586f4,tts_s18,1791395189.3515124,The weather is very hot today.,6,4,0,0,0.6667,344,0,347,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,,,
+translate,4530ab519122,tts_s19,1791395197.726359,Goodnight. See you tomorrow,4,4,0,0,1.0,354,0,8235,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,7878,,,,
+translate,9ffec2020950,tts_s20,1791395198.1811595,Thank you very much. Goodbye.,5,4,0,1,0.8,370,0,373,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,0,0,,,,
+translate,a961e6484e0b,tts_s01,1791395211.750697,My kids are playing in the garden.,7,5,0,0,0.7143,386,0,388,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,,,
+translate,442cdd161c75,tts_s02,1791395212.439591,The physician told me to rest for a week.,9,2,0,3,0.2222,384,0,387,,upload.wav; whisper-base-en-svarah@cuda,3,0.3333,1,,0,0,,,,
+translate,7aaebce61de5,tts_s03,1791395212.9316018,I bought new books for my children,7,4,0,3,0.5714,359,0,361,,upload.wav; whisper-base-en-svarah@cuda,0,0.5714,0,,0,0,,,,
+translate,43e7893bdf82,tts_s04,1791395217.8391018,Can you call me later tonight?,6,4,0,2,0.6667,350,0,4748,,upload.wav; whisper-base-en-svarah@cuda,0,0.6667,0,,0,4394,,,,
+translate,486f4c2e1407,tts_s05,1791395218.4789162,She is my elder sister.,5,3,0,1,0.6,459,0,461,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,,,
+translate,c106cc000add,tts_s06,1791395218.882351,We went to the market yesterday.,6,4,0,0,0.6667,298,0,300,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,,,
+translate,bdab7499ec91,tts_s07,1791395219.3304477,The film starts at 7.,5,2,0,1,0.4,316,0,318,,upload.wav; whisper-base-en-svarah@cuda,1,0.5,1,,0,0,,,,
+translate,6796da461c3b,tts_s08,1791395219.816976,Please choose a seat near the window.,7,2,0,2,0.2857,355,0,357,,upload.wav; whisper-base-en-svarah@cuda,2,0.4,1,,0,0,,,,
+translate,cc0a08666c70,tts_s09,1791395220.327394,My grandmother lives in a small village.,7,5,0,1,0.7143,385,0,387,,upload.wav; whisper-base-en-svarah@cuda,1,0.8333,0,,0,0,,,,
+translate,4ad4a7585b73,tts_s10,1791395220.924728,I need a telephone to call my friends.,8,3,0,2,0.375,382,0,385,,upload.wav; whisper-base-en-svarah@cuda,2,0.5,1,,0,0,,,,
+translate,60c221166752,tts_s11,1791395221.4427893,He works in a big company.,6,4,0,1,0.6667,351,0,354,,upload.wav; whisper-base-en-svarah@cuda,1,0.8,0,,0,0,,,,
+translate,50294ecbdf24,tts_s12,1791395221.9554186,The store closes at nine.,5,1,0,2,0.2,334,0,336,,upload.wav; whisper-base-en-svarah@cuda,1,0.25,1,,0,0,,,,
+translate,3c5097d412fd,tts_s13,1791395222.4108338,I am learning sign language,5,3,0,1,0.6,361,0,364,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,,,
+translate,9688fd723af0,tts_s14,1791395222.90091,Our teacher gave us homework,5,4,0,1,0.8,317,0,320,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,0,0,,,,
+translate,9f98699ee2af,tts_s15,1791395223.4413748,"It is raining outside, taken umbrella",6,3,0,2,0.5,373,0,375,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,0,0,,,,
+translate,07508a13751b,tts_s16,1791395223.9115417,How much does this cost?,5,2,0,3,0.4,340,0,343,,upload.wav; whisper-base-en-svarah@cuda,0,0.4,0,,0,0,,,,
+translate,f6c9e814eeb2,tts_s17,1791395224.35611,I like to eat rice and vegetables.,7,4,0,2,0.5714,357,0,361,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,0,0,,,,
+translate,efb30809941b,tts_s18,1791395224.928514,The doctor is coming tomorrow morning.,6,4,0,0,0.6667,381,0,384,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,,,
+translate,307f7c749e3c,tts_s19,1791395225.4321907,My brother drives a car,5,4,0,0,0.8,316,0,318,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,0,0,,,,
+translate,5f217240e6f1,tts_s20,1791395225.9500313,Let us meet after lunch,5,3,0,2,0.6,360,0,362,,upload.wav; whisper-base-en-svarah@cuda,0,0.6,0,,0,0,,,,
+translate,f8f91d76e947,tts_s01,1791416470.1342883,"Hello, thank you. My name is Mothishwaran",7,6,1,0,0.8571,428,0,720,,upload.wav; whisper-base-en-svarah@cuda,0,0.8571,0,,0,0,,-6.58,,0
+translate,d1577660eaae,tts_s02,1791416471.4348066,Good morning. How are you?,5,3,0,1,0.6,497,0,669,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,wh,-5.09,,0
+translate,de24edc4ecc1,tts_s03,1791416472.222272,I am fine. Thank you.,5,3,0,1,0.6,500,0,673,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,-6.19,,0
+translate,99f524ca19c4,tts_s04,1791416472.8824365,What is your name?,4,4,0,0,1.0,392,0,548,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,wh,-5.89,,0
+translate,bc87add8336b,tts_s05,1791416473.31567,My name is Abhishek,4,3,1,0,0.75,207,0,366,,upload.wav; whisper-base-en-svarah@cuda,0,0.75,0,,0,0,,-5.45,,0
+translate,e4607dc2fe80,tts_s06,1791416474.0310054,Where is the hospital?,4,2,0,0,0.5,405,0,560,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,wh,-5.9,question word last: where,0
+translate,d0a371659deb,tts_s07,1791416474.8998854,I don't understand. Please help me.,6,5,0,1,0.8333,576,0,741,,upload.wav; whisper-base-en-svarah@cuda,0,0.8333,0,,0,0,,-4.77,,0
+translate,df2fdf5bb0f3,tts_s08,1791416475.670624,I want to drink water,5,3,0,1,0.6,413,0,573,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,-5.87,,0
+translate,aa149b43c0f8,tts_s09,1791416476.3498757,My mother is a teacher.,5,3,0,0,0.6,328,0,490,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,-5.89,,0
+translate,6a3edc147952,tts_s10,1791416477.1584227,I go to school every day.,6,3,0,2,0.5,497,0,649,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,0,0,,-5.3,,0
+translate,c70008b2592e,tts_s11,1791416477.9267023,Today I am very happy.,5,3,0,1,0.6,437,0,602,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,-4.93,,0
+translate,b219f4ba19b0,tts_s12,1791416478.4662368,"Sorry, I am late.",4,2,0,1,0.5,240,0,403,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,0,0,,-0.42,,0
+translate,fa8990a4f0ae,tts_s13,1791416479.0774183,Please wait here,3,3,0,0,1.0,341,0,495,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,,-7.33,,0
+translate,7100a191ff2f,tts_s14,1791416479.4983838,I don't know the answer,5,4,0,0,0.8,139,0,295,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,0,0,,-5.7,,0
+translate,87bb0513d2f0,tts_s15,1791416480.200337,We eat food at night.,5,4,0,1,0.8,411,0,563,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,0,0,,-5.15,time first: night,0
+translate,255d0cdf6b05,tts_s16,1791416480.9961534,My friend is from India.,5,4,0,0,0.8,421,0,591,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,0,0,,-5.8,,0
+translate,d30d9ee3e91e,tts_s17,1791416481.7627795,Can you write your name?,5,5,0,0,1.0,394,0,543,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,yesno,-2.28,,0
+translate,c8990fc84e62,tts_s18,1791416482.6261313,The weather is very hot today.,6,4,0,0,0.6667,487,0,663,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,-4.32,time first: today,0
+translate,457cdccc067f,tts_s19,1791416483.1403246,Goodnight. See you tomorrow,4,4,0,0,1.0,210,0,368,,upload.wav; whisper-base-en-svarah@cuda,0,1.0,0,,0,0,,-6.73,,0
+translate,6a417e790728,tts_s20,1791416483.9143853,Thank you very much. Goodbye.,5,4,0,1,0.8,425,0,612,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,0,0,,-4.52,,0
+translate,ccdcff4d127f,tts_s01,1791416495.8779945,My kids are playing in the garden.,7,5,0,0,0.7143,540,0,761,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,-5.34,,0
+translate,b20336f50f3b,tts_s02,1791416496.8490071,The physician told me to rest for a week.,9,2,0,3,0.2222,465,0,653,,upload.wav; whisper-base-en-svarah@cuda,3,0.3333,1,,0,0,,-2.1,,0
+translate,2ceeaff312e4,tts_s03,1791416497.5973334,I bought new books for my children,7,4,0,3,0.5714,454,0,615,,upload.wav; whisper-base-en-svarah@cuda,0,0.5714,0,,0,0,,-5.81,,0
+translate,e78f44dd3d34,tts_s04,1791416498.4048212,Can you call me later tonight?,6,4,0,2,0.6667,449,0,610,,upload.wav; whisper-base-en-svarah@cuda,0,0.6667,0,,0,0,yesno,-1.82,time first: tonight,0
+translate,ac24e87c71c5,tts_s05,1791416499.0996144,She is my elder sister.,5,3,0,1,0.6,389,0,550,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,-6.28,,0
+translate,38e7f11a280c,tts_s06,1791416499.867572,We went to the market yesterday.,6,4,0,0,0.6667,469,0,632,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,-5.65,time first: yesterday,0
+translate,f8a247367249,tts_s07,1791416500.4248116,The film starts at 7.,5,2,0,1,0.4,255,0,411,,upload.wav; whisper-base-en-svarah@cuda,1,0.5,1,,0,0,,-6.35,,0
+translate,ab78e637c1f1,tts_s08,1791416501.265615,Please choose a seat near the window.,7,2,0,2,0.2857,495,0,656,,upload.wav; whisper-base-en-svarah@cuda,2,0.4,1,,0,0,,-5.38,,0
+translate,43182040c1b8,tts_s09,1791416502.111665,My grandmother lives in a small village.,7,5,0,1,0.7143,525,0,702,,upload.wav; whisper-base-en-svarah@cuda,1,0.8333,0,,0,0,,-5.08,,0
+translate,7b016a08a94d,tts_s10,1791416503.1064732,I need a telephone to call my friends.,8,3,0,2,0.375,591,0,788,,upload.wav; whisper-base-en-svarah@cuda,2,0.5,1,,0,0,,-5.28,,0
+translate,39f8c7ffd34b,tts_s11,1791416504.0991554,He works in a big company.,6,4,0,1,0.6667,471,0,740,,upload.wav; whisper-base-en-svarah@cuda,1,0.8,0,,0,0,,-5.03,,0
+translate,99fc1f779366,tts_s12,1791416504.8753803,The store closes at nine.,5,1,0,2,0.2,401,0,578,,upload.wav; whisper-base-en-svarah@cuda,1,0.25,1,,0,0,,-6.54,,0
+translate,074a7027063b,tts_s13,1791416505.5645108,I am learning sign language,5,3,0,1,0.6,384,0,550,,upload.wav; whisper-base-en-svarah@cuda,1,0.75,0,,0,0,,-5.4,,0
+translate,5ce3c5bfe169,tts_s14,1791416506.314826,Our teacher gave us homework,5,4,0,1,0.8,439,0,602,,upload.wav; whisper-base-en-svarah@cuda,0,0.8,0,,0,0,,-4.23,,0
+translate,178f23af62e2,tts_s15,1791416507.186426,"It is raining outside, taken umbrella",6,3,0,2,0.5,497,0,662,,upload.wav; whisper-base-en-svarah@cuda,1,0.6,0,,0,0,,-4.95,,0
+translate,2fa27d28591b,tts_s16,1791416507.8631465,How much does this cost?,5,2,0,3,0.4,370,0,533,,upload.wav; whisper-base-en-svarah@cuda,0,0.4,0,,0,0,wh,-6.33,,0
+translate,288c4ffc96c4,tts_s17,1791416508.4075675,I like to eat rice and vegetables.,7,4,0,2,0.5714,259,0,431,,upload.wav; whisper-base-en-svarah@cuda,1,0.6667,0,,0,0,,-5.23,,0
+translate,0d764146e151,tts_s18,1791416509.2510078,The doctor is coming tomorrow morning.,6,4,0,0,0.6667,470,0,644,,upload.wav; whisper-base-en-svarah@cuda,2,1.0,0,,0,0,,-4.47,"time first: tomorrow, morning",0
+translate,565c28821a02,tts_s19,1791416509.7132964,My brother drives a car,5,4,0,0,0.8,145,0,300,,upload.wav; whisper-base-en-svarah@cuda,1,1.0,0,,0,0,,-5.13,,0
+translate,95cbc5b322f1,tts_s20,1791416510.451701,Let us meet after lunch,5,3,0,2,0.6,392,0,556,,upload.wav; whisper-base-en-svarah@cuda,0,0.6,0,,0,0,,-6.08,,0

@@ -1,0 +1,9 @@
+noise,snr_in,snr_noisy,snr_denoised
+white,20,20.0,23.68
+white,10,10.0,15.87
+white,5,5.0,11.58
+white,0,0.0,7.07
+babble,20,20.0,20.35
+babble,10,10.0,10.86
+babble,5,5.0,5.91
+babble,0,0.0,0.95

@@ -576,8 +576,9 @@ reject option: showing nothing is better than confidently showing the wrong sign
 at roughly **1.3 s** median latency, covering **57%** of the demo sentence with a six-entry
 vocabulary, using real ISL video recorded by Deaf signers.
 
-**Phase 1:** the same architecture, unchanged in shape, now retrieves from **~3,850** dictionary
-phrases, recognises speech in **~0.2 s** on a laptop GPU with a Whisper model fine-tuned on
+**Phase 1:** the same architecture, unchanged in shape, now retrieves from **~4,000** local
+dictionary phrases plus **~2,700** fetched from Google Drive on demand (anything else is
+fingerspelled), recognises speech in **~0.2 s** on a laptop GPU with a Whisper model fine-tuned on
 Indian-accented English (**~13.2 % → 11.3 % WER** on unseen speakers, two runs), and signs about
 **two-thirds of the words ISL would sign** in held-out everyday sentences — reporting the rest
 honestly as omitted, spelled or uncovered.

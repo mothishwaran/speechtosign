@@ -7,3 +7,4 @@ pillow
 matplotlib
 nbconvert
 ipykernel
+ipywidgets
