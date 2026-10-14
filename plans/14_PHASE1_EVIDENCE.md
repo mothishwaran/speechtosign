@@ -32,9 +32,9 @@ Figures: `eval/figures/` (exported from the executed notebook; re-export by re-r
 | Skipped: "(Explanation)" > 8 s | 35 |
 | Skipped: Hindi / regional compilations | 3 / 9 |
 | Transcoded for the browser (HEVC, MPEG-4 Pt 2, MPEG-2) | 12 |
-| Extra spoken words: inflected forms | 929 |
-| Extra spoken words: synonyms proposed / approved / rejected | 174 / 124 / 50 |
-| Related (more general) signs generated / rejected in review / in use | 782 / 203 / 579 |
+| Extra spoken words: inflected forms | 984 |
+| Extra spoken words: synonyms proposed / approved / rejected | 171 / 121 / 50 |
+| Related (more general) signs generated / rejected in review / in use | 771 / 197 / 574 |
 | Licence handling | videos never committed; manifest + Drive URL committed |
 
 ## D2 · Svarah (ASR fine-tuning data) — AI4Bharat, CC BY 4.0

@@ -139,7 +139,10 @@ def main():
         found = None
         forms = {}                                           # 1) inflected form
         for pos in ("n", "v", "a", "r"):
-            base = wn.morphy(w, pos)
+            # all candidate bases: morphy() alone returns "years" for "years"
+            # because WordNet also lists the plural as a lemma ("in later years")
+            bases = [b for b in wn._morphy(w, pos) if b != w] or [wn.morphy(w, pos)]
+            base = bases[0] if bases else None
             if not base or base == w or not usable(base) or FORM_BLOCKLIST.get(w) == base:
                 continue
             share = pos_share(wn, base, pos)

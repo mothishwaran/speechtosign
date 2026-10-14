@@ -59,6 +59,7 @@ Execution order — hand Sonnet one file at a time:
 | 11 | [11_VIVA_PREP.md](11_VIVA_PREP.md) | Tomorrow PM — question bank + answer skeletons | You, out loud |
 | 12 | [12_RISKS.md](12_RISKS.md) | Risk register, drop order, hard rules | Read at every decision point |
 | 13 | [13_RUNBOOK_blocks_4_5_6.md](13_RUNBOOK_blocks_4_5_6.md) | **Runbook for the manual blocks** — order, exact steps, shot list | **You. ~50 min. Start here now.** |
+| — | [../Project_Walkthrough.ipynb](../Project_Walkthrough.ipynb) | **Presentation walkthrough** — one sentence through every step, live code, explanation points, viva table | You, to present from |
 | 14 | [14_PHASE1_EVIDENCE.md](14_PHASE1_EVIDENCE.md) | **Phase 1 evidence pack** — every number with its source, figures, failure cases, viva questions. No slide text, by design. | You, for the next review's slides |
 
 ---

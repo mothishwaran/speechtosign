@@ -80,3 +80,8 @@ translate,e2804581b320,adhoc,1791456958.573896,I play cricket every day.,5,3,1,1
 frame,e2804581b320,adhoc,1791456958.84511,,,,,,,,,,784,,,,,,,,,,,
 translate,91f61c7ceded,adhoc,1791457002.7703054,Call the ambulance for me,5,2,2,0,0.4,321,1,9147,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,1,0.5,0,,0,8615,,1.14,,0
 frame,91f61c7ceded,adhoc,1791457003.070718,,,,,,,,,,9542,,,,,,,,,,,
+translate,dd0ad96ce199,adhoc,1791633245.6705952,"Hello, how are you, boy?",5,3,1,0,0.6,642,2,1392,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,1,0.75,0,,0,0,yesno,4.0,,0
+frame,dd0ad96ce199,adhoc,1791633245.9266741,,,,,,,,,,1772,,,,,,,,,,,
+translate,8aa27269d12f,adhoc,1791634764.9286447,I am 25 years old,5,3,0,1,0.6,0,0,21,,typed; typed@-; spell_unknown; related_off,1,0.75,0,,0,0,,,,0
+translate,dbde5f05a3ef,adhoc,1791912994.993855,"Hello, good morning. My family is very happy today. My mother is a teacher. My father is a doctor. My brother goes to school. We eat breakfast in the kitchen.",30,23,0,0,0.7667,607,2,1059,,upload.wav; whisper-base-en-svarah@cuda; spell_unknown; related_off,7,1.0,0,,0,0,,-2.37,,0
+frame,dbde5f05a3ef,adhoc,1791912995.792476,,,,,,,,,,1991,,,,,,,,,,,

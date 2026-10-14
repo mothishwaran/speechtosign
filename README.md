@@ -6,6 +6,16 @@ real ISLRTC signer clips, with fingerspelling as a names-only fallback.
 
 Not translation. See `plans/02_SPEC.md` §10 for what this system does not do.
 
+## Notebooks
+
+- **`Project_Walkthrough.ipynb`** — presentation guide: follows one spoken sentence through
+  every step (signal, speech features, noise, recognition, text processing, sign lookup,
+  order, output) running the real code, with explanation points and a viva cheat-sheet.
+  Rebuild: `python tools/build_walkthrough.py`, then execute with nbconvert (needs
+  `requirements-tools.txt`; uses the GPU if present).
+- **`Speech_to_ISL_Project.ipynb`** — full report: literature, theory, Phase 0 and Phase 1
+  results (§ 14B).
+
 ## Setup (once per machine)
 
 ```powershell
