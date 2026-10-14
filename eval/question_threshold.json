@@ -1,0 +1,26 @@
+{
+  "threshold_st": -0.5,
+  "chosen_on": "train speakers: yes/no questions vs statements",
+  "train": {
+    "balanced_acc": 0.621,
+    "yesno_recall": 0.539,
+    "statement_specificity": 0.703
+  },
+  "heldout_dev_test": {
+    "balanced_acc": 0.665,
+    "yesno_recall": 0.447,
+    "statement_specificity": 0.882
+  },
+  "heldout_wh_recall_by_pitch": 0.316,
+  "median_rise_st": {
+    "yesno": -0.3,
+    "wh": -2.6,
+    "statement": -2.17
+  },
+  "n_heldout": {
+    "yesno": 47,
+    "wh": 38,
+    "statement": 68
+  },
+  "no_decision": 22
+}

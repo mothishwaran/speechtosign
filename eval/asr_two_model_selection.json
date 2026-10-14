@@ -1,0 +1,21 @@
+{
+  "what": "Run stock and fine-tuned Whisper on every Svarah test utterance; keep the transcript with the higher word-weighted avg_logprob (stock only if better by > margin).",
+  "utterances": 620,
+  "speakers": 16,
+  "wer": {
+    "fine_tuned_alone": 0.113,
+    "stock_alone": 0.1311,
+    "pick_confident_margin_0.0": 0.1125,
+    "pick_confident_margin_0.1": 0.1134,
+    "pick_confident_margin_0.2": 0.1139,
+    "pick_confident_margin_0.3": 0.1143
+  },
+  "stock_chosen": {
+    "margin_0.0": 46,
+    "margin_0.1": 8,
+    "margin_0.2": 4,
+    "margin_0.3": 2
+  },
+  "decision": "not adopted: at best 0.05 points better for twice the GPU time",
+  "n_check": 620
+}

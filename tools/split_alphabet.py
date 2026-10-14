@@ -13,6 +13,7 @@ Usage: python tools/split_alphabet.py [letters] [clip_seconds]
 """
 import os
 import sys
+from fractions import Fraction
 
 import av
 
@@ -61,13 +62,16 @@ def extract(letter: str, start_s: float, end_s: float) -> float:
     src.seek(int(max(0.0, start_s - 1.0) / in_stream.time_base), stream=in_stream)
 
     written = 0
+    rate = int(round(float(in_stream.average_rate)))
     for frame in src.decode(in_stream):
         ts = float(frame.pts * in_stream.time_base)
         if ts < start_s:
             continue
         if ts > end_s:
             break
-        frame.pts = None          # let the encoder assign timestamps
+        # Explicit, evenly spaced timestamps. pts=None made the encoder stamp
+        # 45 frames into 0.03 s, so browsers flashed each letter instantly.
+        frame.pts, frame.time_base = written, Fraction(1, rate)
         for packet in out_stream.encode(frame):
             dst.mux(packet)
         written += 1

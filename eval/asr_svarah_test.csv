@@ -1,0 +1,3 @@
+model,split,wer,utterances,speakers,seconds
+base.en,test,0.1312,620,16,118
+models/whisper-base-en-svarah,test,0.113,620,16,107
